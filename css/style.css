@@ -348,10 +348,20 @@ strong {
     pointer-events: none;
 }
 
+/* Layout flexbox pour hero */
+.hero > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-10);
+    position: relative;
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    flex: 1;
+    max-width: 650px;
 }
 
 .hero-badge {
@@ -437,15 +447,14 @@ strong {
 
 /* Encart décision Hero */
 .hero-decision {
-    position: absolute;
-    right: var(--space-6);
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     background: var(--color-white);
     border-radius: var(--radius-xl);
     padding: var(--space-8);
     width: 320px;
+    flex-shrink: 0;
     box-shadow: var(--shadow-xl);
+    z-index: 2;
 }
 
 .hero-decision-badge {
@@ -1160,11 +1169,18 @@ strong {
    14. RESPONSIVE
 ============================================ */
 @media (max-width: 1024px) {
+    .hero > .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
     .hero-decision {
-        position: static;
-        transform: none;
         width: 100%;
-        margin-top: var(--space-10);
+        margin-top: var(--space-8);
     }
     
     .recommendation-content {
