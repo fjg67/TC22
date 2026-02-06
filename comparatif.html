@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comparatif détaillé des solutions de gestion de stock IT pour Zebra TC22">
+    <meta name="description" content="Comparatif des solutions de gestion de stock IT compatibles Zebra TC22. Analyse détaillée de 8 applications.">
     <title>Comparatif des solutions | Gestion de stock IT</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ============================================
-         HEADER - Navigation principale
-    ============================================= -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo"><span class="logo-icon">📦</span><span class="logo-text">GestStock IT</span></div>
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">TC</div>
+                    <span>GestStock IT</span>
+                </a>
                 <nav class="nav" id="main-nav">
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link">Accueil</a></li>
@@ -23,478 +24,285 @@
                         <li><a href="recommandation.html" class="nav-link">Recommandation</a></li>
                     </ul>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- ============================================
-             EN-TÊTE DE PAGE
-        ============================================= -->
+        <!-- PAGE HEADER -->
         <section class="page-header">
             <div class="container">
-                <nav class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Comparatif</span></nav>
+                <nav class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <span>/</span>
+                    <span>Comparatif</span>
+                </nav>
                 <h1>Comparatif des solutions</h1>
-                <p class="page-subtitle">Analyse de 8 solutions du marché selon les critères du cahier des charges</p>
+                <p class="subtitle">Analyse de 8 applications de gestion de stock selon les critères du cahier des charges</p>
             </div>
         </section>
 
-        <!-- ============================================
-             LÉGENDE DES CRITÈRES
-        ============================================= -->
+        <!-- TABLEAU COMPARATIF -->
         <section class="section">
             <div class="container">
-                <div class="criteria-legend">
-                    <h2>📋 Critères d'évaluation</h2>
-                    <p class="legend-intro">Chaque solution est évaluée selon les 5 exigences définies dans le cahier des charges :</p>
-                    <div class="legend-items">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Tableau synthétique</h3>
+                        <p>Vue d'ensemble des solutions évaluées. La ligne verte indique la solution recommandée.</p>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Solution</th>
+                                    <th>App mobile</th>
+                                    <th>RGPD</th>
+                                    <th>Historique</th>
+                                    <th>Export CSV</th>
+                                    <th>Facilité</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Timly - Recommandée -->
+                                <tr class="highlight">
+                                    <td>
+                                        <span class="cell-name">Timly</span>
+                                        <span class="cell-badge best">★</span>
+                                    </td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-status recommended">Recommandée</span></td>
+                                </tr>
+                                <!-- Hector -->
+                                <tr>
+                                    <td><span class="cell-name">Hector</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-status suitable">Alternative</span></td>
+                                </tr>
+                                <!-- K-Inventory -->
+                                <tr>
+                                    <td><span class="cell-name">K-Inventory</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-status suitable">Économique</span></td>
+                                </tr>
+                                <!-- Sortly -->
+                                <tr>
+                                    <td><span class="cell-name">Sortly</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon no">✗</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-status limited">RGPD limité</span></td>
+                                </tr>
+                                <!-- Stock and Inventory Simple -->
+                                <tr>
+                                    <td><span class="cell-name">Stock Simple</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-status limited">Basique</span></td>
+                                </tr>
+                                <!-- Assets Management -->
+                                <tr>
+                                    <td><span class="cell-name">Assets Mgmt</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-status limited">Limité</span></td>
+                                </tr>
+                                <!-- Mecalux -->
+                                <tr>
+                                    <td><span class="cell-name">Mecalux</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon yes">✓</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon partial">◐</span></td>
+                                    <td><span class="cell-icon no">✗</span></td>
+                                    <td><span class="cell-status rejected">Non adapté</span></td>
+                                </tr>
+                                <!-- Dolibarr -->
+                                <tr>
+                                    <td><span class="cell-name">Dolibarr</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-icon unknown">?</span></td>
+                                    <td><span class="cell-status rejected">Accès bloqué</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-legend">
                         <div class="legend-item">
-                            <span class="legend-icon">📱</span>
-                            <span class="legend-text"><strong>App mobile</strong> – Application Android native ou responsive</span>
+                            <span class="cell-icon yes">✓</span> Conforme
                         </div>
                         <div class="legend-item">
-                            <span class="legend-icon">🔒</span>
-                            <span class="legend-text"><strong>RGPD</strong> – Hébergement UE et conformité</span>
+                            <span class="cell-icon partial">◐</span> Partiel
                         </div>
                         <div class="legend-item">
-                            <span class="legend-icon">📜</span>
-                            <span class="legend-text"><strong>Traçabilité</strong> – Historique et audit</span>
+                            <span class="cell-icon no">✗</span> Non conforme
                         </div>
                         <div class="legend-item">
-                            <span class="legend-icon">📊</span>
-                            <span class="legend-text"><strong>Export CSV</strong> – Extraction des données</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-icon">⭐</span>
-                            <span class="legend-text"><strong>Facilité</strong> – Prise en main et ergonomie</span>
+                            <span class="cell-icon unknown">?</span> Non évalué
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================
-             TABLEAU COMPARATIF SYNTHÉTIQUE
-             Vue d'ensemble rapide de toutes les solutions
-        ============================================= -->
-        <section class="section section-alt" id="tableau">
+        <!-- FICHES DÉTAILLÉES - TOP 3 -->
+        <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <h2>📊 Tableau comparatif synthétique</h2>
-                    <p class="section-description">Vue d'ensemble des 8 solutions analysées</p>
+                    <span class="section-label">Analyse</span>
+                    <h2>Solutions présélectionnées</h2>
+                    <p>Fiches détaillées des 3 meilleures solutions identifiées.</p>
                 </div>
-                <div class="table-wrapper">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Solution</th>
-                                <th>Type</th>
-                                <th>📱 App</th>
-                                <th>🔒 RGPD</th>
-                                <th>📜 Traçabilité</th>
-                                <th>📊 CSV</th>
-                                <th>⭐ Facilité</th>
-                                <th>Score</th>
-                                <th>Statut</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Timly - Recommandée -->
-                            <tr class="row-recommended">
-                                <td class="cell-name">
-                                    <strong>Timly</strong>
-                                    <span class="cell-badge best">★ Recommandée</span>
-                                </td>
-                                <td>SaaS</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-score"><strong>5/5</strong></td>
-                                <td class="cell-status status-best">Retenue</td>
-                            </tr>
-                            <!-- Hector -->
-                            <tr class="row-suitable">
-                                <td class="cell-name">
-                                    <strong>Hector</strong>
-                                </td>
-                                <td>SaaS</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-score"><strong>4.5/5</strong></td>
-                                <td class="cell-status status-alt">Alternative</td>
-                            </tr>
-                            <!-- K-Inventory -->
-                            <tr class="row-suitable">
-                                <td class="cell-name">
-                                    <strong>K-Inventory</strong>
-                                </td>
-                                <td>App mobile</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-score">3.5/5</td>
-                                <td class="cell-status status-alt">Économique</td>
-                            </tr>
-                            <!-- Sortly -->
-                            <tr class="row-unsuitable">
-                                <td class="cell-name">
-                                    <strong>Sortly</strong>
-                                </td>
-                                <td>SaaS</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-no">❌</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-score">3/5</td>
-                                <td class="cell-status status-warning">RGPD?</td>
-                            </tr>
-                            <!-- Stock and Inventory -->
-                            <tr class="row-unsuitable">
-                                <td class="cell-name">
-                                    <strong>Stock & Inventory</strong>
-                                </td>
-                                <td>App mobile</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-score">2.5/5</td>
-                                <td class="cell-status status-rejected">Non retenue</td>
-                            </tr>
-                            <!-- Assets Management -->
-                            <tr class="row-unsuitable">
-                                <td class="cell-name">
-                                    <strong>Assets Management</strong>
-                                </td>
-                                <td>Web</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-score">2/5</td>
-                                <td class="cell-status status-rejected">Non retenue</td>
-                            </tr>
-                            <!-- Mecalux -->
-                            <tr class="row-unsuitable">
-                                <td class="cell-name">
-                                    <strong>Mecalux Easy WMS</strong>
-                                </td>
-                                <td>WMS</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-yes">✅</td>
-                                <td class="cell-no">❌</td>
-                                <td class="cell-score">2/5</td>
-                                <td class="cell-status status-rejected">Surdimensionné</td>
-                            </tr>
-                            <!-- Dolibarr -->
-                            <tr class="row-blocked">
-                                <td class="cell-name">
-                                    <strong>Dolibarr</strong>
-                                </td>
-                                <td>ERP Open Source</td>
-                                <td class="cell-partial">◐</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-unknown">❓</td>
-                                <td class="cell-score">N/A</td>
-                                <td class="cell-status status-blocked">Accès bloqué</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-legend">
-                    <span class="legend-key"><span class="key-yes">✅</span> Conforme</span>
-                    <span class="legend-key"><span class="key-partial">◐</span> Partiel</span>
-                    <span class="legend-key"><span class="key-no">❌</span> Non conforme</span>
-                    <span class="legend-key"><span class="key-unknown">❓</span> Non vérifié</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================
-             FICHES DÉTAILLÉES PAR SOLUTION
-        ============================================= -->
-        <section class="section" id="details">
-            <div class="container">
-                <div class="section-header">
-                    <h2>📝 Analyse détaillée par solution</h2>
-                    <p class="section-description">Évaluation approfondie de chaque application</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOLUTION 1 : TIMLY (Recommandée) -->
-        <section class="section" id="timly">
-            <div class="container">
-                <div class="app-card recommended">
-                    <div class="app-header">
-                        <div class="app-rank">1</div>
-                        <div class="app-info">
-                            <span class="app-badge best">★ SOLUTION RECOMMANDÉE</span>
-                            <h2>Timly</h2>
-                            <p class="app-type">Solution SaaS de suivi d'actifs et gestion de stock</p>
+                
+                <div class="cards-grid cards-grid-3">
+                    <!-- TIMLY -->
+                    <div class="card card-solution recommended">
+                        <div class="solution-header">
+                            <span class="solution-name">Timly</span>
+                            <div class="solution-score">★★★★★</div>
                         </div>
-                        <div class="app-score">
-                            <div class="score-circle">
-                                <span class="score-value">5/5</span>
+                        
+                        <div class="solution-tags">
+                            <span class="solution-tag success">RGPD ✓</span>
+                            <span class="solution-tag success">Mobile ✓</span>
+                            <span class="solution-tag success">Export ✓</span>
+                        </div>
+                        
+                        <div class="solution-list">
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Application mobile native Android
                             </div>
-                            <span class="score-text">Score global</span>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Hébergement en Allemagne (UE)
+                            </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Traçabilité complète
+                            </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Export CSV natif
+                            </div>
+                            <div class="solution-list-item con">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                                Tarif Entreprise sur demande
+                            </div>
+                        </div>
+                        
+                        <div class="solution-verdict" style="background: var(--color-accent-pale); color: var(--color-accent);">
+                            ✓ Solution recommandée — Répond à 100% des critères
                         </div>
                     </div>
-                    <div class="app-content">
-                        <div class="app-criteria">
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Application mobile</strong>
-                                    <p>App Android native, interface moderne, scan code-barres intégré</p>
-                                </div>
+                    
+                    <!-- HECTOR -->
+                    <div class="card card-solution">
+                        <div class="solution-header">
+                            <span class="solution-name">Hector</span>
+                            <div class="solution-score">★★★★☆</div>
+                        </div>
+                        
+                        <div class="solution-tags">
+                            <span class="solution-tag success">RGPD ✓</span>
+                            <span class="solution-tag success">Mobile ✓</span>
+                            <span class="solution-tag warning">UX ◐</span>
+                        </div>
+                        
+                        <div class="solution-list">
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Solution française RGPD
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Sécurité & RGPD</strong>
-                                    <p>Hébergement en Allemagne (UE), certifié RGPD</p>
-                                </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Historique des mouvements
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Traçabilité</strong>
-                                    <p>Journal complet des mouvements avec horodatage et utilisateur</p>
-                                </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Export CSV disponible
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Export CSV</strong>
-                                    <p>Export CSV et Excel natif, rapports personnalisables</p>
-                                </div>
+                            <div class="solution-list-item con">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                                Interface moins intuitive
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Facilité d'utilisation</strong>
-                                    <p>Interface intuitive, prise en main rapide, support en français</p>
-                                </div>
+                            <div class="solution-list-item con">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                                Complexité accrue
                             </div>
                         </div>
-                        <div class="app-details">
-                            <div class="detail-section">
-                                <h4>✅ Points forts</h4>
-                                <ul class="pros-list">
-                                    <li>Solution professionnelle complète et mature</li>
-                                    <li>Déploiement rapide (2-4 semaines)</li>
-                                    <li>Application mobile très intuitive</li>
-                                    <li>Hébergement européen garanti</li>
-                                    <li>Support technique réactif en français</li>
-                                    <li>Mises à jour automatiques incluses</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section">
-                                <h4>⚠️ Points d'attention</h4>
-                                <ul class="cons-list">
-                                    <li>Coût mensuel par utilisateur (~19€/mois)</li>
-                                    <li>Dépendance à l'éditeur (solution SaaS)</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section pricing">
-                                <h4>💰 Tarification</h4>
-                                <p class="price"><strong>Essentiel+</strong> : à partir de 185€/mois<br><strong>Professionnel</strong> : à partir de 495€/mois<br><strong>Entreprise</strong> : sur demande</p>
-                                <p class="price-note">Utilisateurs illimités • Démo gratuite disponible</p>
-                            </div>
-                        </div>
-                        <div class="app-verdict success">
-                            <strong>Verdict :</strong> Solution idéale répondant à tous les critères du cahier des charges. Meilleur rapport qualité/prix/délai pour le contexte. <strong>Recommandée pour le projet.</strong>
+                        
+                        <div class="solution-verdict">
+                            Alternative solide si Timly non retenu
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOLUTION 2 : HECTOR -->
-        <section class="section section-alt" id="hector">
-            <div class="container">
-                <div class="app-card suitable">
-                    <div class="app-header">
-                        <div class="app-rank">2</div>
-                        <div class="app-info">
-                            <span class="app-badge alt">ALTERNATIVE</span>
-                            <h2>Hector</h2>
-                            <p class="app-type">Solution SaaS complète de gestion d'actifs IT</p>
+                    
+                    <!-- K-INVENTORY -->
+                    <div class="card card-solution">
+                        <div class="solution-header">
+                            <span class="solution-name">K-Inventory</span>
+                            <div class="solution-score">★★★☆☆</div>
                         </div>
-                        <div class="app-score">
-                            <div class="score-circle alt">
-                                <span class="score-value">4.5/5</span>
-                            </div>
-                            <span class="score-text">Score global</span>
+                        
+                        <div class="solution-tags">
+                            <span class="solution-tag warning">RGPD ◐</span>
+                            <span class="solution-tag success">Mobile ✓</span>
+                            <span class="solution-tag success">Prix ✓</span>
                         </div>
-                    </div>
-                    <div class="app-content">
-                        <div class="app-criteria">
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Application mobile</strong>
-                                    <p>Application Android disponible avec scan code-barres</p>
-                                </div>
+                        
+                        <div class="solution-list">
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Tarif compétitif
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Sécurité & RGPD</strong>
-                                    <p>Hébergement sécurisé, conformité RGPD</p>
-                                </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                App Android disponible
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Traçabilité</strong>
-                                    <p>Excellent suivi et journal d'audit complet</p>
-                                </div>
+                            <div class="solution-list-item pro">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Export données possible
                             </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Export CSV</strong>
-                                    <p>Export CSV et rapports avancés</p>
-                                </div>
+                            <div class="solution-list-item con">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                                Hébergement hors UE
                             </div>
-                            <div class="criteria-item partial">
-                                <span class="criteria-icon">◐</span>
-                                <div class="criteria-info">
-                                    <strong>Facilité d'utilisation</strong>
-                                    <p>Interface complète mais complexe, formation nécessaire</p>
-                                </div>
+                            <div class="solution-list-item con">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                                Fonctionnalités limitées
                             </div>
                         </div>
-                        <div class="app-details">
-                            <div class="detail-section">
-                                <h4>✅ Points forts</h4>
-                                <ul class="pros-list">
-                                    <li>Solution très complète et mature</li>
-                                    <li>Excellente gestion des droits utilisateurs</li>
-                                    <li>Fonctionnalités avancées (maintenance, tickets)</li>
-                                    <li>Support professionnel</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section">
-                                <h4>⚠️ Points d'attention</h4>
-                                <ul class="cons-list">
-                                    <li>Interface plus complexe, courbe d'apprentissage</li>
-                                    <li>Surdimensionné pour gestion de consommables uniquement</li>
-                                    <li>Tarification potentiellement plus élevée</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section pricing">
-                                <h4>💰 Tarification</h4>
-                                <p class="price">Sur devis</p>
-                                <p class="price-note">Généralement plus cher que Timly</p>
-                            </div>
-                        </div>
-                        <div class="app-verdict neutral">
-                            <strong>Verdict :</strong> Solution robuste et complète. À privilégier si une gestion d'actifs IT plus large est envisagée à terme, ou si les besoins évoluent vers plus de complexité.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOLUTION 3 : K-INVENTORY -->
-        <section class="section" id="k-inventory">
-            <div class="container">
-                <div class="app-card suitable">
-                    <div class="app-header">
-                        <div class="app-rank">3</div>
-                        <div class="app-info">
-                            <span class="app-badge alt">OPTION ÉCONOMIQUE</span>
-                            <h2>K-Inventory</h2>
-                            <p class="app-type">Application mobile de gestion de stock</p>
-                        </div>
-                        <div class="app-score">
-                            <div class="score-circle alt">
-                                <span class="score-value">3.5/5</span>
-                            </div>
-                            <span class="score-text">Score global</span>
-                        </div>
-                    </div>
-                    <div class="app-content">
-                        <div class="app-criteria">
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Application mobile</strong>
-                                    <p>Application Android légère et rapide</p>
-                                </div>
-                            </div>
-                            <div class="criteria-item partial">
-                                <span class="criteria-icon">◐</span>
-                                <div class="criteria-info">
-                                    <strong>Sécurité & RGPD</strong>
-                                    <p>Conformité à vérifier selon hébergement choisi</p>
-                                </div>
-                            </div>
-                            <div class="criteria-item partial">
-                                <span class="criteria-icon">◐</span>
-                                <div class="criteria-info">
-                                    <strong>Traçabilité</strong>
-                                    <p>Historique basique des mouvements</p>
-                                </div>
-                            </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Export CSV</strong>
-                                    <p>Export CSV disponible</p>
-                                </div>
-                            </div>
-                            <div class="criteria-item yes">
-                                <span class="criteria-icon">✅</span>
-                                <div class="criteria-info">
-                                    <strong>Facilité d'utilisation</strong>
-                                    <p>Très simple d'utilisation, prise en main immédiate</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="app-details">
-                            <div class="detail-section">
-                                <h4>✅ Points forts</h4>
-                                <ul class="pros-list">
-                                    <li>Simplicité d'utilisation excellente</li>
-                                    <li>Coût faible à nul</li>
-                                    <li>Déploiement très rapide</li>
-                                    <li>Synchronisation cloud fonctionnelle</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section">
-                                <h4>⚠️ Points d'attention</h4>
-                                <ul class="cons-list">
-                                    <li>Conformité RGPD à vérifier impérativement</li>
-                                    <li>Fonctionnalités limitées</li>
-                                    <li>Support moins structuré</li>
-                                </ul>
-                            </div>
-                            <div class="detail-section pricing">
-                                <h4>💰 Tarification</h4>
-                                <p class="price">Gratuit / Premium disponible</p>
-                            </div>
-                        </div>
-                        <div class="app-verdict neutral">
-                            <strong>Verdict :</strong> Option économique et pragmatique pour un démarrage rapide ou un projet pilote à petit budget. Vérifier impérativement les aspects RGPD avant adoption.
+                        
+                        <div class="solution-verdict">
+                            Option économique mais RGPD à vérifier
                         </div>
                     </div>
                 </div>
@@ -502,121 +310,44 @@
         </section>
 
         <!-- SOLUTIONS NON RETENUES -->
-        <section class="section section-alt" id="non-retenues">
+        <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>❌ Solutions non retenues</h2>
-                    <p class="section-description">Ne répondent pas pleinement aux exigences ou présentent des contraintes significatives</p>
+                    <span class="section-label">Écartées</span>
+                    <h2>Solutions non retenues</h2>
+                    <p>Ces solutions ne répondent pas aux critères définis dans le cahier des charges.</p>
                 </div>
-
-                <div class="rejected-grid">
-                    <!-- Sortly -->
-                    <div class="rejected-card">
-                        <div class="rejected-header">
-                            <h3>Sortly</h3>
-                            <span class="rejected-type">SaaS Inventaire</span>
-                        </div>
-                        <div class="rejected-reason">
-                            <span class="reason-icon">🇺🇸</span>
-                            <p><strong>Raison :</strong> Solution américaine. Hébergement hors UE, conformité RGPD non garantie.</p>
-                        </div>
-                        <div class="rejected-status">Non retenue – Risque RGPD</div>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>Sortly</h4>
+                        <p class="text-sm text-muted">Hébergement USA uniquement — Non conforme RGPD pour les données sensibles.</p>
                     </div>
-
-                    <!-- Stock and Inventory -->
-                    <div class="rejected-card">
-                        <div class="rejected-header">
-                            <h3>Stock and Inventory Simple</h3>
-                            <span class="rejected-type">App mobile</span>
-                        </div>
-                        <div class="rejected-reason">
-                            <span class="reason-icon">📉</span>
-                            <p><strong>Raison :</strong> Trop basique pour usage professionnel. Sécurité et traçabilité insuffisantes.</p>
-                        </div>
-                        <div class="rejected-status">Non retenue – Fonctionnalités insuffisantes</div>
+                    <div class="card">
+                        <h4>Stock Simple</h4>
+                        <p class="text-sm text-muted">Fonctionnalités trop limitées — Pas d'historique complet des mouvements.</p>
                     </div>
-
-                    <!-- Assets Management -->
-                    <div class="rejected-card">
-                        <div class="rejected-header">
-                            <h3>Assets Management</h3>
-                            <span class="rejected-type">Web responsive</span>
-                        </div>
-                        <div class="rejected-reason">
-                            <span class="reason-icon">📋</span>
-                            <p><strong>Raison :</strong> Orientée gestion d'actifs immobilisés. Moins adaptée aux flux de consommables fréquents.</p>
-                        </div>
-                        <div class="rejected-status">Non retenue – Orientation différente</div>
+                    <div class="card">
+                        <h4>Assets Management</h4>
+                        <p class="text-sm text-muted">Information RGPD insuffisante — Conformité non vérifiable.</p>
                     </div>
-
-                    <!-- Mecalux -->
-                    <div class="rejected-card">
-                        <div class="rejected-header">
-                            <h3>Mecalux Easy WMS</h3>
-                            <span class="rejected-type">WMS industriel</span>
-                        </div>
-                        <div class="rejected-reason">
-                            <span class="reason-icon">🏭</span>
-                            <p><strong>Raison :</strong> Solution WMS industrielle surdimensionnée. Complexité et coût disproportionnés pour le besoin.</p>
-                        </div>
-                        <div class="rejected-status">Non retenue – Périmètre inadapté</div>
+                    <div class="card">
+                        <h4>Mecalux</h4>
+                        <p class="text-sm text-muted">Orienté logistique lourde — Non adapté aux consommables IT.</p>
                     </div>
-
-                    <!-- Dolibarr -->
-                    <div class="rejected-card blocked">
-                        <div class="rejected-header">
-                            <h3>Dolibarr</h3>
-                            <span class="rejected-type">ERP Open Source</span>
-                        </div>
-                        <div class="rejected-reason">
-                            <span class="reason-icon">🚫</span>
-                            <p><strong>Raison :</strong> Accès bloqué lors de l'évaluation. Nécessite ressources IT internes pour installation et maintenance.</p>
-                        </div>
-                        <div class="rejected-status">Non évaluée – Ressources requises</div>
+                    <div class="card">
+                        <h4>Dolibarr</h4>
+                        <p class="text-sm text-muted">Accès bloqué lors de l'évaluation — Impossible de tester.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SYNTHÈSE -->
-        <section class="section" id="synthese">
-            <div class="container">
-                <div class="synthesis-box">
-                    <h2>📋 Synthèse de l'analyse</h2>
-                    <div class="synthesis-content">
-                        <div class="synthesis-column">
-                            <h4>✅ Solutions retenues</h4>
-                            <ol class="synthesis-list">
-                                <li><strong>Timly</strong> – Recommandée (5/5)</li>
-                                <li><strong>Hector</strong> – Alternative complète (4.5/5)</li>
-                                <li><strong>K-Inventory</strong> – Option économique (3.5/5)</li>
-                            </ol>
-                        </div>
-                        <div class="synthesis-column">
-                            <h4>❌ Solutions écartées</h4>
-                            <ul class="synthesis-list rejected">
-                                <li>Sortly – Risque RGPD</li>
-                                <li>Stock & Inventory – Trop basique</li>
-                                <li>Assets Management – Mauvaise orientation</li>
-                                <li>Mecalux – Surdimensionné</li>
-                                <li>Dolibarr – Non évaluable</li>
-                            </ul>
-                        </div>
-                        <div class="synthesis-column action">
-                            <h4>🎯 Décision recommandée</h4>
-                            <p>Procéder à une <strong>démonstration de Timly</strong> et obtenir un devis personnalisé pour valider l'adéquation finale.</p>
-                            <a href="recommandation.html" class="btn btn-primary">Voir la recommandation →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navigation entre pages -->
-        <section class="section section-page-nav">
+        <!-- NAVIGATION -->
+        <section class="section section-alt">
             <div class="container">
                 <div class="page-nav">
-                    <a href="cahier-des-charges.html" class="page-nav-link prev">
+                    <a href="cahier-des-charges.html" class="page-nav-link">
                         <span class="page-nav-direction">← Précédent</span>
                         <span class="page-nav-title">Cahier des charges</span>
                     </a>
@@ -629,6 +360,7 @@
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -642,6 +374,7 @@
             </div>
         </div>
     </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cahier des charges et pré-sélection de fournisseurs pour une application de gestion de stock IT sur terminaux Zebra TC22">
+    <meta name="description" content="Cahier des charges et recommandation pour une solution de gestion de stock IT compatible Zebra TC22. Analyse comparative et préconisation DSI.">
     <title>Cahier des charges – Gestion de stock IT | Zebra TC22</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- ============================================
-         HEADER - Navigation principale
-         Pour modifier les liens, éditez la liste ci-dessous
+         HEADER
+         Navigation sobre et professionnelle
     ============================================= -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">📦</span>
-                    <span class="logo-text">GestStock IT</span>
-                </div>
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">TC</div>
+                    <span>GestStock IT</span>
+                </a>
                 <nav class="nav" id="main-nav">
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link active">Accueil</a></li>
@@ -28,7 +28,9 @@
                     </ul>
                 </nav>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
@@ -36,86 +38,80 @@
 
     <main>
         <!-- ============================================
-             HERO - Section d'accroche principale
-             Modifiez le titre et le sous-titre ici
+             HERO SECTION
+             Impact visuel fort dès l'entrée
         ============================================= -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">📋 Projet DSI – Février 2024</div>
-                    <h1>Gestion de stock IT<br><span class="highlight">Cahier des charges</span></h1>
-                    <p class="hero-subtitle">Étude comparative et recommandation pour la sélection d'une application de gestion des consommables informatiques, compatible avec les terminaux mobiles <strong>Zebra TC22</strong>.</p>
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        DSI – Février 2024
+                    </div>
+                    
+                    <h1>Cahier des charges<br>Gestion de stock IT</h1>
+                    
+                    <p class="hero-subtitle">
+                        Pré-sélection de solutions pour terminaux mobiles Zebra TC22. 
+                        Analyse comparative et recommandation pour un déploiement terrain.
+                    </p>
+                    
+                    <div class="hero-highlights">
+                        <div class="hero-highlight">
+                            <div class="hero-highlight-icon">📊</div>
+                            <div class="hero-highlight-text">
+                                <strong>8 solutions</strong>
+                                <span>analysées</span>
+                            </div>
+                        </div>
+                        <div class="hero-highlight">
+                            <div class="hero-highlight-icon">✓</div>
+                            <div class="hero-highlight-text">
+                                <strong>5 critères</strong>
+                                <span>d'évaluation</span>
+                            </div>
+                        </div>
+                        <div class="hero-highlight">
+                            <div class="hero-highlight-icon">🎯</div>
+                            <div class="hero-highlight-text">
+                                <strong>1 recommandation</strong>
+                                <span>argumentée</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="hero-actions">
-                        <a href="cahier-des-charges.html" class="btn btn-primary">📋 Consulter le cahier des charges</a>
-                        <a href="recommandation.html" class="btn btn-secondary">🎯 Voir la recommandation</a>
+                        <a href="comparatif.html" class="btn btn-primary btn-lg">
+                            Voir le comparatif
+                        </a>
+                        <a href="recommandation.html" class="btn btn-ghost btn-lg">
+                            Voir la recommandation
+                        </a>
                     </div>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">8</span>
-                        <span class="stat-label">Solutions analysées</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5</span>
-                        <span class="stat-label">Critères évalués</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1</span>
-                        <span class="stat-label">Recommandation</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================
-             RÉSUMÉ EXÉCUTIF
-             Synthèse orientée décision pour la direction
-        ============================================= -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="executive-box">
-                    <div class="executive-header">
-                        <span class="executive-icon">💡</span>
-                        <h2>Résumé exécutif</h2>
-                    </div>
-                    <div class="executive-content">
-                        <div class="executive-main">
-                            <p class="executive-lead">Suite à l'analyse comparative de <strong>8 solutions</strong> du marché, la solution <strong>Timly</strong> est recommandée pour répondre aux besoins de gestion de stock sur terminaux Zebra TC22 (Android 13).</p>
-                            <p>Cette solution SaaS répond à l'ensemble des critères définis : application mobile native, conformité RGPD avec hébergement européen, traçabilité complète des mouvements et export CSV.</p>
+                
+                <!-- Encart décision -->
+                <div class="hero-decision">
+                    <div class="hero-decision-badge">Recommandée</div>
+                    <h3>Timly</h3>
+                    <p>Solution SaaS de gestion d'actifs retenue après analyse comparative.</p>
+                    <div class="hero-decision-features">
+                        <div class="hero-decision-feature">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Application mobile Android native
                         </div>
-                        <div class="executive-points">
-                            <div class="point-item success">
-                                <span class="point-icon">✅</span>
-                                <div class="point-content">
-                                    <strong>Déploiement rapide</strong>
-                                    <span>2 à 4 semaines</span>
-                                </div>
-                            </div>
-                            <div class="point-item success">
-                                <span class="point-icon">✅</span>
-                                <div class="point-content">
-                                    <strong>Conformité RGPD</strong>
-                                    <span>Hébergement en Europe</span>
-                                </div>
-                            </div>
-                            <div class="point-item success">
-                                <span class="point-icon">✅</span>
-                                <div class="point-content">
-                                    <strong>Offre Entreprise</strong>
-                                    <span>Tarif sur demande</span>
-                                </div>
-                            </div>
-                            <div class="point-item success">
-                                <span class="point-icon">✅</span>
-                                <div class="point-content">
-                                    <strong>Risque minimisé</strong>
-                                    <span>Solution éprouvée</span>
-                                </div>
-                            </div>
+                        <div class="hero-decision-feature">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Conformité RGPD (hébergement UE)
                         </div>
-                    </div>
-                    <div class="executive-action">
-                        <a href="recommandation.html" class="btn btn-primary">Consulter la recommandation détaillée →</a>
+                        <div class="hero-decision-feature">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Traçabilité complète des mouvements
+                        </div>
+                        <div class="hero-decision-feature">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Export CSV natif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -123,143 +119,180 @@
 
         <!-- ============================================
              STRUCTURE DU DOCUMENT
-             Navigation vers les sections principales
+             Navigation vers les sections
         ============================================= -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
+                    <span class="section-label">Navigation</span>
                     <h2>Structure du document</h2>
-                    <p class="section-description">Ce document est organisé en 3 sections principales</p>
+                    <p>Ce dossier présente l'étude complète en trois volets, de l'expression des besoins à la recommandation finale.</p>
                 </div>
-                <div class="document-flow">
-                    <a href="cahier-des-charges.html" class="flow-card">
-                        <div class="flow-number">1</div>
-                        <div class="flow-content">
-                            <h3>Cahier des charges</h3>
-                            <p>Expression des besoins, exigences fonctionnelles et techniques pour la solution de gestion de stock.</p>
-                            <ul class="flow-list">
-                                <li>📋 Contexte et objectifs</li>
-                                <li>🔒 Sécurité & RGPD</li>
-                                <li>📦 Fonctionnalités requises</li>
-                                <li>📜 Traçabilité & Export</li>
-                            </ul>
-                        </div>
-                        <span class="flow-arrow">→</span>
+                
+                <div class="cards-grid cards-grid-3">
+                    <a href="cahier-des-charges.html" class="card">
+                        <div class="card-icon primary">📋</div>
+                        <h3>Cahier des charges</h3>
+                        <p>Contexte du projet, objectifs métier, exigences fonctionnelles et contraintes techniques pour le terminal Zebra TC22.</p>
                     </a>
-                    <a href="comparatif.html" class="flow-card">
-                        <div class="flow-number">2</div>
-                        <div class="flow-content">
-                            <h3>Comparatif des solutions</h3>
-                            <p>Analyse détaillée de 8 applications du marché, avec tableau synthétique et fiches individuelles.</p>
-                            <ul class="flow-list">
-                                <li>📊 Tableau comparatif</li>
-                                <li>★ Timly (recommandée)</li>
-                                <li>• Hector (alternative)</li>
-                                <li>• K-Inventory (économique)</li>
-                            </ul>
-                        </div>
-                        <span class="flow-arrow">→</span>
+                    
+                    <a href="comparatif.html" class="card">
+                        <div class="card-icon primary">📊</div>
+                        <h3>Comparatif des solutions</h3>
+                        <p>Analyse détaillée de 8 applications du marché. Tableau synthétique et fiches par solution avec scores et verdicts.</p>
                     </a>
-                    <a href="recommandation.html" class="flow-card recommended">
-                        <div class="flow-number">3</div>
-                        <div class="flow-content">
-                            <h3>Recommandation finale</h3>
-                            <p>Préconisation orientée décision pour la direction, avec estimation budgétaire et prochaines étapes.</p>
-                            <div class="flow-highlight">
-                                <strong>Solution recommandée : Timly</strong>
-                                <span>Déploiement rapide • RGPD conforme • Tarif sur demande</span>
-                            </div>
-                        </div>
-                        <span class="flow-arrow">→</span>
+                    
+                    <a href="recommandation.html" class="card">
+                        <div class="card-icon accent">🎯</div>
+                        <h3>Recommandation finale</h3>
+                        <p>Préconisation argumentée avec comparaison des options, estimation budgétaire et plan de mise en œuvre.</p>
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================
-             CONTEXTE DU PROJET
-             Présentation rapide de la problématique
-        ============================================= -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Contexte du projet</h2>
-                    <p class="section-description">Pourquoi ce projet est nécessaire</p>
-                </div>
-                <div class="context-grid">
-                    <div class="context-card">
-                        <div class="context-icon">🎯</div>
-                        <h3>Objectif</h3>
-                        <p>Mettre en place une solution mobile fiable pour suivre en temps réel les entrées et sorties de consommables informatiques.</p>
-                    </div>
-                    <div class="context-card">
-                        <div class="context-icon">⚠️</div>
-                        <h3>Problèmes actuels</h3>
-                        <ul>
-                            <li>Erreurs d'inventaire fréquentes</li>
-                            <li>Manque de traçabilité</li>
-                            <li>Saisie terrain non optimisée</li>
-                            <li>Risques de rupture de stock</li>
-                        </ul>
-                    </div>
-                    <div class="context-card">
-                        <div class="context-icon">📱</div>
-                        <h3>Environnement technique</h3>
-                        <ul>
-                            <li><strong>Terminal :</strong> Zebra TC22</li>
-                            <li><strong>Système :</strong> Android 13</li>
-                            <li><strong>Scanner :</strong> Code-barres intégré</li>
-                            <li><strong>Réseau :</strong> Wi-Fi / 4G LTE</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ============================================
              CRITÈRES D'ÉVALUATION
-             Les 5 axes d'analyse des solutions
+             Les 5 axes d'analyse
+        ============================================= -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Méthodologie</span>
+                    <h2>Critères d'évaluation</h2>
+                    <p>Chaque solution a été évaluée selon 5 critères définis dans le cahier des charges.</p>
+                </div>
+                
+                <div class="cards-grid">
+                    <div class="card card-feature">
+                        <div class="card-icon">📱</div>
+                        <div class="card-feature-content">
+                            <h4>Application mobile</h4>
+                            <p>App Android native ou responsive, compatible avec le terminal Zebra TC22 et son scanner intégré.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-icon">🔐</div>
+                        <div class="card-feature-content">
+                            <h4>Sécurité & RGPD</h4>
+                            <p>Hébergement des données en Union Européenne, conformité réglementaire, chiffrement.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-icon">📜</div>
+                        <div class="card-feature-content">
+                            <h4>Traçabilité & Audit</h4>
+                            <p>Historique complet des mouvements de stock, identification des utilisateurs, horodatage.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-icon">📤</div>
+                        <div class="card-feature-content">
+                            <h4>Export CSV / Excel</h4>
+                            <p>Extraction des données pour reporting, intégration avec les outils existants.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-feature">
+                        <div class="card-icon">✨</div>
+                        <div class="card-feature-content">
+                            <h4>Facilité d'utilisation</h4>
+                            <p>Ergonomie terrain, prise en main rapide, interface adaptée aux opérateurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CONTEXTE DU PROJET
+             Résumé de la problématique
         ============================================= -->
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Critères d'évaluation</h2>
-                    <p class="section-description">Les 5 axes d'analyse définis dans le cahier des charges</p>
+                    <span class="section-label">Contexte</span>
+                    <h2>Pourquoi ce projet ?</h2>
                 </div>
-                <div class="criteria-grid">
-                    <div class="criteria-card">
-                        <div class="criteria-number">1</div>
-                        <div class="criteria-content">
-                            <h3>Application mobile</h3>
-                            <p>App Android native ou responsive compatible TC22</p>
+                
+                <div class="cards-grid cards-grid-3">
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Objectif</h3>
+                        <p>Mettre en place une solution mobile fiable pour suivre en temps réel les entrées et sorties de consommables informatiques.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">⚠️</div>
+                        <h3>Problèmes actuels</h3>
+                        <p>Erreurs d'inventaire, manque de traçabilité, saisie terrain non optimisée, risques de rupture de stock.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">📱</div>
+                        <h3>Environnement</h3>
+                        <p>Terminal Zebra TC22 sous Android 13, scanner code-barres intégré, connectivité Wi-Fi et 4G LTE.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             RÉSUMÉ EXÉCUTIF
+             Synthèse pour la direction
+        ============================================= -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="recommendation-box">
+                    <div class="recommendation-header">
+                        <div class="recommendation-icon">✓</div>
+                        <div>
+                            <h2>Résumé exécutif</h2>
                         </div>
                     </div>
-                    <div class="criteria-card">
-                        <div class="criteria-number">2</div>
-                        <div class="criteria-content">
-                            <h3>Sécurité RGPD</h3>
-                            <p>Hébergement UE et conformité réglementaire</p>
+                    
+                    <div class="recommendation-content">
+                        <div class="recommendation-text">
+                            <p>
+                                Suite à l'analyse comparative de <strong>8 solutions</strong> du marché, 
+                                la solution <strong>Timly</strong> est recommandée pour répondre aux besoins 
+                                de gestion de stock sur terminaux Zebra TC22 (Android 13).
+                            </p>
+                            <p>
+                                Cette solution SaaS répond à l'ensemble des critères définis : application mobile native, 
+                                conformité RGPD avec hébergement européen, traçabilité complète des mouvements et export CSV.
+                            </p>
+                            
+                            <div class="recommendation-points">
+                                <div class="recommendation-point">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    <span><strong>Déploiement rapide</strong> — 2 à 4 semaines</span>
+                                </div>
+                                <div class="recommendation-point">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    <span><strong>Conformité RGPD</strong> — Hébergement en Allemagne</span>
+                                </div>
+                                <div class="recommendation-point">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    <span><strong>Offre Entreprise</strong> — Tarif sur demande</span>
+                                </div>
+                                <div class="recommendation-point">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                    <span><strong>Risque minimisé</strong> — Solution éprouvée sur le marché</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="criteria-card">
-                        <div class="criteria-number">3</div>
-                        <div class="criteria-content">
-                            <h3>Traçabilité</h3>
-                            <p>Historique des mouvements et identification utilisateur</p>
-                        </div>
-                    </div>
-                    <div class="criteria-card">
-                        <div class="criteria-number">4</div>
-                        <div class="criteria-content">
-                            <h3>Export CSV</h3>
-                            <p>Extraction des données pour exploitation tableur</p>
-                        </div>
-                    </div>
-                    <div class="criteria-card">
-                        <div class="criteria-number">5</div>
-                        <div class="criteria-content">
-                            <h3>Facilité d'utilisation</h3>
-                            <p>Ergonomie terrain et prise en main rapide</p>
+                        
+                        <div class="recommendation-decision">
+                            <div class="recommendation-decision-badge">Recommandation</div>
+                            <h3>Timly</h3>
+                            <p>Solution SaaS de gestion d'actifs</p>
+                            <a href="recommandation.html" class="btn btn-accent">
+                                Consulter la recommandation →
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -269,7 +302,6 @@
 
     <!-- ============================================
          FOOTER
-         Informations du document
     ============================================= -->
     <footer class="footer">
         <div class="container">

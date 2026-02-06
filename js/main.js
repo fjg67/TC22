@@ -1,200 +1,210 @@
 /**
- * ============================================
- * CAHIER DES CHARGES - GESTION DE STOCK IT
- * Script JavaScript principal
- *
+ * TC22 - GestStock IT
+ * JavaScript pour les micro-interactions et la navigation mobile
+ * 
  * Fonctionnalités :
- * - Menu mobile toggle
- * - Smooth scroll
- * - Active link highlighting
- * ============================================
+ * - Menu mobile (toggle)
+ * - Animations au scroll (IntersectionObserver)
+ * - Smooth scroll pour les ancres
+ * - Survol premium sur les cards
  */
 
-document.addEventListener("DOMContentLoaded", function () {
-  // ============================================
-  // MENU MOBILE TOGGLE
-  // ============================================
-  const menuToggle = document.getElementById("menu-toggle");
-  const mainNav = document.getElementById("main-nav");
-
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", function () {
-      this.classList.toggle("open");
-      mainNav.classList.toggle("open");
-
-      // Empêcher le scroll du body quand le menu est ouvert
-      document.body.style.overflow = mainNav.classList.contains("open")
-        ? "hidden"
-        : "";
-    });
-
-    // Fermer le menu quand on clique sur un lien
-    const navLinks = mainNav.querySelectorAll(".nav-link");
-    navLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
-        menuToggle.classList.remove("open");
-        mainNav.classList.remove("open");
-        document.body.style.overflow = "";
-      });
-    });
-
-    // Fermer le menu avec la touche Escape
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && mainNav.classList.contains("open")) {
-        menuToggle.classList.remove("open");
-        mainNav.classList.remove("open");
-        document.body.style.overflow = "";
-      }
-    });
-  }
-
-  // ============================================
-  // SMOOTH SCROLL POUR LES ANCRES
-  // ============================================
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-
-  anchorLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-
-      // Ignorer les liens vides
-      if (href === "#") return;
-
-      const target = document.querySelector(href);
-
-      if (target) {
-        e.preventDefault();
-
-        // Calculer l'offset pour le header fixe
-        const headerHeight = document.querySelector(".header").offsetHeight;
-        const targetPosition =
-          target.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          20;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // MENU MOBILE
+    // ============================================
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            
+            // Empêcher le scroll du body quand le menu est ouvert
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
         });
-      }
-    });
-  });
-
-  // ============================================
-  // HIGHLIGHT SECTION ACTIVE DANS LE TOC
-  // ============================================
-  const tocLinks = document.querySelectorAll(".toc-list a");
-  const sections = document.querySelectorAll("section[id]");
-
-  if (tocLinks.length > 0 && sections.length > 0) {
-    function highlightActiveSection() {
-      const headerHeight = document.querySelector(".header").offsetHeight;
-      let current = "";
-
-      sections.forEach(function (section) {
-        const sectionTop = section.offsetTop - headerHeight - 100;
-        const sectionHeight = section.offsetHeight;
-
-        if (
-          window.pageYOffset >= sectionTop &&
-          window.pageYOffset < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      tocLinks.forEach(function (link) {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
+        
+        // Fermer le menu quand on clique sur un lien
+        nav.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                nav.classList.remove('open');
+                menuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Fermer le menu avec Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                menuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     }
-
-    window.addEventListener("scroll", highlightActiveSection);
-    highlightActiveSection(); // Initial call
-  }
-
-  // ============================================
-  // ANIMATION AU SCROLL (INTERSECTION OBSERVER)
-  // ============================================
-  const animatedElements = document.querySelectorAll(
-    ".context-card, .nav-card, .requirement-item, .trace-card, .analysis-card, .summary-category",
-  );
-
-  if (animatedElements.length > 0 && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
+    
+    // ============================================
+    // ANIMATIONS AU SCROLL
+    // Fade-in progressif des éléments
+    // ============================================
+    const observerOptions = {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
-
-    animatedElements.forEach(function (el) {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(20px)";
-      el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      observer.observe(el);
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observer les éléments à animer
+    const animatedElements = document.querySelectorAll('.card, .option-card, .recommendation-box, .timeline-item, .table-container');
+    animatedElements.forEach(function(el, index) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transitionDelay = (index % 6) * 0.1 + 's'; // Décalage progressif
+        observer.observe(el);
     });
-  }
-
-  // ============================================
-  // AFFICHER LA DATE DE DERNIÈRE MODIFICATION
-  // ============================================
-  const footerMeta = document.querySelector(".footer-meta p");
-  if (footerMeta && footerMeta.textContent.includes("Février 2024")) {
-    // Optionnel : remplacer par la date actuelle si souhaité
-    // const now = new Date();
-    // const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-    // footerMeta.textContent = 'Version 1.0 – ' + months[now.getMonth()] + ' ' + now.getFullYear();
-  }
-
-  // ============================================
-  // PRINT FUNCTIONALITY
-  // ============================================
-  // Ajouter un bouton d'impression si nécessaire
-  // (Non implémenté par défaut, décommenter si souhaité)
-  /*
-    const printButton = document.createElement('button');
-    printButton.textContent = '🖨️ Imprimer';
-    printButton.className = 'btn btn-secondary print-btn';
-    printButton.style.position = 'fixed';
-    printButton.style.bottom = '20px';
-    printButton.style.right = '20px';
-    printButton.style.zIndex = '100';
-    printButton.addEventListener('click', function() {
-        window.print();
+    
+    // Style pour les éléments visibles
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
     });
-    document.body.appendChild(printButton);
-    */
+    
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // Ajoute une ombre au header lors du scroll
+    // ============================================
+    const header = document.querySelector('.header');
+    if (header) {
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 10) {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
+    
+    // ============================================
+    // TABLE ROW HOVER ENHANCEMENT
+    // ============================================
+    const tableRows = document.querySelectorAll('.table tbody tr');
+    tableRows.forEach(function(row) {
+        row.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.005)';
+            this.style.transition = 'all 0.2s ease';
+        });
+        row.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // ============================================
+    // CARD TILT EFFECT (subtil)
+    // ============================================
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 50;
+            const rotateY = (centerX - x) / 50;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+    
+    // ============================================
+    // PRINT BUTTON (si nécessaire)
+    // ============================================
+    const printButtons = document.querySelectorAll('[data-print]');
+    printButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            window.print();
+        });
+    });
+    
+    // ============================================
+    // COPY TABLE DATA
+    // ============================================
+    const copyButtons = document.querySelectorAll('[data-copy-table]');
+    copyButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const tableId = this.getAttribute('data-copy-table');
+            const table = document.getElementById(tableId);
+            if (table) {
+                const range = document.createRange();
+                range.selectNode(table);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+                
+                // Feedback visuel
+                const originalText = this.textContent;
+                this.textContent = 'Copié !';
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                }, 2000);
+            }
+        });
+    });
+    
 });
 
-/**
- * Fonction utilitaire pour formater les dates
- * @param {Date} date - L'objet Date à formater
- * @returns {string} - Date formatée en français
- */
-function formatDateFR(date) {
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("fr-FR", options);
+// ============================================
+// PREFERS REDUCED MOTION
+// Désactive les animations si l'utilisateur préfère
+// ============================================
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-base', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
 }
-
-/**
- * Console log pour le débogage
- * Peut être désactivé en production
- */
-console.log("📦 Site Cahier des charges - Gestion de stock IT chargé");
