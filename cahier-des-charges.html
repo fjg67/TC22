@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cahier des charges détaillé pour l'application de gestion de stock IT">
+    <title>Cahier des charges | Gestion de stock IT</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header identique à toutes les pages -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📦</span>
+                    <span class="logo-text">GestStock IT</span>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li><a href="cahier-des-charges.html" class="nav-link active">Cahier des charges</a></li>
+                        <li><a href="comparatif.html" class="nav-link">Comparatif</a></li>
+                        <li><a href="analyse.html" class="nav-link">Analyse</a></li>
+                        <li><a href="recommandation.html" class="nav-link">Recommandation</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============================================
+             EN-TÊTE DE PAGE
+        ============================================= -->
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <span>/</span>
+                    <span>Cahier des charges</span>
+                </nav>
+                <h1>Cahier des charges</h1>
+                <p class="page-subtitle">Exigences fonctionnelles et techniques pour l'application de gestion de stock</p>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SOMMAIRE RAPIDE
+        ============================================= -->
+        <section class="section section-toc">
+            <div class="container">
+                <div class="toc-card">
+                    <h2>Sommaire</h2>
+                    <ul class="toc-list">
+                        <li><a href="#securite">1. Sécurité des données</a></li>
+                        <li><a href="#disponibilite">2. Disponibilité</a></li>
+                        <li><a href="#fonctionnalites">3. Fonctionnalités attendues</a></li>
+                        <li><a href="#tracabilite">4. Traçabilité et audit</a></li>
+                        <li><a href="#export">5. Export et exploitation des données</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 1 : SÉCURITÉ DES DONNÉES
+             Modifier les exigences de sécurité ici
+        ============================================= -->
+        <section class="section" id="securite">
+            <div class="container">
+                <div class="requirement-block">
+                    <div class="requirement-header">
+                        <div class="requirement-number">01</div>
+                        <div class="requirement-title">
+                            <h2>Sécurité des données</h2>
+                            <p>Protection, confidentialité et conformité</p>
+                        </div>
+                    </div>
+                    <div class="requirement-content">
+                        <div class="requirement-grid">
+                            <div class="requirement-item">
+                                <div class="requirement-icon">🔒</div>
+                                <h3>Intégrité des données</h3>
+                                <p>Les données doivent être protégées contre toute altération, aussi bien <strong>au repos</strong> (stockage) qu'<strong>en transit</strong> (communication réseau).</p>
+                                <ul class="requirement-details">
+                                    <li>Chiffrement des données stockées</li>
+                                    <li>Protocole HTTPS obligatoire</li>
+                                    <li>Contrôle de cohérence des données</li>
+                                </ul>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">🔐</div>
+                                <h3>Confidentialité</h3>
+                                <p>L'accès aux données doit être <strong>restreint</strong> aux utilisateurs autorisés avec un système d'authentification robuste.</p>
+                                <ul class="requirement-details">
+                                    <li>Authentification utilisateur obligatoire</li>
+                                    <li>Gestion des droits d'accès</li>
+                                    <li>Chiffrement des données sensibles</li>
+                                </ul>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">⚖️</div>
+                                <h3>Conformité RGPD</h3>
+                                <p>L'application doit respecter le <strong>Règlement Général sur la Protection des Données</strong> pour tout traitement d'informations personnelles.</p>
+                                <ul class="requirement-details">
+                                    <li>Minimisation des données collectées</li>
+                                    <li>Droit d'accès et de rectification</li>
+                                    <li>Politique de conservation définie</li>
+                                </ul>
+                            </div>
+                            <div class="requirement-item">
+                                <div class="requirement-icon">🛡️</div>
+                                <h3>Protection contre les menaces</h3>
+                                <p>L'infrastructure doit être protégée contre la <strong>perte de données</strong> et les <strong>cyberattaques</strong>.</p>
+                                <ul class="requirement-details">
+                                    <li>Sauvegardes automatiques régulières</li>
+                                    <li>Plan de reprise d'activité (PRA)</li>
+                                    <li>Protection anti-malware</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 2 : DISPONIBILITÉ
+             Exigences d'hébergement et d'accès
+        ============================================= -->
+        <section class="section section-alt" id="disponibilite">
+            <div class="container">
+                <div class="requirement-block">
+                    <div class="requirement-header">
+                        <div class="requirement-number">02</div>
+                        <div class="requirement-title">
+                            <h2>Disponibilité</h2>
+                            <p>Accessibilité et résilience du système</p>
+                        </div>
+                    </div>
+                    <div class="requirement-content">
+                        <div class="availability-grid">
+                            <div class="availability-card critical">
+                                <div class="availability-icon">❌</div>
+                                <h3>Ce qui est exclu</h3>
+                                <p>Les données <strong>ne doivent pas</strong> être stockées uniquement sur le terminal mobile.</p>
+                                <div class="availability-reason">
+                                    <strong>Risques :</strong> Perte, vol, panne du terminal = perte totale des données
+                                </div>
+                            </div>
+                            <div class="availability-card required">
+                                <div class="availability-icon">✅</div>
+                                <h3>Ce qui est requis</h3>
+                                <ul>
+                                    <li><strong>Hébergement cloud</strong> ou base de données SQL centralisée</li>
+                                    <li><strong>Accès permanent</strong> aux données via réseau</li>
+                                    <li><strong>Synchronisation</strong> temps réel ou quasi temps réel</li>
+                                    <li><strong>Haute disponibilité</strong> (SLA minimum 99%)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="availability-note">
+                            <div class="note-icon">💡</div>
+                            <div class="note-content">
+                                <strong>Mode hors-ligne (optionnel) :</strong> Une capacité de fonctionnement dégradé en mode hors-ligne avec synchronisation ultérieure serait un plus, mais n'est pas obligatoire.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 3 : FONCTIONNALITÉS ATTENDUES
+             Liste des fonctions de gestion de stock
+        ============================================= -->
+        <section class="section" id="fonctionnalites">
+            <div class="container">
+                <div class="requirement-block">
+                    <div class="requirement-header">
+                        <div class="requirement-number">03</div>
+                        <div class="requirement-title">
+                            <h2>Fonctionnalités attendues</h2>
+                            <p>Gestion des stocks et des mouvements</p>
+                        </div>
+                    </div>
+                    <div class="requirement-content">
+                        <div class="features-container">
+                            <div class="feature-category">
+                                <h3>📥 Gestion des entrées</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <span class="feature-name">Réception de marchandises</span>
+                                        <span class="feature-desc">Enregistrement des nouvelles entrées en stock</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Scan code-barres / QR</span>
+                                        <span class="feature-desc">Identification rapide des articles via TC22</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Saisie des quantités</span>
+                                        <span class="feature-desc">Interface optimisée pour saisie tactile rapide</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3>📤 Gestion des sorties</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <span class="feature-name">Sortie de stock</span>
+                                        <span class="feature-desc">Enregistrement des prélèvements</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Affectation utilisateur</span>
+                                        <span class="feature-desc">Attribution optionnelle à un destinataire</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Motif de sortie</span>
+                                        <span class="feature-desc">Classification du type de mouvement</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3>⚙️ Paramétrage</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <span class="feature-name">Stock minimum configurable</span>
+                                        <span class="feature-desc">Seuil d'alerte par article</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Alertes de réapprovisionnement</span>
+                                        <span class="feature-desc">Notification lorsque seuil atteint</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Catégorisation</span>
+                                        <span class="feature-desc">Organisation par familles d'articles</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3>📱 Interface mobile</h3>
+                                <ul class="feature-list">
+                                    <li>
+                                        <span class="feature-name">Saisie terrain optimisée</span>
+                                        <span class="feature-desc">Ergonomie adaptée au TC22</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Navigation intuitive</span>
+                                        <span class="feature-desc">Accès rapide aux fonctions principales</span>
+                                    </li>
+                                    <li>
+                                        <span class="feature-name">Recherche rapide</span>
+                                        <span class="feature-desc">Filtres et recherche textuelle</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 4 : TRAÇABILITÉ ET AUDIT
+             Exigences de journalisation
+        ============================================= -->
+        <section class="section section-alt" id="tracabilite">
+            <div class="container">
+                <div class="requirement-block">
+                    <div class="requirement-header">
+                        <div class="requirement-number">04</div>
+                        <div class="requirement-title">
+                            <h2>Traçabilité et audit</h2>
+                            <p>Historique et journalisation des actions</p>
+                        </div>
+                    </div>
+                    <div class="requirement-content">
+                        <div class="traceability-grid">
+                            <div class="trace-card">
+                                <div class="trace-icon">📜</div>
+                                <h3>Historique des mouvements</h3>
+                                <p>Chaque entrée et sortie de stock doit être <strong>horodatée</strong> et consultable dans un historique complet.</p>
+                                <div class="trace-details">
+                                    <span class="trace-tag">Date/Heure</span>
+                                    <span class="trace-tag">Type mouvement</span>
+                                    <span class="trace-tag">Quantité</span>
+                                    <span class="trace-tag">Article</span>
+                                </div>
+                            </div>
+                            <div class="trace-card">
+                                <div class="trace-icon">👤</div>
+                                <h3>Identification utilisateur</h3>
+                                <p>Chaque action doit être associée à l'<strong>utilisateur</strong> qui l'a effectuée (nom, identifiant).</p>
+                                <div class="trace-details">
+                                    <span class="trace-tag">Identifiant</span>
+                                    <span class="trace-tag">Nom</span>
+                                    <span class="trace-tag">Rôle</span>
+                                </div>
+                            </div>
+                            <div class="trace-card">
+                                <div class="trace-icon">📝</div>
+                                <h3>Journalisation des modifications</h3>
+                                <p>En cas de modification d'une donnée, le système doit conserver l'<strong>état avant</strong> et l'<strong>état après</strong> la modification.</p>
+                                <div class="trace-details">
+                                    <span class="trace-tag">Valeur avant</span>
+                                    <span class="trace-tag">Valeur après</span>
+                                    <span class="trace-tag">Motif</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="audit-importance">
+                            <h4>Importance pour l'entreprise</h4>
+                            <div class="importance-items">
+                                <div class="importance-item">
+                                    <span class="importance-icon">🔍</span>
+                                    <span>Investigation en cas d'écart d'inventaire</span>
+                                </div>
+                                <div class="importance-item">
+                                    <span class="importance-icon">📊</span>
+                                    <span>Analyse des flux pour optimisation</span>
+                                </div>
+                                <div class="importance-item">
+                                    <span class="importance-icon">✅</span>
+                                    <span>Conformité aux audits internes/externes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 5 : EXPORT ET EXPLOITATION
+             Fonctionnalités d'export des données
+        ============================================= -->
+        <section class="section" id="export">
+            <div class="container">
+                <div class="requirement-block">
+                    <div class="requirement-header">
+                        <div class="requirement-number">05</div>
+                        <div class="requirement-title">
+                            <h2>Export et exploitation des données</h2>
+                            <p>Extraction et analyse des informations</p>
+                        </div>
+                    </div>
+                    <div class="requirement-content">
+                        <div class="export-main">
+                            <div class="export-primary">
+                                <div class="export-icon-large">📊</div>
+                                <h3>Export CSV obligatoire</h3>
+                                <p>L'application doit permettre l'<strong>export de l'inventaire complet</strong> au format CSV, compatible avec Microsoft Excel et autres tableurs.</p>
+                            </div>
+                            <div class="export-requirements">
+                                <h4>Données à inclure dans l'export :</h4>
+                                <ul>
+                                    <li>Référence article</li>
+                                    <li>Désignation</li>
+                                    <li>Quantité en stock</li>
+                                    <li>Stock minimum</li>
+                                    <li>Catégorie</li>
+                                    <li>Date dernier mouvement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="export-options">
+                            <h4>Fonctionnalités complémentaires souhaitées :</h4>
+                            <div class="export-options-grid">
+                                <div class="export-option">
+                                    <span class="option-status optional">Optionnel</span>
+                                    <span class="option-name">Export PDF pour rapports</span>
+                                </div>
+                                <div class="export-option">
+                                    <span class="option-status optional">Optionnel</span>
+                                    <span class="option-name">Export historique mouvements</span>
+                                </div>
+                                <div class="export-option">
+                                    <span class="option-status optional">Optionnel</span>
+                                    <span class="option-name">Rapports automatiques planifiés</span>
+                                </div>
+                                <div class="export-option">
+                                    <span class="option-status optional">Optionnel</span>
+                                    <span class="option-name">Tableaux de bord visuels</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation entre pages -->
+        <section class="section section-page-nav">
+            <div class="container">
+                <div class="page-nav">
+                    <a href="index.html" class="page-nav-link prev">
+                        <span class="page-nav-direction">← Précédent</span>
+                        <span class="page-nav-title">Accueil</span>
+                    </a>
+                    <a href="comparatif.html" class="page-nav-link next">
+                        <span class="page-nav-direction">Suivant →</span>
+                        <span class="page-nav-title">Tableau comparatif</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p><strong>Cahier des charges – Gestion de stock IT</strong></p>
+                    <p>Document à usage interne – Direction des Systèmes d'Information</p>
+                </div>
+                <div class="footer-meta">
+                    <p>Version 1.0 – Février 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
