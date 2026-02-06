@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cahier des charges détaillé pour l'application de gestion de stock IT">
+    <meta name="description" content="Cahier des charges détaillé pour l'application de gestion de stock IT sur terminaux Zebra TC22">
     <title>Cahier des charges | Gestion de stock IT</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header identique à toutes les pages -->
+    <!-- ============================================
+         HEADER - Navigation principale
+         Structure identique sur toutes les pages
+    ============================================= -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -21,14 +24,11 @@
                         <li><a href="index.html" class="nav-link">Accueil</a></li>
                         <li><a href="cahier-des-charges.html" class="nav-link active">Cahier des charges</a></li>
                         <li><a href="comparatif.html" class="nav-link">Comparatif</a></li>
-                        <li><a href="analyse.html" class="nav-link">Analyse</a></li>
                         <li><a href="recommandation.html" class="nav-link">Recommandation</a></li>
                     </ul>
                 </nav>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
@@ -46,83 +46,67 @@
                     <span>Cahier des charges</span>
                 </nav>
                 <h1>Cahier des charges</h1>
-                <p class="page-subtitle">Exigences fonctionnelles et techniques pour l'application de gestion de stock</p>
+                <p class="page-subtitle">Expression des besoins pour une solution de gestion des consommables informatiques</p>
             </div>
         </section>
 
         <!-- ============================================
-             SOMMAIRE RAPIDE
+             SOMMAIRE INTERACTIF
         ============================================= -->
         <section class="section section-toc">
             <div class="container">
                 <div class="toc-card">
-                    <h2>Sommaire</h2>
+                    <h2>📑 Sommaire</h2>
                     <ul class="toc-list">
-                        <li><a href="#securite">1. Sécurité des données</a></li>
-                        <li><a href="#disponibilite">2. Disponibilité</a></li>
-                        <li><a href="#fonctionnalites">3. Fonctionnalités attendues</a></li>
-                        <li><a href="#tracabilite">4. Traçabilité et audit</a></li>
-                        <li><a href="#export">5. Export et exploitation des données</a></li>
+                        <li><a href="#contexte">1. Contexte du projet</a></li>
+                        <li><a href="#objectifs">2. Objectifs</a></li>
+                        <li><a href="#problemes">3. Problèmes actuels</a></li>
+                        <li><a href="#environnement">4. Environnement technique</a></li>
+                        <li><a href="#exigences">5. Exigences fonctionnelles</a></li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- ============================================
-             SECTION 1 : SÉCURITÉ DES DONNÉES
-             Modifier les exigences de sécurité ici
+             1. CONTEXTE DU PROJET
+             Présentation générale du besoin
         ============================================= -->
-        <section class="section" id="securite">
+        <section class="section" id="contexte">
             <div class="container">
                 <div class="requirement-block">
                     <div class="requirement-header">
                         <div class="requirement-number">01</div>
                         <div class="requirement-title">
-                            <h2>Sécurité des données</h2>
-                            <p>Protection, confidentialité et conformité</p>
+                            <h2>Contexte du projet</h2>
+                            <p>Cadre et origine du besoin</p>
                         </div>
                     </div>
                     <div class="requirement-content">
-                        <div class="requirement-grid">
-                            <div class="requirement-item">
-                                <div class="requirement-icon">🔒</div>
-                                <h3>Intégrité des données</h3>
-                                <p>Les données doivent être protégées contre toute altération, aussi bien <strong>au repos</strong> (stockage) qu'<strong>en transit</strong> (communication réseau).</p>
-                                <ul class="requirement-details">
-                                    <li>Chiffrement des données stockées</li>
-                                    <li>Protocole HTTPS obligatoire</li>
-                                    <li>Contrôle de cohérence des données</li>
-                                </ul>
+                        <div class="context-intro">
+                            <p class="lead-text">La <strong>Direction des Systèmes d'Information</strong> souhaite moderniser la gestion des <strong>consommables et accessoires informatiques</strong> (câbles, périphériques, fournitures, pièces de rechange) en déployant une solution mobile adaptée aux opérations terrain.</p>
+                        </div>
+                        <div class="context-details">
+                            <div class="context-item">
+                                <div class="context-icon">🏢</div>
+                                <div class="context-text">
+                                    <h4>Périmètre</h4>
+                                    <p>Gestion des stocks de consommables informatiques pour l'ensemble des sites de l'entreprise.</p>
+                                </div>
                             </div>
-                            <div class="requirement-item">
-                                <div class="requirement-icon">🔐</div>
-                                <h3>Confidentialité</h3>
-                                <p>L'accès aux données doit être <strong>restreint</strong> aux utilisateurs autorisés avec un système d'authentification robuste.</p>
-                                <ul class="requirement-details">
-                                    <li>Authentification utilisateur obligatoire</li>
-                                    <li>Gestion des droits d'accès</li>
-                                    <li>Chiffrement des données sensibles</li>
-                                </ul>
+                            <div class="context-item">
+                                <div class="context-icon">👥</div>
+                                <div class="context-text">
+                                    <h4>Utilisateurs cibles</h4>
+                                    <p>Techniciens IT, magasiniers, responsables stocks (équipe DSI).</p>
+                                </div>
                             </div>
-                            <div class="requirement-item">
-                                <div class="requirement-icon">⚖️</div>
-                                <h3>Conformité RGPD</h3>
-                                <p>L'application doit respecter le <strong>Règlement Général sur la Protection des Données</strong> pour tout traitement d'informations personnelles.</p>
-                                <ul class="requirement-details">
-                                    <li>Minimisation des données collectées</li>
-                                    <li>Droit d'accès et de rectification</li>
-                                    <li>Politique de conservation définie</li>
-                                </ul>
-                            </div>
-                            <div class="requirement-item">
-                                <div class="requirement-icon">🛡️</div>
-                                <h3>Protection contre les menaces</h3>
-                                <p>L'infrastructure doit être protégée contre la <strong>perte de données</strong> et les <strong>cyberattaques</strong>.</p>
-                                <ul class="requirement-details">
-                                    <li>Sauvegardes automatiques régulières</li>
-                                    <li>Plan de reprise d'activité (PRA)</li>
-                                    <li>Protection anti-malware</li>
-                                </ul>
+                            <div class="context-item">
+                                <div class="context-icon">📅</div>
+                                <div class="context-text">
+                                    <h4>Échéance souhaitée</h4>
+                                    <p>Mise en production souhaitée au <strong>S1 2024</strong>.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,45 +115,50 @@
         </section>
 
         <!-- ============================================
-             SECTION 2 : DISPONIBILITÉ
-             Exigences d'hébergement et d'accès
+             2. OBJECTIFS
+             Résultats attendus du projet
         ============================================= -->
-        <section class="section section-alt" id="disponibilite">
+        <section class="section section-alt" id="objectifs">
             <div class="container">
                 <div class="requirement-block">
                     <div class="requirement-header">
                         <div class="requirement-number">02</div>
                         <div class="requirement-title">
-                            <h2>Disponibilité</h2>
-                            <p>Accessibilité et résilience du système</p>
+                            <h2>Objectifs du projet</h2>
+                            <p>Résultats attendus et bénéfices</p>
                         </div>
                     </div>
                     <div class="requirement-content">
-                        <div class="availability-grid">
-                            <div class="availability-card critical">
-                                <div class="availability-icon">❌</div>
-                                <h3>Ce qui est exclu</h3>
-                                <p>Les données <strong>ne doivent pas</strong> être stockées uniquement sur le terminal mobile.</p>
-                                <div class="availability-reason">
-                                    <strong>Risques :</strong> Perte, vol, panne du terminal = perte totale des données
-                                </div>
+                        <div class="objectives-grid">
+                            <div class="objective-card primary">
+                                <div class="objective-icon">🎯</div>
+                                <h3>Objectif principal</h3>
+                                <p>Disposer d'un <strong>outil fiable et mobile</strong> pour suivre en temps réel les entrées et sorties de stock de consommables IT.</p>
                             </div>
-                            <div class="availability-card required">
-                                <div class="availability-icon">✅</div>
-                                <h3>Ce qui est requis</h3>
-                                <ul>
-                                    <li><strong>Hébergement cloud</strong> ou base de données SQL centralisée</li>
-                                    <li><strong>Accès permanent</strong> aux données via réseau</li>
-                                    <li><strong>Synchronisation</strong> temps réel ou quasi temps réel</li>
-                                    <li><strong>Haute disponibilité</strong> (SLA minimum 99%)</li>
-                                </ul>
+                            <div class="objective-card">
+                                <div class="objective-icon">⚡</div>
+                                <h3>Gain de productivité</h3>
+                                <p>Réduire le temps de saisie et éliminer les erreurs liées aux inventaires manuels sur papier.</p>
+                            </div>
+                            <div class="objective-card">
+                                <div class="objective-icon">📊</div>
+                                <h3>Visibilité améliorée</h3>
+                                <p>Avoir une vision claire et actualisée des niveaux de stock pour anticiper les ruptures.</p>
+                            </div>
+                            <div class="objective-card">
+                                <div class="objective-icon">🔒</div>
+                                <h3>Conformité & Sécurité</h3>
+                                <p>Garantir la traçabilité des mouvements et la conformité RGPD des données.</p>
                             </div>
                         </div>
-                        <div class="availability-note">
-                            <div class="note-icon">💡</div>
-                            <div class="note-content">
-                                <strong>Mode hors-ligne (optionnel) :</strong> Une capacité de fonctionnement dégradé en mode hors-ligne avec synchronisation ultérieure serait un plus, mais n'est pas obligatoire.
-                            </div>
+                        <div class="benefits-summary">
+                            <h4>Bénéfices attendus</h4>
+                            <ul class="benefits-list">
+                                <li>✅ Réduction des écarts d'inventaire</li>
+                                <li>✅ Amélioration de la réactivité face aux besoins terrain</li>
+                                <li>✅ Optimisation des commandes fournisseurs</li>
+                                <li>✅ Traçabilité complète pour audits</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -177,88 +166,62 @@
         </section>
 
         <!-- ============================================
-             SECTION 3 : FONCTIONNALITÉS ATTENDUES
-             Liste des fonctions de gestion de stock
+             3. PROBLÈMES ACTUELS
+             Situation à améliorer
         ============================================= -->
-        <section class="section" id="fonctionnalites">
+        <section class="section" id="problemes">
             <div class="container">
                 <div class="requirement-block">
                     <div class="requirement-header">
                         <div class="requirement-number">03</div>
                         <div class="requirement-title">
-                            <h2>Fonctionnalités attendues</h2>
-                            <p>Gestion des stocks et des mouvements</p>
+                            <h2>Problèmes actuels</h2>
+                            <p>Difficultés rencontrées avec le système existant</p>
                         </div>
                     </div>
                     <div class="requirement-content">
-                        <div class="features-container">
-                            <div class="feature-category">
-                                <h3>📥 Gestion des entrées</h3>
-                                <ul class="feature-list">
-                                    <li>
-                                        <span class="feature-name">Réception de marchandises</span>
-                                        <span class="feature-desc">Enregistrement des nouvelles entrées en stock</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Scan code-barres / QR</span>
-                                        <span class="feature-desc">Identification rapide des articles via TC22</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Saisie des quantités</span>
-                                        <span class="feature-desc">Interface optimisée pour saisie tactile rapide</span>
-                                    </li>
-                                </ul>
+                        <div class="problems-grid">
+                            <div class="problem-item critical">
+                                <div class="problem-icon">❌</div>
+                                <div class="problem-content">
+                                    <h4>Erreurs d'inventaire fréquentes</h4>
+                                    <p>Les saisies manuelles sur fichiers Excel génèrent des incohérences entre stock physique et stock théorique.</p>
+                                </div>
                             </div>
-                            <div class="feature-category">
-                                <h3>📤 Gestion des sorties</h3>
-                                <ul class="feature-list">
-                                    <li>
-                                        <span class="feature-name">Sortie de stock</span>
-                                        <span class="feature-desc">Enregistrement des prélèvements</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Affectation utilisateur</span>
-                                        <span class="feature-desc">Attribution optionnelle à un destinataire</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Motif de sortie</span>
-                                        <span class="feature-desc">Classification du type de mouvement</span>
-                                    </li>
-                                </ul>
+                            <div class="problem-item critical">
+                                <div class="problem-icon">❌</div>
+                                <div class="problem-content">
+                                    <h4>Manque de traçabilité</h4>
+                                    <p>Impossible de savoir qui a prélevé quoi et quand. Pas d'historique fiable des mouvements.</p>
+                                </div>
                             </div>
-                            <div class="feature-category">
-                                <h3>⚙️ Paramétrage</h3>
-                                <ul class="feature-list">
-                                    <li>
-                                        <span class="feature-name">Stock minimum configurable</span>
-                                        <span class="feature-desc">Seuil d'alerte par article</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Alertes de réapprovisionnement</span>
-                                        <span class="feature-desc">Notification lorsque seuil atteint</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Catégorisation</span>
-                                        <span class="feature-desc">Organisation par familles d'articles</span>
-                                    </li>
-                                </ul>
+                            <div class="problem-item warning">
+                                <div class="problem-icon">⚠️</div>
+                                <div class="problem-content">
+                                    <h4>Saisie terrain non optimisée</h4>
+                                    <p>Les techniciens doivent noter sur papier puis ressaisir au bureau, source d'erreurs et perte de temps.</p>
+                                </div>
                             </div>
-                            <div class="feature-category">
-                                <h3>📱 Interface mobile</h3>
-                                <ul class="feature-list">
-                                    <li>
-                                        <span class="feature-name">Saisie terrain optimisée</span>
-                                        <span class="feature-desc">Ergonomie adaptée au TC22</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Navigation intuitive</span>
-                                        <span class="feature-desc">Accès rapide aux fonctions principales</span>
-                                    </li>
-                                    <li>
-                                        <span class="feature-name">Recherche rapide</span>
-                                        <span class="feature-desc">Filtres et recherche textuelle</span>
-                                    </li>
-                                </ul>
+                            <div class="problem-item warning">
+                                <div class="problem-icon">⚠️</div>
+                                <div class="problem-content">
+                                    <h4>Risques de rupture de stock</h4>
+                                    <p>Absence d'alertes automatiques, découverte des ruptures lors des interventions urgentes.</p>
+                                </div>
+                            </div>
+                            <div class="problem-item">
+                                <div class="problem-icon">⚠️</div>
+                                <div class="problem-content">
+                                    <h4>Temps de traitement élevé</h4>
+                                    <p>Inventaires chronophages, consolidation manuelle des données de plusieurs fichiers.</p>
+                                </div>
+                            </div>
+                            <div class="problem-item">
+                                <div class="problem-icon">⚠️</div>
+                                <div class="problem-content">
+                                    <h4>Reporting limité</h4>
+                                    <p>Difficulté à produire des états de stock fiables, pas d'indicateurs de consommation.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,68 +230,67 @@
         </section>
 
         <!-- ============================================
-             SECTION 4 : TRAÇABILITÉ ET AUDIT
-             Exigences de journalisation
+             4. ENVIRONNEMENT TECHNIQUE
+             Contraintes matérielles et logicielles
         ============================================= -->
-        <section class="section section-alt" id="tracabilite">
+        <section class="section section-alt" id="environnement">
             <div class="container">
                 <div class="requirement-block">
                     <div class="requirement-header">
                         <div class="requirement-number">04</div>
                         <div class="requirement-title">
-                            <h2>Traçabilité et audit</h2>
-                            <p>Historique et journalisation des actions</p>
+                            <h2>Environnement technique</h2>
+                            <p>Contraintes matérielles et logicielles</p>
                         </div>
                     </div>
                     <div class="requirement-content">
-                        <div class="traceability-grid">
-                            <div class="trace-card">
-                                <div class="trace-icon">📜</div>
-                                <h3>Historique des mouvements</h3>
-                                <p>Chaque entrée et sortie de stock doit être <strong>horodatée</strong> et consultable dans un historique complet.</p>
-                                <div class="trace-details">
-                                    <span class="trace-tag">Date/Heure</span>
-                                    <span class="trace-tag">Type mouvement</span>
-                                    <span class="trace-tag">Quantité</span>
-                                    <span class="trace-tag">Article</span>
+                        <div class="tech-environment">
+                            <div class="tech-device-card">
+                                <div class="device-visual">
+                                    <div class="device-placeholder">
+                                        <span class="device-icon">📱</span>
+                                        <span class="device-name">Zebra TC22</span>
+                                    </div>
+                                </div>
+                                <div class="device-info">
+                                    <h3>Terminal mobile imposé</h3>
+                                    <p class="device-tagline">L'application doit être compatible avec le terminal <strong>Zebra TC22</strong> déjà déployé.</p>
+                                    <div class="device-specs">
+                                        <div class="spec-item">
+                                            <span class="spec-label">Système</span>
+                                            <span class="spec-value">Android 13</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-label">Écran</span>
+                                            <span class="spec-value">5.5" tactile</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-label">Scanner</span>
+                                            <span class="spec-value">Code-barres intégré</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-label">Connectivité</span>
+                                            <span class="spec-value">Wi-Fi / 4G LTE</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-label">Usage</span>
+                                            <span class="spec-value">Environnement professionnel</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-label">Robustesse</span>
+                                            <span class="spec-value">IP68 / MIL-STD</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="trace-card">
-                                <div class="trace-icon">👤</div>
-                                <h3>Identification utilisateur</h3>
-                                <p>Chaque action doit être associée à l'<strong>utilisateur</strong> qui l'a effectuée (nom, identifiant).</p>
-                                <div class="trace-details">
-                                    <span class="trace-tag">Identifiant</span>
-                                    <span class="trace-tag">Nom</span>
-                                    <span class="trace-tag">Rôle</span>
-                                </div>
-                            </div>
-                            <div class="trace-card">
-                                <div class="trace-icon">📝</div>
-                                <h3>Journalisation des modifications</h3>
-                                <p>En cas de modification d'une donnée, le système doit conserver l'<strong>état avant</strong> et l'<strong>état après</strong> la modification.</p>
-                                <div class="trace-details">
-                                    <span class="trace-tag">Valeur avant</span>
-                                    <span class="trace-tag">Valeur après</span>
-                                    <span class="trace-tag">Motif</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="audit-importance">
-                            <h4>Importance pour l'entreprise</h4>
-                            <div class="importance-items">
-                                <div class="importance-item">
-                                    <span class="importance-icon">🔍</span>
-                                    <span>Investigation en cas d'écart d'inventaire</span>
-                                </div>
-                                <div class="importance-item">
-                                    <span class="importance-icon">📊</span>
-                                    <span>Analyse des flux pour optimisation</span>
-                                </div>
-                                <div class="importance-item">
-                                    <span class="importance-icon">✅</span>
-                                    <span>Conformité aux audits internes/externes</span>
-                                </div>
+                            <div class="tech-constraints">
+                                <h4>Contraintes techniques</h4>
+                                <ul>
+                                    <li><strong>Application Android</strong> native ou web responsive obligatoire</li>
+                                    <li><strong>Compatibilité scanner</strong> codes-barres intégré au terminal</li>
+                                    <li><strong>Fonctionnement réseau</strong> via Wi-Fi entreprise ou 4G</li>
+                                    <li><strong>Ergonomie terrain</strong> : interface adaptée à une utilisation debout, une main</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -337,56 +299,186 @@
         </section>
 
         <!-- ============================================
-             SECTION 5 : EXPORT ET EXPLOITATION
-             Fonctionnalités d'export des données
+             5. EXIGENCES FONCTIONNELLES
+             Critères détaillés
         ============================================= -->
-        <section class="section" id="export">
+        <section class="section" id="exigences">
             <div class="container">
                 <div class="requirement-block">
                     <div class="requirement-header">
                         <div class="requirement-number">05</div>
                         <div class="requirement-title">
-                            <h2>Export et exploitation des données</h2>
-                            <p>Extraction et analyse des informations</p>
+                            <h2>Exigences fonctionnelles</h2>
+                            <p>Critères obligatoires pour la solution</p>
                         </div>
                     </div>
                     <div class="requirement-content">
-                        <div class="export-main">
-                            <div class="export-primary">
-                                <div class="export-icon-large">📊</div>
-                                <h3>Export CSV obligatoire</h3>
-                                <p>L'application doit permettre l'<strong>export de l'inventaire complet</strong> au format CSV, compatible avec Microsoft Excel et autres tableurs.</p>
+                        <!-- Exigence 5.1 : Sécurité -->
+                        <div class="exigence-section">
+                            <div class="exigence-header">
+                                <span class="exigence-icon">🔒</span>
+                                <h3>5.1 Sécurité des données</h3>
                             </div>
-                            <div class="export-requirements">
-                                <h4>Données à inclure dans l'export :</h4>
-                                <ul>
-                                    <li>Référence article</li>
-                                    <li>Désignation</li>
-                                    <li>Quantité en stock</li>
-                                    <li>Stock minimum</li>
-                                    <li>Catégorie</li>
-                                    <li>Date dernier mouvement</li>
-                                </ul>
+                            <div class="exigence-grid">
+                                <div class="exigence-item">
+                                    <h4>Intégrité des données</h4>
+                                    <ul>
+                                        <li>Chiffrement des données stockées</li>
+                                        <li>Protocole HTTPS obligatoire</li>
+                                        <li>Contrôle de cohérence</li>
+                                    </ul>
+                                </div>
+                                <div class="exigence-item">
+                                    <h4>Confidentialité</h4>
+                                    <ul>
+                                        <li>Authentification utilisateur obligatoire</li>
+                                        <li>Gestion des droits d'accès</li>
+                                        <li>Chiffrement des données sensibles</li>
+                                    </ul>
+                                </div>
+                                <div class="exigence-item">
+                                    <h4>Conformité RGPD</h4>
+                                    <ul>
+                                        <li>Hébergement en Europe <strong>(obligatoire)</strong></li>
+                                        <li>Droit d'accès et de rectification</li>
+                                        <li>Politique de conservation définie</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div class="export-options">
-                            <h4>Fonctionnalités complémentaires souhaitées :</h4>
-                            <div class="export-options-grid">
-                                <div class="export-option">
-                                    <span class="option-status optional">Optionnel</span>
-                                    <span class="option-name">Export PDF pour rapports</span>
+
+                        <!-- Exigence 5.2 : Disponibilité -->
+                        <div class="exigence-section">
+                            <div class="exigence-header">
+                                <span class="exigence-icon">☁️</span>
+                                <h3>5.2 Disponibilité & Hébergement</h3>
+                            </div>
+                            <div class="availability-requirements">
+                                <div class="requirement-excluded">
+                                    <span class="badge-excluded">❌ Exclu</span>
+                                    <p>Stockage local uniquement sur terminal (risque de perte totale)</p>
                                 </div>
-                                <div class="export-option">
-                                    <span class="option-status optional">Optionnel</span>
-                                    <span class="option-name">Export historique mouvements</span>
+                                <div class="requirement-required">
+                                    <span class="badge-required">✅ Requis</span>
+                                    <ul>
+                                        <li>Hébergement cloud ou base SQL centralisée</li>
+                                        <li>Accès permanent aux données via réseau</li>
+                                        <li>Synchronisation temps réel ou quasi temps réel</li>
+                                        <li>SLA minimum 99% de disponibilité</li>
+                                    </ul>
                                 </div>
-                                <div class="export-option">
-                                    <span class="option-status optional">Optionnel</span>
-                                    <span class="option-name">Rapports automatiques planifiés</span>
+                            </div>
+                        </div>
+
+                        <!-- Exigence 5.3 : Fonctionnalités -->
+                        <div class="exigence-section">
+                            <div class="exigence-header">
+                                <span class="exigence-icon">📦</span>
+                                <h3>5.3 Fonctionnalités de gestion</h3>
+                            </div>
+                            <div class="features-grid">
+                                <div class="feature-block">
+                                    <h4>📥 Gestion des entrées</h4>
+                                    <ul>
+                                        <li>Réception de marchandises</li>
+                                        <li>Scan code-barres / QR</li>
+                                        <li>Saisie des quantités</li>
+                                    </ul>
                                 </div>
-                                <div class="export-option">
-                                    <span class="option-status optional">Optionnel</span>
-                                    <span class="option-name">Tableaux de bord visuels</span>
+                                <div class="feature-block">
+                                    <h4>📤 Gestion des sorties</h4>
+                                    <ul>
+                                        <li>Sortie de stock</li>
+                                        <li>Affectation utilisateur (optionnel)</li>
+                                        <li>Motif de sortie</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-block">
+                                    <h4>⚙️ Paramétrage</h4>
+                                    <ul>
+                                        <li>Stock minimum configurable</li>
+                                        <li>Alertes de réapprovisionnement</li>
+                                        <li>Catégorisation des articles</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-block">
+                                    <h4>📱 Interface mobile</h4>
+                                    <ul>
+                                        <li>Saisie terrain optimisée</li>
+                                        <li>Navigation intuitive</li>
+                                        <li>Recherche rapide</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exigence 5.4 : Traçabilité -->
+                        <div class="exigence-section">
+                            <div class="exigence-header">
+                                <span class="exigence-icon">📜</span>
+                                <h3>5.4 Traçabilité & Audit</h3>
+                            </div>
+                            <div class="trace-requirements">
+                                <div class="trace-item">
+                                    <h4>Historique des mouvements</h4>
+                                    <p>Chaque entrée/sortie doit être horodatée et consultable.</p>
+                                    <div class="trace-tags">
+                                        <span>Date/Heure</span>
+                                        <span>Type</span>
+                                        <span>Quantité</span>
+                                        <span>Article</span>
+                                    </div>
+                                </div>
+                                <div class="trace-item">
+                                    <h4>Identification utilisateur</h4>
+                                    <p>Chaque action associée à l'utilisateur qui l'a effectuée.</p>
+                                    <div class="trace-tags">
+                                        <span>Identifiant</span>
+                                        <span>Nom</span>
+                                        <span>Rôle</span>
+                                    </div>
+                                </div>
+                                <div class="trace-item">
+                                    <h4>Journal des modifications</h4>
+                                    <p>Conservation de l'état avant/après chaque modification.</p>
+                                    <div class="trace-tags">
+                                        <span>Valeur avant</span>
+                                        <span>Valeur après</span>
+                                        <span>Motif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exigence 5.5 : Export -->
+                        <div class="exigence-section">
+                            <div class="exigence-header">
+                                <span class="exigence-icon">📊</span>
+                                <h3>5.5 Export des données</h3>
+                            </div>
+                            <div class="export-requirements">
+                                <div class="export-mandatory">
+                                    <span class="badge-required">Obligatoire</span>
+                                    <h4>Export CSV</h4>
+                                    <p>Export de l'inventaire complet compatible Excel.</p>
+                                    <ul>
+                                        <li>Référence article</li>
+                                        <li>Désignation</li>
+                                        <li>Quantité en stock</li>
+                                        <li>Stock minimum</li>
+                                        <li>Catégorie</li>
+                                        <li>Date dernier mouvement</li>
+                                    </ul>
+                                </div>
+                                <div class="export-optional">
+                                    <span class="badge-optional">Optionnel</span>
+                                    <h4>Fonctions complémentaires</h4>
+                                    <ul>
+                                        <li>Export PDF pour rapports</li>
+                                        <li>Export historique mouvements</li>
+                                        <li>Rapports automatiques planifiés</li>
+                                        <li>Tableaux de bord visuels</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -405,7 +497,7 @@
                     </a>
                     <a href="comparatif.html" class="page-nav-link next">
                         <span class="page-nav-direction">Suivant →</span>
-                        <span class="page-nav-title">Tableau comparatif</span>
+                        <span class="page-nav-title">Comparatif des solutions</span>
                     </a>
                 </div>
             </div>
