@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cahier des charges complet pour la solution de gestion de stock IT. Contexte, objectifs et exigences fonctionnelles.">
+    <meta name="theme-color" content="#0F172A">
     <title>Cahier des charges | Gestion de stock IT</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -51,10 +52,10 @@
                 <div class="section-header">
                     <span class="section-label">Contexte</span>
                     <h2>Présentation du projet</h2>
-                    <p>Comprendre l'environnement et les enjeux de ce projet.</p>
+                    <p>Comprendre l'environnement et les enjeux de ce projet de gestion de stock.</p>
                 </div>
                 
-                <div class="card-grid card-grid-3">
+                <div class="grid grid-3">
                     <div class="card">
                         <div class="card-icon">🎯</div>
                         <h3>Objectif principal</h3>
@@ -62,13 +63,13 @@
                     </div>
                     
                     <div class="card">
-                        <div class="card-icon">📊</div>
+                        <div class="card-icon highlight">📊</div>
                         <h3>Périmètre fonctionnel</h3>
                         <p>Gestion des consommables IT (cartouches, câbles, accessoires), suivi des mouvements de stock, traçabilité des opérations et export des données.</p>
                     </div>
                     
                     <div class="card">
-                        <div class="card-icon">👥</div>
+                        <div class="card-icon success">👥</div>
                         <h3>Utilisateurs cibles</h3>
                         <p>Opérateurs terrain équipés de terminaux mobiles, responsables logistique et gestionnaires de stock du service informatique.</p>
                     </div>
@@ -77,7 +78,7 @@
         </section>
 
         <!-- PROBLÈMES ACTUELS -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Diagnostic</span>
@@ -85,36 +86,36 @@
                     <p>Les difficultés rencontrées dans la gestion actuelle des consommables.</p>
                 </div>
                 
-                <div class="card-grid">
+                <div class="grid grid-2">
                     <div class="card card-feature">
-                        <div class="card-icon" style="background: var(--danger-light);">⚠️</div>
+                        <div class="card-icon danger">⚠️</div>
                         <div>
                             <h4>Erreurs d'inventaire fréquentes</h4>
-                            <p>Écarts entre le stock physique et le stock théorique, entraînant des ruptures non anticipées.</p>
+                            <p>Écarts entre le stock physique et le stock théorique, entraînant des ruptures non anticipées et des commandes d'urgence coûteuses.</p>
                         </div>
                     </div>
                     
                     <div class="card card-feature">
-                        <div class="card-icon" style="background: var(--danger-light);">📋</div>
+                        <div class="card-icon warning">📋</div>
                         <div>
                             <h4>Manque de traçabilité</h4>
-                            <p>Impossibilité de retracer l'historique des mouvements et d'identifier les responsables.</p>
+                            <p>Impossibilité de retracer l'historique des mouvements et d'identifier les responsables lors de problèmes d'inventaire.</p>
                         </div>
                     </div>
                     
                     <div class="card card-feature">
-                        <div class="card-icon" style="background: var(--warning-light);">📱</div>
+                        <div class="card-icon">📱</div>
                         <div>
                             <h4>Saisie non optimisée</h4>
-                            <p>Processus de saisie manuel, chronophage et source d'erreurs de frappe.</p>
+                            <p>Processus de saisie manuel, chronophage et source d'erreurs de frappe lors de la gestion du stock.</p>
                         </div>
                     </div>
                     
                     <div class="card card-feature">
-                        <div class="card-icon" style="background: var(--warning-light);">📦</div>
+                        <div class="card-icon highlight">📦</div>
                         <div>
                             <h4>Risques de rupture</h4>
-                            <p>Alertes de réapprovisionnement tardives ou inexistantes, impactant la continuité.</p>
+                            <p>Alertes de réapprovisionnement tardives ou inexistantes, impactant la continuité des opérations.</p>
                         </div>
                     </div>
                 </div>
@@ -130,34 +131,34 @@
                     <p>La solution doit être compatible avec l'équipement existant.</p>
                 </div>
                 
-                <div class="card-grid card-grid-2">
+                <div class="grid grid-2">
                     <!-- Terminal Zebra -->
                     <div class="card" style="padding: var(--space-10);">
                         <div style="display: flex; gap: var(--space-8); align-items: center;">
-                            <div style="width: 100px; height: 160px; background: var(--gradient-hero); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); color: white; flex-shrink: 0;">
+                            <div style="width: 100px; height: 160px; background: var(--gradient-accent); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); color: white; flex-shrink: 0; box-shadow: var(--shadow-glow-accent);">
                                 <span style="font-size: 2.5rem;">📱</span>
-                                <span style="font-size: var(--font-xs); font-weight: 700;">TC22</span>
+                                <span style="font-size: var(--text-xs); font-weight: 700;">TC22</span>
                             </div>
                             <div>
                                 <h3 style="margin-bottom: var(--space-2);">Zebra TC22</h3>
-                                <p style="font-size: var(--font-sm); color: var(--gray-500); margin-bottom: var(--space-4);">Terminal mobile professionnel durci</p>
+                                <p style="font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--space-5);">Terminal mobile professionnel durci</p>
                                 
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
-                                    <div style="background: var(--gray-50); padding: var(--space-3); border-radius: var(--radius-md);">
-                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 0.05em;">Système</div>
-                                        <div style="font-size: var(--font-sm); font-weight: 600;">Android 13</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Système</div>
+                                        <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Android 13</div>
                                     </div>
-                                    <div style="background: var(--gray-50); padding: var(--space-3); border-radius: var(--radius-md);">
-                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 0.05em;">Scanner</div>
-                                        <div style="font-size: var(--font-sm); font-weight: 600;">Code-barres</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Scanner</div>
+                                        <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Code-barres</div>
                                     </div>
-                                    <div style="background: var(--gray-50); padding: var(--space-3); border-radius: var(--radius-md);">
-                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 0.05em;">Écran</div>
-                                        <div style="font-size: var(--font-sm); font-weight: 600;">5.5" tactile</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Écran</div>
+                                        <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">5.5" tactile</div>
                                     </div>
-                                    <div style="background: var(--gray-50); padding: var(--space-3); border-radius: var(--radius-md);">
-                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 0.05em;">Réseau</div>
-                                        <div style="font-size: var(--font-sm); font-weight: 600;">Wi-Fi / 4G</div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                                        <div style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Réseau</div>
+                                        <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">Wi-Fi / 4G</div>
                                     </div>
                                 </div>
                             </div>
@@ -166,40 +167,40 @@
                     
                     <!-- Contraintes -->
                     <div class="card" style="padding: var(--space-10);">
-                        <h3 style="margin-bottom: var(--space-5);">Contraintes techniques</h3>
-                        <ul style="display: grid; gap: var(--space-3);">
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                        <h3 style="margin-bottom: var(--space-6);">Contraintes techniques</h3>
+                        <div style="display: grid; gap: var(--space-4);">
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Compatible Android 13 minimum
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Interface adaptée aux petits écrans tactiles
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Support du scanner code-barres intégré
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Fonctionnement en mode connecté (Wi-Fi/4G)
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Authentification par utilisateur
-                            </li>
-                            <li style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
-                                <span style="color: var(--primary-600);">•</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-secondary);">
+                                <span style="width: 24px; height: 24px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); font-size: 12px;">✓</span>
                                 Installation via Play Store ou MDM
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- EXIGENCES FONCTIONNELLES -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Exigences</span>
@@ -209,11 +210,11 @@
                 
                 <!-- Sécurité & RGPD -->
                 <div style="margin-bottom: var(--space-12);">
-                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--font-xl);">
-                        <span style="background: var(--primary-50); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">🔐</span>
+                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--text-xl);">
+                        <span style="background: rgba(16, 185, 129, 0.15); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">🔐</span>
                         Sécurité & Conformité RGPD
                     </h3>
-                    <div class="card-grid card-grid-4">
+                    <div class="grid grid-4">
                         <div class="card">
                             <h4>Hébergement UE</h4>
                             <p>Serveurs impérativement en Union Européenne. Aucun transfert hors UE.</p>
@@ -235,11 +236,11 @@
                 
                 <!-- Traçabilité -->
                 <div style="margin-bottom: var(--space-12);">
-                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--font-xl);">
-                        <span style="background: var(--primary-50); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📜</span>
+                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--text-xl);">
+                        <span style="background: rgba(6, 182, 212, 0.15); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📜</span>
                         Traçabilité & Audit
                     </h3>
-                    <div class="card-grid card-grid-3">
+                    <div class="grid grid-3">
                         <div class="card">
                             <h4>Historique complet</h4>
                             <p>Enregistrement de tous les mouvements : entrées, sorties, transferts, ajustements.</p>
@@ -257,18 +258,18 @@
                 
                 <!-- Export -->
                 <div style="margin-bottom: var(--space-12);">
-                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--font-xl);">
-                        <span style="background: var(--primary-50); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📤</span>
+                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--text-xl);">
+                        <span style="background: rgba(139, 92, 246, 0.15); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📤</span>
                         Export des données
                     </h3>
-                    <div class="card-grid card-grid-2">
-                        <div class="card" style="border: 2px solid var(--success); background: linear-gradient(180deg, var(--success-light) 0%, var(--white) 100%);">
-                            <span style="display: inline-block; background: var(--success); color: var(--white); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: var(--space-4);">OBLIGATOIRE</span>
+                    <div class="grid grid-2">
+                        <div class="card solution-card recommended" style="padding: var(--space-8);">
+                            <span style="display: inline-block; background: var(--gradient-accent); color: white; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.1em;">Obligatoire</span>
                             <h4>Export CSV</h4>
                             <p>Extraction des données au format CSV compatible Excel : liste des articles, historique des mouvements, état des stocks.</p>
                         </div>
                         <div class="card">
-                            <span style="display: inline-block; background: var(--gray-300); color: var(--gray-700); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: var(--space-4);">OPTIONNEL</span>
+                            <span style="display: inline-block; background: rgba(255,255,255,0.1); color: var(--text-muted); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.1em;">Optionnel</span>
                             <h4>Intégrations</h4>
                             <p>Connexions avec d'autres systèmes (ERP, CMDB) via API REST ou webhooks pour alertes.</p>
                         </div>
@@ -277,11 +278,11 @@
                 
                 <!-- Mobilité -->
                 <div>
-                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--font-xl);">
-                        <span style="background: var(--primary-50); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📱</span>
+                    <h3 style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); font-size: var(--text-xl);">
+                        <span style="background: rgba(245, 158, 11, 0.15); width: 40px; height: 40px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">📱</span>
                         Mobilité & Ergonomie terrain
                     </h3>
-                    <div class="card-grid card-grid-4">
+                    <div class="grid grid-4">
                         <div class="card">
                             <h4>App native</h4>
                             <p>Interface Android optimisée pour les terminaux Zebra et scanner intégré.</p>
@@ -296,7 +297,7 @@
                         </div>
                         <div class="card">
                             <h4>Performances</h4>
-                            <p>Temps de réponse {"<"} 2 secondes. Fonctionnement fluide en conditions réelles.</p>
+                            <p>Temps de réponse &lt; 2 secondes. Fonctionnement fluide en conditions réelles.</p>
                         </div>
                     </div>
                 </div>
@@ -312,24 +313,24 @@
                     <p>Les gains escomptés suite à la mise en place de la solution.</p>
                 </div>
                 
-                <div class="card-grid card-grid-4">
+                <div class="grid grid-4">
                     <div class="card" style="text-align: center;">
-                        <div class="card-icon accent" style="margin: 0 auto var(--space-4);">⏱️</div>
+                        <div class="card-icon highlight" style="margin: 0 auto var(--space-4);">⏱️</div>
                         <h4>Gain de temps</h4>
                         <p>Saisie terrain accélérée grâce au scan</p>
                     </div>
                     <div class="card" style="text-align: center;">
-                        <div class="card-icon accent" style="margin: 0 auto var(--space-4);">✓</div>
+                        <div class="card-icon success" style="margin: 0 auto var(--space-4);">✓</div>
                         <h4>Fiabilité</h4>
                         <p>Réduction des erreurs de saisie manuelle</p>
                     </div>
                     <div class="card" style="text-align: center;">
-                        <div class="card-icon accent" style="margin: 0 auto var(--space-4);">📊</div>
+                        <div class="card-icon" style="margin: 0 auto var(--space-4);">📊</div>
                         <h4>Visibilité</h4>
                         <p>État des stocks en temps réel</p>
                     </div>
                     <div class="card" style="text-align: center;">
-                        <div class="card-icon accent" style="margin: 0 auto var(--space-4);">🔒</div>
+                        <div class="card-icon warning" style="margin: 0 auto var(--space-4);">🔒</div>
                         <h4>Conformité</h4>
                         <p>Traçabilité complète et RGPD</p>
                     </div>
@@ -338,7 +339,7 @@
         </section>
 
         <!-- NAVIGATION -->
-        <section class="section section-alt">
+        <section class="section">
             <div class="container">
                 <div class="page-nav">
                     <a href="index.html" class="page-nav-link">
