@@ -9,14 +9,14 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="header-inner">
                 <a href="index.html" class="logo">
-                    <div class="logo-mark">TC</div>
+                    <div class="logo-icon">TC</div>
                     <span>GestStock IT</span>
                 </a>
-                <nav class="nav" id="main-nav">
+                <nav class="nav" id="nav">
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link">Accueil</a></li>
                         <li><a href="cahier-des-charges.html" class="nav-link">Cahier des charges</a></li>
@@ -24,8 +24,8 @@
                         <li><a href="recommandation.html" class="nav-link">Recommandation</a></li>
                     </ul>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-                    <span></span><span></span><span></span>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <div class="menu-icon"><span></span><span></span><span></span></div>
                 </button>
             </div>
         </div>
@@ -41,11 +41,11 @@
                     <span>Comparatif</span>
                 </nav>
                 <h1>Comparatif des solutions</h1>
-                <p class="subtitle">Analyse de 8 applications de gestion de stock selon les critères du cahier des charges</p>
+                <p class="lead">Analyse de 8 applications de gestion de stock selon les critères du cahier des charges</p>
             </div>
         </section>
 
-        <!-- TABLEAU COMPARATIF -->
+        <!-- TABLEAU EXECUTIVE -->
         <section class="section">
             <div class="container">
                 <div class="table-container">
@@ -54,7 +54,7 @@
                         <p>Vue d'ensemble des solutions évaluées. La ligne verte indique la solution recommandée.</p>
                     </div>
                     
-                    <div class="table-wrapper">
+                    <div class="table-scroll">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -72,84 +72,84 @@
                                 <tr class="highlight">
                                     <td>
                                         <span class="cell-name">Timly</span>
-                                        <span class="cell-badge best">★</span>
+                                        <span class="cell-badge">★</span>
                                     </td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-status recommended">Recommandée</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="status-badge status-recommended">Recommandée</span></td>
                                 </tr>
                                 <!-- Hector -->
                                 <tr>
                                     <td><span class="cell-name">Hector</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-status suitable">Alternative</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="status-badge status-suitable">Alternative</span></td>
                                 </tr>
                                 <!-- K-Inventory -->
                                 <tr>
                                     <td><span class="cell-name">K-Inventory</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-status suitable">Économique</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="status-badge status-suitable">Économique</span></td>
                                 </tr>
                                 <!-- Sortly -->
                                 <tr>
                                     <td><span class="cell-name">Sortly</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon no">✗</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-status limited">RGPD limité</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-no">✗</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="status-badge status-limited">RGPD limité</span></td>
                                 </tr>
-                                <!-- Stock and Inventory Simple -->
+                                <!-- Stock Simple -->
                                 <tr>
                                     <td><span class="cell-name">Stock Simple</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-status limited">Basique</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="status-badge status-limited">Basique</span></td>
                                 </tr>
-                                <!-- Assets Management -->
+                                <!-- Assets Mgmt -->
                                 <tr>
                                     <td><span class="cell-name">Assets Mgmt</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-status limited">Limité</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="status-badge status-limited">Limité</span></td>
                                 </tr>
                                 <!-- Mecalux -->
                                 <tr>
                                     <td><span class="cell-name">Mecalux</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon yes">✓</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon partial">◐</span></td>
-                                    <td><span class="cell-icon no">✗</span></td>
-                                    <td><span class="cell-status rejected">Non adapté</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-yes">✓</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-partial">◐</span></td>
+                                    <td><span class="icon-no">✗</span></td>
+                                    <td><span class="status-badge status-rejected">Non adapté</span></td>
                                 </tr>
                                 <!-- Dolibarr -->
                                 <tr>
                                     <td><span class="cell-name">Dolibarr</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-icon unknown">?</span></td>
-                                    <td><span class="cell-status rejected">Accès bloqué</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="icon-unknown">?</span></td>
+                                    <td><span class="status-badge status-rejected">Accès bloqué</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -157,23 +157,23 @@
                     
                     <div class="table-legend">
                         <div class="legend-item">
-                            <span class="cell-icon yes">✓</span> Conforme
+                            <span class="icon-yes">✓</span> Conforme
                         </div>
                         <div class="legend-item">
-                            <span class="cell-icon partial">◐</span> Partiel
+                            <span class="icon-partial">◐</span> Partiel
                         </div>
                         <div class="legend-item">
-                            <span class="cell-icon no">✗</span> Non conforme
+                            <span class="icon-no">✗</span> Non conforme
                         </div>
                         <div class="legend-item">
-                            <span class="cell-icon unknown">?</span> Non évalué
+                            <span class="icon-unknown">?</span> Non évalué
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FICHES DÉTAILLÉES - TOP 3 -->
+        <!-- SOLUTIONS PRÉSÉLECTIONNÉES -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
@@ -182,79 +182,79 @@
                     <p>Fiches détaillées des 3 meilleures solutions identifiées.</p>
                 </div>
                 
-                <div class="cards-grid cards-grid-3">
+                <div class="card-grid card-grid-3">
                     <!-- TIMLY -->
-                    <div class="card card-solution recommended">
+                    <div class="card solution-card recommended">
                         <div class="solution-header">
                             <span class="solution-name">Timly</span>
                             <div class="solution-score">★★★★★</div>
                         </div>
                         
                         <div class="solution-tags">
-                            <span class="solution-tag success">RGPD ✓</span>
-                            <span class="solution-tag success">Mobile ✓</span>
-                            <span class="solution-tag success">Export ✓</span>
+                            <span class="tag tag-success">RGPD ✓</span>
+                            <span class="tag tag-success">Mobile ✓</span>
+                            <span class="tag tag-success">Export ✓</span>
                         </div>
                         
                         <div class="solution-list">
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Application mobile native Android
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Hébergement en Allemagne (UE)
+                                Hébergement Allemagne (UE)
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Traçabilité complète
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Export CSV natif
                             </div>
-                            <div class="solution-list-item con">
+                            <div class="solution-item con">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                 Tarif Entreprise sur demande
                             </div>
                         </div>
                         
-                        <div class="solution-verdict" style="background: var(--color-accent-pale); color: var(--color-accent);">
+                        <div class="solution-verdict">
                             ✓ Solution recommandée — Répond à 100% des critères
                         </div>
                     </div>
                     
                     <!-- HECTOR -->
-                    <div class="card card-solution">
+                    <div class="card solution-card">
                         <div class="solution-header">
                             <span class="solution-name">Hector</span>
                             <div class="solution-score">★★★★☆</div>
                         </div>
                         
                         <div class="solution-tags">
-                            <span class="solution-tag success">RGPD ✓</span>
-                            <span class="solution-tag success">Mobile ✓</span>
-                            <span class="solution-tag warning">UX ◐</span>
+                            <span class="tag tag-success">RGPD ✓</span>
+                            <span class="tag tag-success">Mobile ✓</span>
+                            <span class="tag tag-warning">UX ◐</span>
                         </div>
                         
                         <div class="solution-list">
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Solution française RGPD
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Historique des mouvements
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Export CSV disponible
                             </div>
-                            <div class="solution-list-item con">
+                            <div class="solution-item con">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                 Interface moins intuitive
                             </div>
-                            <div class="solution-list-item con">
+                            <div class="solution-item con">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                 Complexité accrue
                             </div>
@@ -266,36 +266,36 @@
                     </div>
                     
                     <!-- K-INVENTORY -->
-                    <div class="card card-solution">
+                    <div class="card solution-card">
                         <div class="solution-header">
                             <span class="solution-name">K-Inventory</span>
                             <div class="solution-score">★★★☆☆</div>
                         </div>
                         
                         <div class="solution-tags">
-                            <span class="solution-tag warning">RGPD ◐</span>
-                            <span class="solution-tag success">Mobile ✓</span>
-                            <span class="solution-tag success">Prix ✓</span>
+                            <span class="tag tag-warning">RGPD ◐</span>
+                            <span class="tag tag-success">Mobile ✓</span>
+                            <span class="tag tag-success">Prix ✓</span>
                         </div>
                         
                         <div class="solution-list">
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                Tarif compétitif
+                                Tarif très compétitif
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 App Android disponible
                             </div>
-                            <div class="solution-list-item pro">
+                            <div class="solution-item pro">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                                 Export données possible
                             </div>
-                            <div class="solution-list-item con">
+                            <div class="solution-item con">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                 Hébergement hors UE
                             </div>
-                            <div class="solution-list-item con">
+                            <div class="solution-item con">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
                                 Fonctionnalités limitées
                             </div>
@@ -318,26 +318,26 @@
                     <p>Ces solutions ne répondent pas aux critères définis dans le cahier des charges.</p>
                 </div>
                 
-                <div class="cards-grid">
+                <div class="card-grid">
                     <div class="card">
                         <h4>Sortly</h4>
-                        <p class="text-sm text-muted">Hébergement USA uniquement — Non conforme RGPD pour les données sensibles.</p>
+                        <p>Hébergement USA uniquement — Non conforme RGPD pour les données sensibles.</p>
                     </div>
                     <div class="card">
                         <h4>Stock Simple</h4>
-                        <p class="text-sm text-muted">Fonctionnalités trop limitées — Pas d'historique complet des mouvements.</p>
+                        <p>Fonctionnalités trop limitées — Pas d'historique complet des mouvements.</p>
                     </div>
                     <div class="card">
                         <h4>Assets Management</h4>
-                        <p class="text-sm text-muted">Information RGPD insuffisante — Conformité non vérifiable.</p>
+                        <p>Information RGPD insuffisante — Conformité non vérifiable.</p>
                     </div>
                     <div class="card">
                         <h4>Mecalux</h4>
-                        <p class="text-sm text-muted">Orienté logistique lourde — Non adapté aux consommables IT.</p>
+                        <p>Orienté logistique lourde — Non adapté aux consommables IT.</p>
                     </div>
                     <div class="card">
                         <h4>Dolibarr</h4>
-                        <p class="text-sm text-muted">Accès bloqué lors de l'évaluation — Impossible de tester.</p>
+                        <p>Accès bloqué lors de l'évaluation — Impossible de tester.</p>
                     </div>
                 </div>
             </div>
@@ -363,7 +363,7 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-inner">
                 <div class="footer-info">
                     <p><strong>Cahier des charges – Gestion de stock IT</strong></p>
                     <p>Document à usage interne – Direction des Systèmes d'Information</p>

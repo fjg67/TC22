@@ -1,42 +1,64 @@
 /**
  * TC22 - GestStock IT
- * JavaScript pour les micro-interactions et la navigation mobile
+ * JavaScript Premium v4
  * 
- * Fonctionnalités :
- * - Menu mobile (toggle)
- * - Animations au scroll (IntersectionObserver)
- * - Smooth scroll pour les ancres
- * - Survol premium sur les cards
+ * Features:
+ * - Header scroll effect (glassmorphism enhanced)
+ * - Mobile navigation toggle
+ * - Smooth scroll anchors
+ * - Intersection Observer animations
+ * - Card hover tilt effect
+ * - Table row interactions
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     
     // ============================================
-    // MENU MOBILE
+    // HEADER SCROLL EFFECT
+    // Adds 'scrolled' class for enhanced shadow
     // ============================================
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
+    const header = document.getElementById('header');
+    
+    if (header) {
+        const onScroll = () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+        
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // Initial check
+    }
+    
+    // ============================================
+    // MOBILE NAVIGATION
+    // Toggle menu with animation
+    // ============================================
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
     
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', () => {
             nav.classList.toggle('open');
             menuToggle.classList.toggle('active');
             
-            // Empêcher le scroll du body quand le menu est ouvert
+            // Prevent body scroll when menu is open
             document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
         });
         
-        // Fermer le menu quand on clique sur un lien
-        nav.querySelectorAll('.nav-link').forEach(function(link) {
-            link.addEventListener('click', function() {
+        // Close menu on link click
+        nav.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
                 nav.classList.remove('open');
                 menuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             });
         });
         
-        // Fermer le menu avec Escape
-        document.addEventListener('keydown', function(e) {
+        // Close menu on Escape
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && nav.classList.contains('open')) {
                 nav.classList.remove('open');
                 menuToggle.classList.remove('active');
@@ -46,56 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ============================================
-    // ANIMATIONS AU SCROLL
-    // Fade-in progressif des éléments
-    // ============================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observer les éléments à animer
-    const animatedElements = document.querySelectorAll('.card, .option-card, .recommendation-box, .timeline-item, .table-container');
-    animatedElements.forEach(function(el, index) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        el.style.transitionDelay = (index % 6) * 0.1 + 's'; // Décalage progressif
-        observer.observe(el);
-    });
-    
-    // Style pour les éléments visibles
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // ============================================
     // SMOOTH SCROLL
+    // Enhanced scroll for anchor links
     // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href !== '#') {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             }
@@ -103,46 +91,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ============================================
-    // HEADER SCROLL EFFECT
-    // Ajoute une ombre au header lors du scroll
+    // INTERSECTION OBSERVER
+    // Fade-in animations on scroll
     // ============================================
-    const header = document.querySelector('.header');
-    if (header) {
-        let lastScroll = 0;
-        
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 10) {
-                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-            
-            lastScroll = currentScroll;
-        });
-    }
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
+    };
     
-    // ============================================
-    // TABLE ROW HOVER ENHANCEMENT
-    // ============================================
-    const tableRows = document.querySelectorAll('.table tbody tr');
-    tableRows.forEach(function(row) {
-        row.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.005)';
-            this.style.transition = 'all 0.2s ease';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
         });
-        row.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
+    }, observerOptions);
+    
+    // Elements to animate
+    const animatedElements = document.querySelectorAll('.card, .solution-card, .recommendation-box, .timeline-item, .table-container, .hero-card, .hero-stat');
+    
+    animatedElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)`;
+        el.style.transitionDelay = `${(index % 8) * 0.06}s`;
+        observer.observe(el);
     });
     
+    // Add visibility style
+    const style = document.createElement('style');
+    style.textContent = `
+        .is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
     // ============================================
-    // CARD TILT EFFECT (subtil)
+    // CARD TILT EFFECT
+    // Subtle 3D tilt on hover
     // ============================================
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(function(card) {
-        card.addEventListener('mousemove', function(e) {
+    const cards = document.querySelectorAll('.card:not(.solution-card)');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -150,61 +144,106 @@ document.addEventListener('DOMContentLoaded', function() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = (y - centerY) / 50;
-            const rotateY = (centerX - x) / 50;
+            const rotateX = (y - centerY) / 40;
+            const rotateY = (centerX - x) / 40;
             
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
         });
         
-        card.addEventListener('mouseleave', function() {
+        card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
         });
     });
     
     // ============================================
-    // PRINT BUTTON (si nécessaire)
+    // TABLE ROW HOVER EFFECT
+    // Subtle scale on hover
     // ============================================
-    const printButtons = document.querySelectorAll('[data-print]');
-    printButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            window.print();
+    const tableRows = document.querySelectorAll('.table tbody tr');
+    
+    tableRows.forEach(row => {
+        row.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.2s ease';
         });
     });
     
     // ============================================
-    // COPY TABLE DATA
+    // HERO PARALLAX (subtle)
+    // Slight movement on scroll
     // ============================================
-    const copyButtons = document.querySelectorAll('[data-copy-table]');
-    copyButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            const tableId = this.getAttribute('data-copy-table');
-            const table = document.getElementById(tableId);
-            if (table) {
-                const range = document.createRange();
-                range.selectNode(table);
-                window.getSelection().removeAllRanges();
-                window.getSelection().addRange(range);
-                document.execCommand('copy');
-                window.getSelection().removeAllRanges();
-                
-                // Feedback visuel
-                const originalText = this.textContent;
-                this.textContent = 'Copié !';
-                setTimeout(function() {
-                    btn.textContent = originalText;
-                }, 2000);
+    const hero = document.querySelector('.hero');
+    const heroCard = document.querySelector('.hero-card');
+    
+    if (hero && heroCard) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                const parallax = scrolled * 0.15;
+                heroCard.style.transform = `translateY(${parallax}px)`;
             }
+        }, { passive: true });
+    }
+    
+    // ============================================
+    // BUTTON RIPPLE EFFECT
+    // Material-style ripple on click
+    // ============================================
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                left: ${x - 50}px;
+                top: ${y - 50}px;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
         });
+    });
+    
+    // Add ripple animation
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+    
+    // ============================================
+    // PRINT HANDLER
+    // Optional print functionality
+    // ============================================
+    document.querySelectorAll('[data-print]').forEach(btn => {
+        btn.addEventListener('click', () => window.print());
     });
     
 });
 
 // ============================================
-// PREFERS REDUCED MOTION
-// Désactive les animations si l'utilisateur préfère
+// REDUCED MOTION
+// Respect user preferences
 // ============================================
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.style.setProperty('--transition-fast', '0ms');
-    document.documentElement.style.setProperty('--transition-base', '0ms');
-    document.documentElement.style.setProperty('--transition-slow', '0ms');
+    document.documentElement.style.setProperty('--duration-fast', '0ms');
+    document.documentElement.style.setProperty('--duration-base', '0ms');
+    document.documentElement.style.setProperty('--duration-slow', '0ms');
 }

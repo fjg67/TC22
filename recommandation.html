@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Recommandation finale pour la solution de gestion de stock IT sur terminaux Zebra TC22.">
-    <title>Recommandation finale | Gestion de stock IT</title>
+    <meta name="description" content="Recommandation finale pour l'application de gestion de stock IT. Préconisation Timly avec justification complète.">
+    <title>Recommandation | Gestion de stock IT</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="header-inner">
                 <a href="index.html" class="logo">
-                    <div class="logo-mark">TC</div>
+                    <div class="logo-icon">TC</div>
                     <span>GestStock IT</span>
                 </a>
-                <nav class="nav" id="main-nav">
+                <nav class="nav" id="nav">
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link">Accueil</a></li>
                         <li><a href="cahier-des-charges.html" class="nav-link">Cahier des charges</a></li>
@@ -24,8 +24,8 @@
                         <li><a href="recommandation.html" class="nav-link active">Recommandation</a></li>
                     </ul>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-                    <span></span><span></span><span></span>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <div class="menu-icon"><span></span><span></span><span></span></div>
                 </button>
             </div>
         </div>
@@ -41,194 +41,232 @@
                     <span>Recommandation</span>
                 </nav>
                 <h1>Recommandation finale</h1>
-                <p class="subtitle">Préconisation orientée décision pour la direction</p>
+                <p class="lead">Préconisation argumentée basée sur l'analyse comparative des solutions du marché</p>
             </div>
         </section>
 
         <!-- INTRODUCTION -->
         <section class="section">
-            <div class="container container-narrow">
-                <div class="alert alert-info">
-                    <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-                    <p style="margin: 0;">
-                        Suite à l'analyse comparative des <strong>8 solutions</strong> de gestion de stock compatibles 
-                        avec l'environnement Zebra TC22 (Android 13), deux options stratégiques se présentent.
+            <div class="container container-sm">
+                <div style="background: var(--primary-50); border: 1px solid var(--primary-100); border-radius: var(--radius-xl); padding: var(--space-6); margin-bottom: var(--space-8);">
+                    <p style="font-size: var(--font-lg); color: var(--gray-700); margin: 0;">
+                        <strong>Deux options stratégiques</strong> ont été identifiées : l'adoption d'une solution SaaS existante 
+                        ou le développement d'une application sur mesure. Cette section présente les avantages, inconvénients 
+                        et préconisation pour chacune de ces approches.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- OPTION 1 : SAAS RECOMMANDÉE -->
-        <section class="section section-alt">
-            <div class="container">
-                <div class="option-card primary">
-                    <span class="option-badge recommended">✓ Recommandée</span>
-                    <h2>Option 1 : Solution SaaS existante</h2>
-                    <p>Adoption d'une application professionnelle du marché</p>
-                    
-                    <!-- Solution recommandée -->
-                    <div style="display: flex; align-items: center; gap: var(--space-6); margin-bottom: var(--space-8); padding: var(--space-6); background: var(--color-accent-pale); border-radius: var(--radius-lg);">
-                        <div style="width: 64px; height: 64px; background: var(--color-accent); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700;">★</div>
-                        <div>
-                            <h3 style="margin-bottom: var(--space-1);">Timly</h3>
-                            <p style="margin: 0; color: var(--color-gray-600);">Solution SaaS de suivi d'actifs et gestion de stock — Score d'adéquation : <strong>5/5</strong></p>
-                        </div>
-                    </div>
-                    
-                    <div class="option-grid">
-                        <div class="option-section">
-                            <h4>✓ Avantages</h4>
-                            <ul>
-                                <li><strong>Déploiement rapide</strong> — Mise en production en 2-4 semaines</li>
-                                <li><strong>Coût prévisible</strong> — Abonnement mensuel (offre Entreprise)</li>
-                                <li><strong>Maintenance incluse</strong> — Mises à jour automatiques</li>
-                                <li><strong>Conformité RGPD</strong> — Hébergement en Allemagne (UE)</li>
-                                <li><strong>Support professionnel</strong> — Assistance en français</li>
-                                <li><strong>Risque minimisé</strong> — Solution éprouvée</li>
-                            </ul>
-                        </div>
-                        <div class="option-section">
-                            <h4>⚠ Points d'attention</h4>
-                            <ul>
-                                <li>Coût récurrent (abonnement mensuel)</li>
-                                <li>Dépendance à l'éditeur</li>
-                                <li>Personnalisation dans le cadre proposé</li>
-                                <li>Données hébergées en externe (mais en UE)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Tarification -->
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Essentiel+</div>
-                            <div class="pricing-value">À partir de 185€/mois</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Professionnel</div>
-                            <div class="pricing-value">À partir de 495€/mois</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Entreprise</div>
-                            <div class="pricing-value">Sur demande</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Déploiement</div>
-                            <div class="pricing-value">2 à 4 semaines</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-muted" style="margin-top: var(--space-4);">* Utilisateurs illimités inclus — Demander une démo pour devis personnalisé</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- OPTION 2 : DÉVELOPPEMENT SUR MESURE -->
-        <section class="section">
-            <div class="container">
-                <div class="option-card">
-                    <span class="option-badge alternative">Alternative</span>
-                    <h2>Option 2 : Développement sur mesure</h2>
-                    <p>Création d'une application interne dédiée</p>
-                    
-                    <div class="option-grid">
-                        <div class="option-section">
-                            <h4>✓ Avantages</h4>
-                            <ul>
-                                <li><strong>Personnalisation totale</strong> — Adapté exactement aux besoins</li>
-                                <li><strong>Propriété du code</strong> — Indépendance vis-à-vis d'un éditeur</li>
-                                <li><strong>Hébergement interne</strong> — Contrôle total des données</li>
-                                <li><strong>Pas d'abonnement</strong> — Coût unique (hors maintenance)</li>
-                                <li><strong>Intégration SI</strong> — Connexion aux outils existants</li>
-                            </ul>
-                        </div>
-                        <div class="option-section">
-                            <h4>⚠ Points d'attention</h4>
-                            <ul>
-                                <li><strong>Investissement initial très élevé</strong> (15-40k€)</li>
-                                <li>Délai de développement long (3-6 mois)</li>
-                                <li>Compétences techniques internes requises</li>
-                                <li>Maintenance évolutive et corrective à charge</li>
-                                <li>Risques projet (dépassement délais/budget)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Estimation -->
-                    <div class="pricing-grid">
-                        <div class="pricing-item">
-                            <div class="pricing-label">Développement</div>
-                            <div class="pricing-value">15 000€ – 40 000€</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Délai</div>
-                            <div class="pricing-value">3 à 6 mois</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Maintenance/an</div>
-                            <div class="pricing-value">15-20% du coût initial</div>
-                        </div>
-                        <div class="pricing-item">
-                            <div class="pricing-label">Hébergement/an</div>
-                            <div class="pricing-value">500€ – 2 000€</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMPARAISON DES OPTIONS -->
+        <!-- OPTIONS COMPARÉES -->
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Synthèse</span>
-                    <h2>Comparaison des options</h2>
+                    <span class="section-label">Options</span>
+                    <h2>Comparaison des approches</h2>
+                    <p>Analyse des deux stratégies possibles pour répondre au besoin.</p>
                 </div>
                 
+                <div class="card-grid card-grid-2">
+                    <!-- OPTION 1 : TIMLY -->
+                    <div class="card solution-card recommended" style="padding: var(--space-10);">
+                        <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+                            <span style="background: var(--gradient-accent); color: var(--white); font-size: var(--font-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);">★ Recommandée</span>
+                        </div>
+                        
+                        <h3 style="font-size: var(--font-2xl); margin-bottom: var(--space-2);">Option 1 — Timly</h3>
+                        <p style="font-size: var(--font-lg); color: var(--gray-500); margin-bottom: var(--space-6);">Solution SaaS de gestion d'actifs</p>
+                        
+                        <div style="margin-bottom: var(--space-8);">
+                            <h4 style="font-size: var(--font-sm); color: var(--success); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4);">✓ Avantages</h4>
+                            <ul style="display: grid; gap: var(--space-3);">
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Déploiement rapide</strong> — 2-4 semaines
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Conformité RGPD</strong> — Hébergement Allemagne (UE)
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Application native</strong> — Android & iOS
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Maintenance incluse</strong> — Mises à jour automatiques
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Risque minimisé</strong> — Solution éprouvée
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-bottom: var(--space-8);">
+                            <h4 style="font-size: var(--font-sm); color: var(--warning); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4);">⚠ Points d'attention</h4>
+                            <ul style="display: grid; gap: var(--space-3);">
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--warning);">⚠</span>
+                                    Tarif Entreprise sur demande
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--warning);">⚠</span>
+                                    Dépendance éditeur sur le long terme
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: var(--gray-50); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-6);">
+                            <h4 style="font-size: var(--font-sm); margin-bottom: var(--space-3);">💰 Tarification</h4>
+                            <div style="display: grid; gap: var(--space-2); font-size: var(--font-sm);">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Essentiel+</span>
+                                    <strong>à partir de 185€/mois</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Professionnel</span>
+                                    <strong>à partir de 495€/mois</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Entreprise</span>
+                                    <strong style="color: var(--primary-600);">Sur demande</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://timly.com/fr/" target="_blank" rel="noopener" class="btn btn-accent" style="width: 100%;">
+                            Découvrir Timly →
+                        </a>
+                    </div>
+                    
+                    <!-- OPTION 2 : SUR MESURE -->
+                    <div class="card solution-card" style="padding: var(--space-10);">
+                        <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6);">
+                            <span style="background: var(--gray-200); color: var(--gray-700); font-size: var(--font-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);">Alternative</span>
+                        </div>
+                        
+                        <h3 style="font-size: var(--font-2xl); margin-bottom: var(--space-2);">Option 2 — Sur mesure</h3>
+                        <p style="font-size: var(--font-lg); color: var(--gray-500); margin-bottom: var(--space-6);">Développement d'une application interne</p>
+                        
+                        <div style="margin-bottom: var(--space-8);">
+                            <h4 style="font-size: var(--font-sm); color: var(--success); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4);">✓ Avantages</h4>
+                            <ul style="display: grid; gap: var(--space-3);">
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Personnalisation totale</strong> — Adapté aux besoins
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Maîtrise complète</strong> — Code source propriétaire
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-700);">
+                                    <span style="color: var(--success);">✓</span>
+                                    <strong>Indépendance</strong> — Aucun éditeur tiers
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-bottom: var(--space-8);">
+                            <h4 style="font-size: var(--font-sm); color: var(--danger); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4);">✗ Inconvénients</h4>
+                            <ul style="display: grid; gap: var(--space-3);">
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--danger);">✗</span>
+                                    <strong>Coût initial élevé</strong> — 30 000€ - 80 000€
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--danger);">✗</span>
+                                    <strong>Délai conséquent</strong> — 6 à 12 mois
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--danger);">✗</span>
+                                    <strong>Maintenance à prévoir</strong> — Ressources internes
+                                </li>
+                                <li style="display: flex; gap: var(--space-3); font-size: var(--font-sm); color: var(--gray-600);">
+                                    <span style="color: var(--danger);">✗</span>
+                                    <strong>Risque projet</strong> — Dépassements possibles
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: var(--gray-50); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-6);">
+                            <h4 style="font-size: var(--font-sm); margin-bottom: var(--space-3);">💰 Estimation</h4>
+                            <div style="display: grid; gap: var(--space-2); font-size: var(--font-sm);">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Développement</span>
+                                    <strong>30 000 - 80 000€</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Maintenance/an</span>
+                                    <strong>5 000 - 15 000€</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span style="color: var(--gray-600);">Délai</span>
+                                    <strong style="color: var(--danger);">6-12 mois</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--danger-light); color: var(--danger); padding: var(--space-4); border-radius: var(--radius-lg); font-size: var(--font-sm); font-weight: 500; text-align: center;">
+                            ⚠ Risque et coût significatifs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLEAU COMPARATIF -->
+        <section class="section">
+            <div class="container container-sm">
                 <div class="table-container">
-                    <div class="table-wrapper">
+                    <div class="table-header">
+                        <h3>Comparaison des options</h3>
+                        <p>Résumé des critères décisionnels</p>
+                    </div>
+                    <div class="table-scroll">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Critère</th>
-                                    <th style="background: var(--color-accent-pale);">Option 1 : SaaS (Timly)</th>
-                                    <th>Option 2 : Sur mesure</th>
+                                    <th style="text-align: left;">Critère</th>
+                                    <th>Timly (SaaS)</th>
+                                    <th>Sur mesure</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="cell-name">Coût initial</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon yes">✓</span> <strong>Faible</strong></td>
-                                    <td><span class="cell-icon no">✗</span> <strong>Élevé</strong> (15-40k€)</td>
+                                    <td style="text-align: left;"><strong>Coût initial</strong></td>
+                                    <td><span class="icon-yes">✓</span> Faible</td>
+                                    <td><span class="icon-no">✗</span> Élevé</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Délai de mise en œuvre</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon yes">✓</span> <strong>2-4 semaines</strong></td>
-                                    <td><span class="cell-icon no">✗</span> <strong>3-6 mois</strong></td>
+                                    <td style="text-align: left;"><strong>Délai</strong></td>
+                                    <td><span class="icon-yes">✓</span> 2-4 semaines</td>
+                                    <td><span class="icon-no">✗</span> 6-12 mois</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Maintenance</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon yes">✓</span> Incluse</td>
-                                    <td><span class="cell-icon no">✗</span> À charge</td>
+                                    <td style="text-align: left;"><strong>Maintenance</strong></td>
+                                    <td><span class="icon-yes">✓</span> Incluse</td>
+                                    <td><span class="icon-no">✗</span> À gérer</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Conformité RGPD</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon yes">✓</span> Garantie (UE)</td>
-                                    <td><span class="cell-icon partial">◐</span> À implémenter</td>
+                                    <td style="text-align: left;"><strong>RGPD</strong></td>
+                                    <td><span class="icon-yes">✓</span> Conforme</td>
+                                    <td><span class="icon-partial">◐</span> À implémenter</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Risque projet</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon yes">✓</span> <strong>Faible</strong></td>
-                                    <td><span class="cell-icon no">✗</span> <strong>Significatif</strong></td>
+                                    <td style="text-align: left;"><strong>Risque</strong></td>
+                                    <td><span class="icon-yes">✓</span> Faible</td>
+                                    <td><span class="icon-no">✗</span> Élevé</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Personnalisation</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon partial">◐</span> Cadre défini</td>
-                                    <td><span class="cell-icon yes">✓</span> Totale</td>
+                                    <td style="text-align: left;"><strong>Personnalisation</strong></td>
+                                    <td><span class="icon-partial">◐</span> Limitée</td>
+                                    <td><span class="icon-yes">✓</span> Totale</td>
                                 </tr>
                                 <tr>
-                                    <td class="cell-name">Indépendance</td>
-                                    <td style="background: rgba(13, 148, 136, 0.05);"><span class="cell-icon partial">◐</span> Dépendance éditeur</td>
-                                    <td><span class="cell-icon yes">✓</span> Totale</td>
+                                    <td style="text-align: left;"><strong>Indépendance</strong></td>
+                                    <td><span class="icon-partial">◐</span> Dépendance</td>
+                                    <td><span class="icon-yes">✓</span> Totale</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -237,56 +275,42 @@
             </div>
         </section>
 
-        <!-- CONCLUSION -->
-        <section class="section">
+        <!-- CONCLUSION / DÉCISION -->
+        <section class="section recommendation-section">
             <div class="container">
                 <div class="recommendation-box">
                     <div class="recommendation-header">
                         <div class="recommendation-icon">✓</div>
                         <div>
-                            <h2>Conclusion et décision recommandée</h2>
+                            <h2>Conclusion & Décision</h2>
                         </div>
                     </div>
                     
-                    <div class="recommendation-content">
-                        <div class="recommendation-text">
+                    <div class="recommendation-grid">
+                        <div class="recommendation-content">
                             <p>
-                                Au regard des critères d'évaluation définis dans le cahier des charges, 
-                                <strong>l'Option 1 (solution SaaS Timly)</strong> est recommandée pour ce projet.
+                                <strong>Au regard de l'analyse comparative</strong>, la solution <strong>Timly</strong> 
+                                est recommandée pour répondre au besoin de gestion de stock IT sur terminaux Zebra TC22.
                             </p>
-                            
-                            <h4 style="margin-bottom: var(--space-4);">Motivations de ce choix :</h4>
-                            
-                            <div class="recommendation-points">
-                                <div class="recommendation-point">
-                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Rapport qualité/prix optimal</strong> — Coût maîtrisé pour un besoin bien défini</span>
-                                </div>
-                                <div class="recommendation-point">
-                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Délai de mise en œuvre court</strong> — Opérationnel en quelques semaines</span>
-                                </div>
-                                <div class="recommendation-point">
-                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Conformité assurée</strong> — Hébergement UE, RGPD inclus</span>
-                                </div>
-                                <div class="recommendation-point">
-                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Risque projet minimisé</strong> — Solution éprouvée et supportée</span>
-                                </div>
-                                <div class="recommendation-point">
-                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Adéquation fonctionnelle complète</strong> — Répond à 100% des critères</span>
-                                </div>
-                            </div>
+                            <p>
+                                Cette recommandation repose sur plusieurs facteurs décisifs : <strong>déploiement rapide</strong> 
+                                (2-4 semaines), <strong>conformité RGPD certifiée</strong> avec hébergement en Union Européenne, 
+                                <strong>application mobile native</strong> compatible avec le matériel cible, et un 
+                                <strong>risque projet minimisé</strong> par rapport à un développement sur mesure.
+                            </p>
+                            <p style="font-weight: 600; color: var(--gray-900);">
+                                Le développement sur mesure reste une alternative à considérer uniquement si des contraintes 
+                                de personnalisation extrêmes ou d'indépendance totale l'exigent, compte tenu des coûts 
+                                et délais significativement plus élevés.
+                            </p>
                         </div>
                         
                         <div class="recommendation-decision">
-                            <div class="recommendation-decision-badge">Recommandation</div>
+                            <div class="recommendation-decision-label">Décision finale</div>
                             <h3>Timly</h3>
-                            <p>Solution SaaS de gestion d'actifs</p>
-                            <a href="https://timly.com/fr/" target="_blank" class="btn btn-accent">
-                                Visiter le site →
+                            <p>Solution SaaS de gestion d'actifs — Offre Entreprise</p>
+                            <a href="https://timly.com/fr/" target="_blank" rel="noopener" class="btn btn-primary">
+                                Contacter Timly →
                             </a>
                         </div>
                     </div>
@@ -298,50 +322,50 @@
         <section class="section section-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Mise en œuvre</span>
-                    <h2>Prochaines étapes proposées</h2>
-                    <p>Plan d'action pour la mise en œuvre de la solution retenue.</p>
+                    <span class="section-label">Plan d'action</span>
+                    <h2>Prochaines étapes</h2>
+                    <p>Calendrier proposé pour la mise en œuvre de la solution.</p>
                 </div>
                 
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-number">1</div>
                         <div class="timeline-content">
-                            <h4>Validation de la recommandation</h4>
-                            <p>Présentation et validation par la direction</p>
+                            <h4>Prise de contact Timly</h4>
+                            <p>Demande de devis officiel pour l'offre Entreprise et planification d'une démo.</p>
                             <span class="timeline-badge">Semaine 1</span>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-number">2</div>
                         <div class="timeline-content">
-                            <h4>Démonstration Timly</h4>
-                            <p>Demander une démo personnalisée et obtenir un devis</p>
+                            <h4>Validation & Contractualisation</h4>
+                            <p>Revue juridique du contrat, validation DPA (RGPD), signature.</p>
                             <span class="timeline-badge">Semaines 2-3</span>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-number">3</div>
                         <div class="timeline-content">
-                            <h4>Tests de compatibilité</h4>
-                            <p>Valider le fonctionnement sur terminal Zebra TC22</p>
+                            <h4>Configuration & Paramétrage</h4>
+                            <p>Mise en place de l'environnement, création des utilisateurs, import des données initiales.</p>
                             <span class="timeline-badge">Semaine 4</span>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-number">4</div>
                         <div class="timeline-content">
-                            <h4>Décision d'achat</h4>
-                            <p>Négociation commerciale et engagement</p>
+                            <h4>Formation des utilisateurs</h4>
+                            <p>Sessions de formation terrain, documentation, support initial.</p>
                             <span class="timeline-badge">Semaine 5</span>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-number">5</div>
                         <div class="timeline-content">
-                            <h4>Déploiement & Formation</h4>
-                            <p>Configuration, paramétrage et formation des utilisateurs</p>
-                            <span class="timeline-badge">Semaines 6-8</span>
+                            <h4>Mise en production</h4>
+                            <p>Déploiement sur terminaux Zebra TC22, validation fonctionnelle, go-live.</p>
+                            <span class="timeline-badge">Semaine 6</span>
                         </div>
                     </div>
                 </div>
@@ -358,7 +382,7 @@
                     </a>
                     <a href="index.html" class="page-nav-link next">
                         <span class="page-nav-direction">Retour →</span>
-                        <span class="page-nav-title">Page d'accueil</span>
+                        <span class="page-nav-title">Accueil du document</span>
                     </a>
                 </div>
             </div>
@@ -368,7 +392,7 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-inner">
                 <div class="footer-info">
                     <p><strong>Cahier des charges – Gestion de stock IT</strong></p>
                     <p>Document à usage interne – Direction des Systèmes d'Information</p>
