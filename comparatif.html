@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comparatif des solutions de gestion de stock IT compatibles Zebra TC22. Analyse détaillée de 8 applications.">
+    <meta name="description" content="Comparatif détaillé de 8 solutions de gestion de stock IT. Analyse selon les critères du cahier des charges : conformité RGPD, app mobile, traçabilité.">
     <meta name="theme-color" content="#0F172A">
-    <title>Comparatif des solutions | Gestion de stock IT</title>
+    <title>Comparatif des solutions | GestStock IT</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%238B5CF6'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='bold' font-size='45' fill='white'>TC</text></svg>">
 </head>
 <body>
+    <!-- SVG DEFINITIONS FOR GRADIENTS -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+        <defs>
+            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
@@ -42,315 +53,678 @@
                     <span>Comparatif</span>
                 </nav>
                 <h1>Comparatif des solutions</h1>
-                <p class="lead">Analyse de 8 applications de gestion de stock selon les critères du cahier des charges</p>
+                <p class="lead">Analyse détaillée de 8 applications de gestion de stock selon les critères du cahier des charges</p>
             </div>
         </section>
 
-        <!-- TABLEAU EXECUTIVE -->
-        <section class="section">
+        <!-- STATS SUMMARY -->
+        <section class="section" style="padding-top: 0;">
             <div class="container">
-                <div class="table-container">
-                    <div class="table-header">
-                        <h3>Tableau synthétique</h3>
-                        <p>Vue d'ensemble des solutions évaluées. La ligne violette indique la solution recommandée.</p>
+                <div class="stats-summary">
+                    <div class="stat-card">
+                        <div class="stat-card-value">8</div>
+                        <div class="stat-card-label">Solutions analysées</div>
                     </div>
-                    
-                    <div class="table-scroll">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Solution</th>
-                                    <th>App mobile</th>
-                                    <th>RGPD</th>
-                                    <th>Historique</th>
-                                    <th>Export CSV</th>
-                                    <th>Facilité</th>
-                                    <th>Statut</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Timly - Recommandée -->
-                                <tr class="highlight">
-                                    <td>
-                                        <span class="cell-name">Timly</span>
-                                        <span class="cell-badge">★</span>
-                                    </td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="status-badge status-recommended">Recommandée</span></td>
-                                </tr>
-                                <!-- Hector -->
-                                <tr>
-                                    <td><span class="cell-name">Hector</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="status-badge status-suitable">Alternative</span></td>
-                                </tr>
-                                <!-- K-Inventory -->
-                                <tr>
-                                    <td><span class="cell-name">K-Inventory</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="status-badge status-suitable">Économique</span></td>
-                                </tr>
-                                <!-- Sortly -->
-                                <tr>
-                                    <td><span class="cell-name">Sortly</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-no">✗</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="status-badge status-limited">RGPD limité</span></td>
-                                </tr>
-                                <!-- Stock Simple -->
-                                <tr>
-                                    <td><span class="cell-name">Stock Simple</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="status-badge status-limited">Basique</span></td>
-                                </tr>
-                                <!-- Assets Mgmt -->
-                                <tr>
-                                    <td><span class="cell-name">Assets Mgmt</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="status-badge status-limited">Limité</span></td>
-                                </tr>
-                                <!-- Mecalux -->
-                                <tr>
-                                    <td><span class="cell-name">Mecalux</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-yes">✓</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-partial">◐</span></td>
-                                    <td><span class="icon-no">✗</span></td>
-                                    <td><span class="status-badge status-rejected">Non adapté</span></td>
-                                </tr>
-                                <!-- Dolibarr -->
-                                <tr>
-                                    <td><span class="cell-name">Dolibarr</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="icon-unknown">?</span></td>
-                                    <td><span class="status-badge status-rejected">Accès bloqué</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="stat-card">
+                        <div class="stat-card-value">1</div>
+                        <div class="stat-card-label">Recommandée</div>
                     </div>
-                    
-                    <div class="table-legend">
-                        <div class="legend-item">
-                            <span class="icon-yes">✓</span> Conforme
-                        </div>
-                        <div class="legend-item">
-                            <span class="icon-partial">◐</span> Partiel
-                        </div>
-                        <div class="legend-item">
-                            <span class="icon-no">✗</span> Non conforme
-                        </div>
-                        <div class="legend-item">
-                            <span class="icon-unknown">?</span> Non évalué
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-card-value">3</div>
+                        <div class="stat-card-label">Alternatives viables</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-value">8</div>
+                        <div class="stat-card-label">Critères évalués</div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SOLUTIONS PRÉSÉLECTIONNÉES -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Analyse</span>
-                    <h2>Solutions présélectionnées</h2>
-                    <p>Fiches détaillées des 3 meilleures solutions identifiées.</p>
-                </div>
-                
-                <div class="grid grid-3">
-                    <!-- TIMLY -->
-                    <div class="card solution-card recommended">
-                        <div class="solution-header">
-                            <span class="solution-name">Timly</span>
-                            <div class="solution-score">★★★★★</div>
-                        </div>
-                        
-                        <div class="solution-tags">
-                            <span class="tag tag-success">RGPD ✓</span>
-                            <span class="tag tag-success">Mobile ✓</span>
-                            <span class="tag tag-success">Export ✓</span>
-                        </div>
-                        
-                        <div class="solution-list">
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Application mobile native Android
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Hébergement Allemagne (UE)
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Traçabilité complète
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Export CSV natif
-                            </div>
-                            <div class="solution-item con">
-                                <span class="icon">⚠</span>
-                                Tarif Entreprise sur demande
-                            </div>
-                        </div>
-                        
-                        <div class="solution-verdict">
-                            ✓ Solution recommandée — Répond à 100% des critères
+                <!-- FILTERS BAR -->
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <span class="filter-label">Filtrer par :</span>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">Toutes</button>
+                            <button class="filter-btn" data-filter="recommended">★ Recommandée</button>
+                            <button class="filter-btn" data-filter="alternative">Alternatives</button>
+                            <button class="filter-btn" data-filter="rejected">Non retenues</button>
                         </div>
                     </div>
-                    
-                    <!-- HECTOR -->
-                    <div class="card solution-card">
-                        <div class="solution-header">
-                            <span class="solution-name">Hector</span>
-                            <div class="solution-score">★★★★☆</div>
-                        </div>
-                        
-                        <div class="solution-tags">
-                            <span class="tag tag-success">RGPD ✓</span>
-                            <span class="tag tag-success">Mobile ✓</span>
-                            <span class="tag tag-warning">UX ◐</span>
-                        </div>
-                        
-                        <div class="solution-list">
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Solution française RGPD
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Historique des mouvements
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Export CSV disponible
-                            </div>
-                            <div class="solution-item con">
-                                <span class="icon">⚠</span>
-                                Interface moins intuitive
-                            </div>
-                            <div class="solution-item con">
-                                <span class="icon">⚠</span>
-                                Complexité accrue
-                            </div>
-                        </div>
-                        
-                        <div class="solution-verdict">
-                            Alternative solide si Timly non retenu
-                        </div>
-                    </div>
-                    
-                    <!-- K-INVENTORY -->
-                    <div class="card solution-card">
-                        <div class="solution-header">
-                            <span class="solution-name">K-Inventory</span>
-                            <div class="solution-score">★★★☆☆</div>
-                        </div>
-                        
-                        <div class="solution-tags">
-                            <span class="tag tag-warning">RGPD ◐</span>
-                            <span class="tag tag-success">Mobile ✓</span>
-                            <span class="tag tag-success">Prix ✓</span>
-                        </div>
-                        
-                        <div class="solution-list">
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Tarif très compétitif
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                App Android disponible
-                            </div>
-                            <div class="solution-item pro">
-                                <span class="icon">✓</span>
-                                Export données possible
-                            </div>
-                            <div class="solution-item con">
-                                <span class="icon">⚠</span>
-                                Hébergement hors UE
-                            </div>
-                            <div class="solution-item con">
-                                <span class="icon">⚠</span>
-                                Fonctionnalités limitées
-                            </div>
-                        </div>
-                        
-                        <div class="solution-verdict">
-                            Option économique mais RGPD à vérifier
+                    <div class="filter-group">
+                        <span class="filter-label">Trier par :</span>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-sort="score">Score</button>
+                            <button class="filter-btn" data-sort="name">Nom A-Z</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SOLUTIONS NON RETENUES -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Écartées</span>
-                    <h2>Solutions non retenues</h2>
-                    <p>Ces solutions ne répondent pas aux critères définis dans le cahier des charges.</p>
+                <!-- APPLICATIONS GRID -->
+                <div class="apps-grid" id="appsGrid">
+                    
+                    <!-- ====== TIMLY - RECOMMANDÉE ====== -->
+                    <div class="app-card recommended" data-status="recommended" data-score="9.2" data-name="Timly">
+                        <span class="app-status-badge recommended">★ Recommandée</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">Ti</span>
+                            </div>
+                            <h3 class="app-name">Timly</h3>
+                            <p class="app-description">Solution complète de gestion d'actifs IT</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="9.2">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">9.2</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-5"></span>
+                                    <span class="ease-dot filled level-5"></span>
+                                    <span class="ease-dot filled level-5"></span>
+                                    <span class="ease-dot filled level-5"></span>
+                                    <span class="ease-dot filled level-5"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <a href="recommandation.html" class="btn btn-primary">Voir détails</a>
+                            <a href="https://timly.com/fr/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== HECTOR ====== -->
+                    <div class="app-card" data-status="alternative" data-score="7.8" data-name="Hector">
+                        <span class="app-status-badge alternative">Alternative</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">He</span>
+                            </div>
+                            <h3 class="app-name">Hector</h3>
+                            <p class="app-description">Gestion d'inventaire et suivi des actifs</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="7.8">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">7.8</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails Hector à venir')">Voir détails</button>
+                            <a href="https://www.yourspace.ca/hector" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== GLPI ====== -->
+                    <div class="app-card" data-status="alternative" data-score="7.5" data-name="GLPI">
+                        <span class="app-status-badge alternative">Alternative</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">GL</span>
+                            </div>
+                            <h3 class="app-name">GLPI</h3>
+                            <p class="app-description">Solution open-source de gestion de parc IT</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="7.5">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">7.5</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-2"></span>
+                                    <span class="ease-dot filled level-2"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails GLPI à venir')">Voir détails</button>
+                            <a href="https://glpi-project.org/fr/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== SNIPE-IT ====== -->
+                    <div class="app-card" data-status="alternative" data-score="7.0" data-name="Snipe-IT">
+                        <span class="app-status-badge alternative">Alternative</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">Sn</span>
+                            </div>
+                            <h3 class="app-name">Snipe-IT</h3>
+                            <p class="app-description">Gestion d'actifs IT open-source</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="7.0">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">7.0</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails Snipe-IT à venir')">Voir détails</button>
+                            <a href="https://snipeitapp.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== ASSET PANDA ====== -->
+                    <div class="app-card" data-status="rejected" data-score="6.5" data-name="Asset Panda">
+                        <span class="app-status-badge rejected">Non retenue</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">AP</span>
+                            </div>
+                            <h3 class="app-name">Asset Panda</h3>
+                            <p class="app-description">Plateforme cloud de suivi d'actifs</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="6.5">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">6.5</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-4"></span>
+                                    <span class="ease-dot filled level-4"></span>
+                                    <span class="ease-dot filled level-4"></span>
+                                    <span class="ease-dot filled level-4"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails Asset Panda à venir')">Voir détails</button>
+                            <a href="https://www.assetpanda.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== INVGATE ====== -->
+                    <div class="app-card" data-status="rejected" data-score="6.0" data-name="InvGate">
+                        <span class="app-status-badge rejected">Non retenue</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">IG</span>
+                            </div>
+                            <h3 class="app-name">InvGate</h3>
+                            <p class="app-description">Gestion des services et actifs IT</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="6.0">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">6.0</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails InvGate à venir')">Voir détails</button>
+                            <a href="https://invgate.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== LANSWEEPER ====== -->
+                    <div class="app-card" data-status="rejected" data-score="5.8" data-name="Lansweeper">
+                        <span class="app-status-badge rejected">Non retenue</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">Ls</span>
+                            </div>
+                            <h3 class="app-name">Lansweeper</h3>
+                            <p class="app-description">Découverte et gestion d'actifs IT</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="5.8">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">5.8</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-2"></span>
+                                    <span class="ease-dot filled level-2"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails Lansweeper à venir')">Voir détails</button>
+                            <a href="https://www.lansweeper.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
+                    <!-- ====== PULSEWAY ====== -->
+                    <div class="app-card" data-status="rejected" data-score="5.2" data-name="MMSoft Pulseway">
+                        <span class="app-status-badge rejected">Non retenue</span>
+                        
+                        <div class="app-header">
+                            <div class="app-logo">
+                                <span class="app-logo-text">Pw</span>
+                            </div>
+                            <h3 class="app-name">MMSoft Pulseway</h3>
+                            <p class="app-description">Monitoring et gestion IT à distance</p>
+                        </div>
+                        
+                        <div class="app-score-section">
+                            <div class="score-circle" data-score="5.2">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
+                                            stroke-dasharray="264" stroke-dashoffset="264"/>
+                                </svg>
+                                <div class="score-value">
+                                    <span class="score-number">5.2</span>
+                                    <span class="score-max">/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="app-criteria">
+                            <div class="criteria-item">
+                                <span class="criteria-label">📱 App Mobile</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔒 Conformité RGPD</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📜 Historique</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">📤 Export CSV</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">⚡ Facilité</span>
+                                <div class="ease-gauge">
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot filled level-3"></span>
+                                    <span class="ease-dot"></span>
+                                    <span class="ease-dot"></span>
+                                </div>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🔌 API</span>
+                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🏢 Multi-sites</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                            <div class="criteria-item">
+                                <span class="criteria-label">🇫🇷 Support FR</span>
+                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="app-footer">
+                            <button class="btn btn-ghost" onclick="alert('Détails Pulseway à venir')">Voir détails</button>
+                            <a href="https://www.pulseway.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
+                        </div>
+                    </div>
+
                 </div>
-                
-                <div class="grid grid-3">
-                    <div class="card">
-                        <div class="card-icon danger">✗</div>
-                        <h4>Sortly</h4>
-                        <p>Hébergement USA uniquement — Non conforme RGPD pour les données sensibles.</p>
+
+                <!-- LEGEND SECTION -->
+                <div class="legend-section">
+                    <h4 class="legend-title">Légende des critères</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-icon yes">✓</span>
+                            <span>Critère rempli</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon no">✗</span>
+                            <span>Critère non rempli</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon partial">◐</span>
+                            <span>Partiellement rempli</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="ease-gauge" style="margin-right: 4px;">
+                                <span class="ease-dot filled level-5"></span>
+                                <span class="ease-dot filled level-5"></span>
+                                <span class="ease-dot filled level-5"></span>
+                                <span class="ease-dot"></span>
+                                <span class="ease-dot"></span>
+                            </div>
+                            <span>Niveau de facilité (1-5)</span>
+                        </div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon warning">◐</div>
-                        <h4>Stock Simple</h4>
-                        <p>Fonctionnalités trop limitées — Pas d'historique complet des mouvements.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">?</div>
-                        <h4>Assets Management</h4>
-                        <p>Information RGPD insuffisante — Conformité non vérifiable.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon danger">✗</div>
-                        <h4>Mecalux</h4>
-                        <p>Orienté logistique lourde — Non adapté aux consommables IT.</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">?</div>
-                        <h4>Dolibarr</h4>
-                        <p>Accès bloqué lors de l'évaluation — Impossible de tester.</p>
-                    </div>
+                    <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-muted);">
+                        <strong>Note méthodologique :</strong> Les scores sont calculés selon la pondération des critères définie dans le cahier des charges. 
+                        La conformité RGPD et la disponibilité d'une app mobile sont des critères éliminatoires.
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- NAVIGATION -->
-        <section class="section">
+        <section class="section" style="padding-top: 0;">
             <div class="container">
                 <div class="page-nav">
                     <a href="cahier-des-charges.html" class="page-nav-link">
@@ -382,5 +756,103 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // ============================================
+        // COMPARATIF PAGE - SPECIFIC SCRIPTS
+        // ============================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // === SCORE CIRCLE ANIMATION ===
+            const scoreCircles = document.querySelectorAll('.score-circle');
+            const circumference = 2 * Math.PI * 42; // r = 42
+            
+            const animateScoreCircle = (circle) => {
+                const score = parseFloat(circle.dataset.score);
+                const progress = circle.querySelector('.score-circle-progress');
+                const offset = circumference - (score / 10) * circumference;
+                
+                progress.style.strokeDasharray = circumference;
+                progress.style.strokeDashoffset = offset;
+            };
+            
+            // Intersection Observer for score circles
+            const scoreObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateScoreCircle(entry.target);
+                        scoreObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            scoreCircles.forEach(circle => {
+                const progress = circle.querySelector('.score-circle-progress');
+                progress.style.strokeDasharray = circumference;
+                progress.style.strokeDashoffset = circumference;
+                scoreObserver.observe(circle);
+            });
+            
+            // === FILTER FUNCTIONALITY ===
+            const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
+            const sortButtons = document.querySelectorAll('.filter-btn[data-sort]');
+            const appsGrid = document.getElementById('appsGrid');
+            const appCards = Array.from(document.querySelectorAll('.app-card'));
+            
+            // Filter
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.dataset.filter;
+                    
+                    appCards.forEach(card => {
+                        const status = card.dataset.status;
+                        
+                        if (filter === 'all' || status === filter) {
+                            card.style.display = '';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Sort
+            sortButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sortButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const sortType = btn.dataset.sort;
+                    const sortedCards = [...appCards];
+                    
+                    if (sortType === 'score') {
+                        sortedCards.sort((a, b) => parseFloat(b.dataset.score) - parseFloat(a.dataset.score));
+                    } else if (sortType === 'name') {
+                        sortedCards.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+                    }
+                    
+                    // Animate and reorder
+                    sortedCards.forEach((card, index) => {
+                        card.style.order = index;
+                    });
+                });
+            });
+            
+            // === CARD STAGGER ANIMATION ===
+            appCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>
