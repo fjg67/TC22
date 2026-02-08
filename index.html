@@ -291,6 +291,57 @@
         color: #8b5cf6;
     }
 
+    /* Android status bar */
+    .tc22-android-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 14px 3px;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .tc22-time {
+        font-size: 9px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: 'Inter', sans-serif;
+    }
+
+    .tc22-android-icons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .tc22-sys-icon {
+        width: 11px;
+        height: 11px;
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    .tc22-battery-pct {
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+    }
+
+    /* Android navigation bar (3 buttons) */
+    .tc22-android-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        padding: 4px 0;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    .tc22-android-nav svg {
+        width: 14px;
+        height: 14px;
+        color: rgba(255, 255, 255, 0.35);
+    }
+
     /* Bottom device chin */
     .tc22-chin {
         display: flex;
@@ -508,6 +559,18 @@
 
                             <!-- Screen -->
                             <div class="tc22-screen">
+                                <!-- Android status bar -->
+                                <div class="tc22-android-bar">
+                                    <span class="tc22-time">14:32</span>
+                                    <div class="tc22-android-icons">
+                                        <!-- Wi-Fi icon -->
+                                        <svg class="tc22-sys-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                                        <!-- Battery icon -->
+                                        <svg class="tc22-sys-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM16 20H8V6h8v14z"/><path d="M8 6h8v11H8z" opacity=".7"/></svg>
+                                        <span class="tc22-battery-pct">87%</span>
+                                    </div>
+                                </div>
+
                                 <!-- App header -->
                                 <div class="tc22-header">
                                     <div class="tc22-header-left">
@@ -594,13 +657,20 @@
                                 </div>
                             </div>
 
+                            <!-- Android navigation bar (3 buttons) -->
+                            <div class="tc22-android-nav">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                            </div>
+
                             <!-- Bottom chin (scan button) -->
                             <div class="tc22-chin">
                                 <div class="tc22-scan-btn"></div>
                             </div>
 
                             <!-- Device label -->
-                            <div class="tc22-label"><span>Zebra</span> TC22</div>
+                            <div class="tc22-label"><span>Zebra</span> TC22 · Android</div>
                         </div>
                     </div>
                 </div>
