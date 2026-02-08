@@ -4,21 +4,763 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Comparatif détaillé de 8 solutions de gestion de stock IT. Analyse selon les critères du cahier des charges : conformité RGPD, app mobile, traçabilité.">
-    <meta name="theme-color" content="#0F172A">
+    <meta name="theme-color" content="#0a0a1a">
     <title>Comparatif des solutions | GestStock IT</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%238B5CF6'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='bold' font-size='45' fill='white'>TC</text></svg>">
+
+    <style>
+    /* ============================================
+       COMPARATIF — PRÉSENTATION SÉQUENTIELLE
+       Styles spécifiques (inline)
+    ============================================ */
+
+    body {
+        background: #0a0a1a;
+    }
+
+    /* === PROGRESS BAR (top) === */
+    .progress-section {
+        position: sticky;
+        top: 72px;
+        z-index: 100;
+        background: rgba(10, 10, 26, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+        padding: 14px 0 12px;
+    }
+
+    .progress-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .progress-bar-track {
+        flex: 1;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .progress-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+        border-radius: 4px;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+    }
+
+    .progress-text {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #94a3b8;
+        white-space: nowrap;
+        min-width: 110px;
+        text-align: right;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .progress-text strong {
+        color: #f1f5f9;
+    }
+
+    /* === MINI DOTS (progress) === */
+    .progress-dots {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .progress-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+    }
+
+    .progress-dot:hover {
+        background: rgba(139, 92, 246, 0.5);
+        transform: scale(1.3);
+    }
+
+    .progress-dot.active {
+        background: #8b5cf6;
+        transform: scale(1.4);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+    }
+
+    .progress-dot.visited {
+        background: rgba(139, 92, 246, 0.35);
+    }
+
+    /* === MAIN APP SHOWCASE === */
+    .app-showcase {
+        position: relative;
+        min-height: calc(100vh - 220px);
+        overflow: hidden;
+        padding: 40px 0 120px;
+    }
+
+    .app-slide-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .app-slide {
+        width: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        transform: translateX(60px);
+        transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .app-slide.active {
+        opacity: 1;
+        position: relative;
+        pointer-events: all;
+        transform: translateX(0);
+    }
+
+    .app-slide.exit-left {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    .app-slide.exit-right {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    .app-slide.enter-left {
+        transform: translateX(-60px);
+    }
+
+    .app-slide.enter-right {
+        transform: translateX(60px);
+    }
+
+    /* === FICHE APPLICATION — 2 colonnes === */
+    .app-fiche {
+        display: grid;
+        grid-template-columns: 38% 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    /* --- COLONNE GAUCHE --- */
+    .app-col-left {
+        position: relative;
+        background: linear-gradient(180deg, rgba(18, 18, 42, 0.95) 0%, rgba(12, 12, 30, 0.95) 100%);
+        border-radius: 24px;
+        padding: 40px 32px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .app-col-left::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        border-radius: 24px 24px 0 0;
+    }
+
+    /* Border colors by status */
+    .app-fiche[data-statut="Recommandée"] .app-col-left {
+        border: 1px solid rgba(139, 92, 246, 0.5);
+        box-shadow: 0 0 60px rgba(139, 92, 246, 0.12), inset 0 1px 0 rgba(139, 92, 246, 0.2);
+    }
+    .app-fiche[data-statut="Recommandée"] .app-col-left::before {
+        background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    }
+
+    .app-fiche[data-statut="Alternative"] .app-col-left {
+        border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .app-fiche[data-statut="Alternative"] .app-col-left::before {
+        background: linear-gradient(90deg, #10b981, #06b6d4);
+        opacity: 0.6;
+    }
+
+    .app-fiche[data-statut="Non retenue"] .app-col-left {
+        border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    .app-fiche[data-statut="Non retenue"] .app-col-left::before {
+        background: rgba(148, 163, 184, 0.2);
+    }
+
+    /* Badge statut */
+    .app-statut-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 100px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 28px;
+    }
+
+    .app-statut-badge.recommandee {
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+    }
+
+    .app-statut-badge.alternative {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #34d399;
+    }
+
+    .app-statut-badge.non-retenue {
+        background: rgba(100, 116, 139, 0.15);
+        border: 1px solid rgba(100, 116, 139, 0.3);
+        color: #94a3b8;
+    }
+
+    /* Logo placeholder */
+    .app-logo-big {
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #fff;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* App name */
+    .app-nom {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+
+    .app-desc {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 28px;
+    }
+
+    /* Score circulaire SVG */
+    .score-wrap {
+        margin: 0 auto 24px;
+        width: 140px;
+        height: 140px;
+        position: relative;
+    }
+
+    .score-wrap svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .score-bg {
+        fill: none;
+        stroke: #1e293b;
+        stroke-width: 10;
+    }
+
+    .score-arc {
+        fill: none;
+        stroke-width: 10;
+        stroke-linecap: round;
+        stroke-dasharray: 339.292;
+        stroke-dashoffset: 339.292;
+        transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .score-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .score-number-big {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #f1f5f9;
+        line-height: 1;
+        display: block;
+    }
+
+    .score-sub {
+        font-size: 0.75rem;
+        color: #64748b;
+        font-weight: 500;
+    }
+
+    /* Site web link */
+    .app-site-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #8b5cf6;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+    .app-site-link:hover {
+        color: #a78bfa;
+        gap: 10px;
+    }
+
+    /* --- COLONNE DROITE --- */
+    .app-col-right {
+        background: linear-gradient(180deg, rgba(18, 18, 42, 0.95) 0%, rgba(12, 12, 30, 0.95) 100%);
+        border: 1px solid rgba(139, 92, 246, 0.12);
+        border-radius: 24px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .criteria-header {
+        padding: 24px 32px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .criteria-header h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        margin: 0;
+    }
+
+    .criteria-header p {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin: 4px 0 0;
+    }
+
+    /* Critère row */
+    .critere-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 32px;
+        transition: background 0.2s;
+        cursor: default;
+        position: relative;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    .critere-row.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    background 0.2s;
+    }
+
+    .critere-row:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.015);
+    }
+
+    .critere-row:hover {
+        background: rgba(139, 92, 246, 0.06);
+    }
+
+    .critere-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .critere-icone {
+        font-size: 1.15rem;
+        width: 32px;
+        text-align: center;
+        flex-shrink: 0;
+    }
+
+    .critere-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .critere-label-text {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #e2e8f0;
+    }
+
+    .critere-detail {
+        font-size: 0.75rem;
+        color: #64748b;
+        margin-top: 2px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .critere-row:hover .critere-detail,
+    .critere-row.touch-active .critere-detail {
+        max-height: 40px;
+        opacity: 1;
+    }
+
+    /* Valeur critère */
+    .critere-valeur {
+        flex-shrink: 0;
+    }
+
+    .val-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .val-icon.oui {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+
+    .val-icon.non {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+    }
+
+    .val-icon.partiel {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+    }
+
+    /* Facilité dots */
+    .facilite-dots {
+        display: flex;
+        gap: 4px;
+    }
+
+    .facilite-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        transition: all 0.3s;
+    }
+
+    .facilite-dot.filled {
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    }
+
+    .facilite-dot.filled.lv-5,
+    .facilite-dot.filled.lv-4 {
+        background: #10b981;
+    }
+
+    .facilite-dot.filled.lv-3 {
+        background: #f59e0b;
+    }
+
+    .facilite-dot.filled.lv-2,
+    .facilite-dot.filled.lv-1 {
+        background: #f59e0b;
+    }
+
+    /* === BARRE DE NAVIGATION BAS (sticky bottom) === */
+    .nav-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        background: rgba(10, 10, 26, 0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(139, 92, 246, 0.12);
+        padding: 14px 0;
+    }
+
+    .nav-bottom-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .nav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid rgba(139, 92, 246, 0.25);
+        border-radius: 14px;
+        background: rgba(139, 92, 246, 0.08);
+        color: #c4b5fd;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 145px;
+        justify-content: center;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+        background: rgba(139, 92, 246, 0.18);
+        border-color: rgba(139, 92, 246, 0.5);
+        color: #e9e2ff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(139, 92, 246, 0.2);
+    }
+
+    .nav-btn:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    .nav-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .nav-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+
+    /* Dots au centre */
+    .nav-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+    }
+
+    .nav-dot:hover {
+        background: rgba(139, 92, 246, 0.5);
+        transform: scale(1.25);
+    }
+
+    .nav-dot.active {
+        background: #8b5cf6;
+        transform: scale(1.5);
+        box-shadow: 0 0 14px rgba(139, 92, 246, 0.6);
+    }
+
+    /* === LÉGENDE SECTION === */
+    .legend-box {
+        margin-top: 32px;
+        padding: 24px 28px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+    }
+
+    .legend-box h4 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 14px;
+    }
+
+    .legend-items-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: center;
+    }
+
+    .legend-entry {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        color: #64748b;
+    }
+
+    .legend-entry .val-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    /* Keyboard hint */
+    .keyboard-hint {
+        margin-top: 12px;
+        font-size: 0.75rem;
+        color: #475569;
+        text-align: center;
+    }
+
+    .keyboard-hint kbd {
+        display: inline-block;
+        padding: 2px 8px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.7rem;
+        color: #94a3b8;
+        margin: 0 2px;
+    }
+
+    /* === PAGE NAVIGATION (bas de page) === */
+    .page-nav-section {
+        padding-bottom: 100px;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+        .app-fiche {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .app-col-left {
+            padding: 32px 24px;
+        }
+
+        .app-nom {
+            font-size: 1.5rem;
+        }
+
+        .score-wrap {
+            width: 120px;
+            height: 120px;
+        }
+
+        .progress-dots {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .progress-section {
+            top: 64px;
+        }
+
+        .app-showcase {
+            padding: 24px 0 100px;
+        }
+
+        .app-col-left {
+            padding: 24px 20px;
+        }
+
+        .critere-row {
+            padding: 12px 20px;
+        }
+
+        .criteria-header {
+            padding: 20px 20px 14px;
+        }
+
+        .nav-btn {
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            min-width: 110px;
+        }
+
+        .nav-dots .nav-dot {
+            width: 8px;
+            height: 8px;
+        }
+
+        .app-nom {
+            font-size: 1.3rem;
+        }
+
+        .score-wrap {
+            width: 110px;
+            height: 110px;
+        }
+
+        .score-number-big {
+            font-size: 1.8rem;
+        }
+
+        .nav-bottom {
+            padding: 10px 0;
+        }
+
+        .legend-box {
+            margin-top: 20px;
+            padding: 16px 18px;
+        }
+
+        .legend-items-row {
+            gap: 14px;
+        }
+
+        .keyboard-hint {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-btn span.btn-label {
+            display: none;
+        }
+
+        .nav-btn {
+            min-width: 50px;
+            padding: 10px 14px;
+        }
+    }
+
+    /* === ANIMATION HELPERS === */
+    @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-slide-up {
+        animation: slideUpFade 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    </style>
 </head>
 <body>
-    <!-- SVG DEFINITIONS FOR GRADIENTS -->
-    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
-        <defs>
-            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#8B5CF6"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-            </linearGradient>
-        </defs>
-    </svg>
 
     <!-- HEADER -->
     <header class="header" id="header">
@@ -53,721 +795,68 @@
                     <span>Comparatif</span>
                 </nav>
                 <h1>Comparatif des solutions</h1>
-                <p class="lead">Analyse détaillée de 8 applications de gestion de stock selon les critères du cahier des charges</p>
+                <p class="lead">Analyse détaillée de 8 applications — Navigation application par application</p>
             </div>
         </section>
 
-        <!-- STATS SUMMARY -->
-        <section class="section" style="padding-top: 0;">
+        <!-- PROGRESS BAR -->
+        <section class="progress-section" id="progressSection">
             <div class="container">
-                <div class="stats-summary">
-                    <div class="stat-card">
-                        <div class="stat-card-value">8</div>
-                        <div class="stat-card-label">Solutions analysées</div>
+                <div class="progress-inner">
+                    <div class="progress-dots" id="progressDots"></div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progressFill" style="width: 12.5%;"></div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-card-value">1</div>
-                        <div class="stat-card-label">Recommandée</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card-value">3</div>
-                        <div class="stat-card-label">Alternatives viables</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-card-value">8</div>
-                        <div class="stat-card-label">Critères évalués</div>
+                    <div class="progress-text" id="progressText">
+                        Application <strong>1</strong> / 8
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- FILTERS BAR -->
-                <div class="filters-bar">
-                    <div class="filter-group">
-                        <span class="filter-label">Filtrer par :</span>
-                        <div class="filter-buttons">
-                            <button class="filter-btn active" data-filter="all">Toutes</button>
-                            <button class="filter-btn" data-filter="recommended">★ Recommandée</button>
-                            <button class="filter-btn" data-filter="alternative">Alternatives</button>
-                            <button class="filter-btn" data-filter="rejected">Non retenues</button>
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <span class="filter-label">Trier par :</span>
-                        <div class="filter-buttons">
-                            <button class="filter-btn active" data-sort="score">Score</button>
-                            <button class="filter-btn" data-sort="name">Nom A-Z</button>
-                        </div>
-                    </div>
+        <!-- APP SHOWCASE (zone principale) -->
+        <section class="app-showcase">
+            <div class="container">
+                <div class="app-slide-container" id="slideContainer">
+                    <!-- Les slides sont générées par JS -->
                 </div>
 
-                <!-- APPLICATIONS GRID -->
-                <div class="apps-grid" id="appsGrid">
-                    
-                    <!-- ====== TIMLY - RECOMMANDÉE ====== -->
-                    <!-- Source: timly.com - Solution SaaS suisse de gestion d'actifs -->
-                    <div class="app-card recommended" data-status="recommended" data-score="9.5" data-name="Timly">
-                        <span class="app-status-badge recommended">★ Recommandée</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">Ti</span>
-                            </div>
-                            <h3 class="app-name">Timly</h3>
-                            <p class="app-description">Solution SaaS cloud de gestion d'actifs IT avec tracking QR/GPS</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="9.5">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">9.5</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API REST</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--success);">Points forts :</strong> Serveurs cloud cryptés UE, app iOS/Android native, QR codes + GPS, intégration SAP/Microsoft Dynamics
-                        </div>
-                        
-                        <div class="app-footer">
-                            <a href="recommandation.html" class="btn btn-primary">Voir détails</a>
-                            <a href="https://timly.com/fr/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== HECTOR ====== -->
-                    <!-- Source: hectorassetmanager.com - Solution canadienne -->
-                    <div class="app-card" data-status="alternative" data-score="8.2" data-name="Hector">
-                        <span class="app-status-badge alternative">Alternative</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">He</span>
-                            </div>
-                            <h3 class="app-name">Hector</h3>
-                            <p class="app-description">Gestion d'inventaire cloud avec app mobile et scan QR/codes-barres</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="8.2">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">8.2</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API REST</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: #60A5FA;">Points forts :</strong> App iOS/Android/iPadOS, serveurs Canada + UE, scanner codes-barres intégré, gestion check-in/check-out
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Hector à venir')">Voir détails</button>
-                            <a href="https://hectorassetmanager.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== K-INVENTORY ====== -->
-                    <!-- Source: k-inventory.com - Solution française -->
-                    <div class="app-card" data-status="alternative" data-score="7.5" data-name="K-Inventory">
-                        <span class="app-status-badge alternative">Alternative</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">Ki</span>
-                            </div>
-                            <h3 class="app-name">K-Inventory</h3>
-                            <p class="app-description">Solution française de gestion de stock avec app mobile et RFID</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="7.5">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">7.5</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV/Excel</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot filled level-4"></span>
-                                    <span class="ease-dot"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: #60A5FA;">Points forts :</strong> Solution française 🇫🇷, scan QR/codes-barres/RFID, alertes temps réel, synchronisation cloud, gestion de parc IT
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée K-Inventory à venir')">Voir détails</button>
-                            <a href="https://k-inventory.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== STOCK ET INVENTAIRE SIMPLE ====== -->
-                    <!-- Source: Google Play - Chester Software (Xaltos Technologies Ltd) - 1M+ téléchargements -->
-                    <div class="app-card" data-status="alternative" data-score="6.8" data-name="Stock et Inventaire Simple">
-                        <span class="app-status-badge alternative">Alternative</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo" style="background: linear-gradient(135deg, #10B981, #059669);">
-                                <span class="app-logo-text">Si</span>
-                            </div>
-                            <h3 class="app-name">Stock et Inventaire Simple</h3>
-                            <p class="app-description">App mobile gratuite de gestion de stock - 1M+ téléchargements</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="6.8">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">6.8</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV/Excel</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: #60A5FA;">Points forts :</strong> App gratuite, 4.7★ (21.7k avis), très facile d'utilisation, export Excel/CSV, stockage local ou Google Drive, scan codes-barres
-                        </div>
-                        
-                        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--warning);">Limites :</strong> Android uniquement, pas d'API, pas de gestion multi-sites, RGPD partiel (données stockées localement/Google Drive)
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Stock et Inventaire Simple à venir')">Voir détails</button>
-                            <a href="https://play.google.com/store/apps/details?id=com.chesterbrd.inventorysimple" target="_blank" rel="noopener" class="btn btn-ghost">Play Store →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== SORTLY ====== -->
-                    <!-- Source: sortly.com - Solution américaine -->
-                    <div class="app-card" data-status="rejected" data-score="7.0" data-name="Sortly">
-                        <span class="app-status-badge rejected">Non retenue</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">So</span>
-                            </div>
-                            <h3 class="app-name">Sortly</h3>
-                            <p class="app-description">Gestion visuelle d'inventaire avec interface intuitive</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="7.0">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">7.0</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV/Excel</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                    <span class="ease-dot filled level-5"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(100, 116, 139, 0.1); border: 1px solid rgba(100, 116, 139, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--warning);">Raison du rejet :</strong> API réservée au plan Enterprise, pas de support français, serveurs principaux aux USA
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Sortly à venir')">Voir détails</button>
-                            <a href="https://www.sortly.com/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== DOLIBARR ====== -->
-                    <!-- Source: dolibarr.org - ERP open-source français -->
-                    <div class="app-card" data-status="rejected" data-score="6.5" data-name="Dolibarr">
-                        <span class="app-status-badge rejected">Non retenue</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">Do</span>
-                            </div>
-                            <h3 class="app-name">Dolibarr</h3>
-                            <p class="app-description">ERP/CRM open-source avec module de gestion de stock</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="6.5">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">6.5</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV/XML</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-2"></span>
-                                    <span class="ease-dot filled level-2"></span>
-                                    <span class="ease-dot"></span>
-                                    <span class="ease-dot"></span>
-                                    <span class="ease-dot"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API REST</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-entrepôts</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--danger);">Raisons du rejet :</strong> App mobile basique (module tiers "Mobilid"), courbe d'apprentissage élevée, nécessite hébergement et maintenance, téléchargement bloqué lors des tests
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Dolibarr à venir')">Voir détails</button>
-                            <a href="https://www.dolibarr.org/" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== MECALUX EASY WMS ====== -->
-                    <!-- Source: mecalux.com - WMS espagnol -->
-                    <div class="app-card" data-status="rejected" data-score="5.5" data-name="Mecalux Easy WMS">
-                        <span class="app-status-badge rejected">Non retenue</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo">
-                                <span class="app-logo-text">Mx</span>
-                            </div>
-                            <h3 class="app-name">Mecalux Easy WMS</h3>
-                            <p class="app-description">Système de gestion d'entrepôt pour logistique industrielle</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="5.5">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">5.5</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV/PDF</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-2"></span>
-                                    <span class="ease-dot filled level-2"></span>
-                                    <span class="ease-dot"></span>
-                                    <span class="ease-dot"></span>
-                                    <span class="ease-dot"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API/Connecteur</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-entrepôts</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--danger);">Raisons du rejet :</strong> Solution surdimensionnée (WMS industriel), pas d'app mobile native (terminaux RF), complexité élevée, orientée grandes entreprises logistiques
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Mecalux à venir')">Voir détails</button>
-                            <a href="https://www.mecalux.fr/logiciel-gestion-entrepot" target="_blank" rel="noopener" class="btn btn-ghost">Site web →</a>
-                        </div>
-                    </div>
-
-                    <!-- ====== ASSETS MANAGEMENT (générique) ====== -->
-                    <div class="app-card" data-status="rejected" data-score="4.0" data-name="Assets Management">
-                        <span class="app-status-badge rejected">Non retenue</span>
-                        
-                        <div class="app-header">
-                            <div class="app-logo" style="opacity: 0.7;">
-                                <span class="app-logo-text">AM</span>
-                            </div>
-                            <h3 class="app-name">Assets Management</h3>
-                            <p class="app-description">Application mobile basique de suivi d'actifs</p>
-                        </div>
-                        
-                        <div class="app-score-section">
-                            <div class="score-circle" data-score="4.0">
-                                <svg viewBox="0 0 100 100">
-                                    <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
-                                    <circle class="score-circle-progress" cx="50" cy="50" r="42" 
-                                            stroke-dasharray="264" stroke-dashoffset="264"/>
-                                </svg>
-                                <div class="score-value">
-                                    <span class="score-number">4.0</span>
-                                    <span class="score-max">/10</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="app-criteria">
-                            <div class="criteria-item">
-                                <span class="criteria-label">📱 App Mobile</span>
-                                <span class="criteria-value yes"><span class="check-icon">✓</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔒 Conformité RGPD</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📜 Historique</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">📤 Export CSV</span>
-                                <span class="criteria-value partial">◐</span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">⚡ Facilité</span>
-                                <div class="ease-gauge">
-                                    <span class="ease-dot filled level-3"></span>
-                                    <span class="ease-dot filled level-3"></span>
-                                    <span class="ease-dot filled level-3"></span>
-                                    <span class="ease-dot"></span>
-                                    <span class="ease-dot"></span>
-                                </div>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🔌 API</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🏢 Multi-sites</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                            <div class="criteria-item">
-                                <span class="criteria-label">🇫🇷 Support FR</span>
-                                <span class="criteria-value no"><span class="cross-icon">✗</span></span>
-                            </div>
-                        </div>
-                        
-                        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius-lg); padding: var(--space-3); margin-bottom: var(--space-4); font-size: var(--text-xs); color: var(--text-secondary);">
-                            <strong style="color: var(--danger);">Raisons du rejet :</strong> Pas de conformité RGPD vérifiable, fonctionnalités limitées, pas d'API, pas de gestion multi-sites, support anglais uniquement
-                        </div>
-                        
-                        <div class="app-footer">
-                            <button class="btn btn-ghost" onclick="alert('Fiche détaillée Assets Management à venir')">Voir détails</button>
-                            <span class="btn btn-ghost" style="opacity: 0.5;">Site non disponible</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- LEGEND SECTION -->
-                <div class="legend-section">
-                    <h4 class="legend-title">Légende des critères</h4>
-                    <div class="legend-items">
-                        <div class="legend-item">
-                            <span class="legend-icon yes">✓</span>
+                <!-- LÉGENDE -->
+                <div class="legend-box">
+                    <h4>Légende des critères</h4>
+                    <div class="legend-items-row">
+                        <div class="legend-entry">
+                            <div class="val-icon oui">✓</div>
                             <span>Critère rempli</span>
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-icon no">✗</span>
-                            <span>Critère non rempli</span>
+                        <div class="legend-entry">
+                            <div class="val-icon non">✗</div>
+                            <span>Non rempli</span>
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-icon partial">◐</span>
-                            <span>Partiellement rempli</span>
+                        <div class="legend-entry">
+                            <div class="val-icon partiel">⚠</div>
+                            <span>Partiel</span>
                         </div>
-                        <div class="legend-item">
-                            <div class="ease-gauge" style="margin-right: 4px;">
-                                <span class="ease-dot filled level-5"></span>
-                                <span class="ease-dot filled level-5"></span>
-                                <span class="ease-dot filled level-5"></span>
-                                <span class="ease-dot"></span>
-                                <span class="ease-dot"></span>
+                        <div class="legend-entry">
+                            <div class="facilite-dots" style="margin-right:4px;">
+                                <span class="facilite-dot filled lv-4"></span>
+                                <span class="facilite-dot filled lv-4"></span>
+                                <span class="facilite-dot filled lv-4"></span>
+                                <span class="facilite-dot"></span>
+                                <span class="facilite-dot"></span>
                             </div>
-                            <span>Niveau de facilité (1-5)</span>
+                            <span>Facilité (1-5)</span>
                         </div>
                     </div>
-                    <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--text-muted);">
-                        <strong>Note méthodologique :</strong> Les scores sont calculés selon la pondération des critères définie dans le cahier des charges. 
-                        Les critères prioritaires sont : <strong>conformité RGPD</strong>, <strong>app mobile native</strong>, <strong>export de données</strong> et <strong>support français</strong>.
+                    <p class="keyboard-hint">
+                        Utilisez <kbd>←</kbd> <kbd>→</kbd> pour naviguer entre les applications, ou swipez sur mobile.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- NAVIGATION -->
-        <section class="section" style="padding-top: 0;">
+        <!-- NAVIGATION PAGES (Cahier des charges / Recommandation) -->
+        <section class="section page-nav-section" style="padding-top: 0;">
             <div class="container">
                 <div class="page-nav">
                     <a href="cahier-des-charges.html" class="page-nav-link">
@@ -782,6 +871,23 @@
             </div>
         </section>
     </main>
+
+    <!-- NAV BOTTOM (sticky) -->
+    <div class="nav-bottom" id="navBottom">
+        <div class="container">
+            <div class="nav-bottom-inner">
+                <button class="nav-btn" id="btnPrev" disabled>
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span class="btn-label">Précédent</span>
+                </button>
+                <div class="nav-dots" id="navDots"></div>
+                <button class="nav-btn" id="btnNext">
+                    <span class="btn-label">Suivant</span>
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -800,102 +906,548 @@
 
     <script src="js/main.js"></script>
     <script>
-        // ============================================
-        // COMPARATIF PAGE - SPECIFIC SCRIPTS
-        // ============================================
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // === SCORE CIRCLE ANIMATION ===
-            const scoreCircles = document.querySelectorAll('.score-circle');
-            const circumference = 2 * Math.PI * 42; // r = 42
-            
-            const animateScoreCircle = (circle) => {
-                const score = parseFloat(circle.dataset.score);
-                const progress = circle.querySelector('.score-circle-progress');
-                const offset = circumference - (score / 10) * circumference;
-                
-                progress.style.strokeDasharray = circumference;
-                progress.style.strokeDashoffset = offset;
-            };
-            
-            // Intersection Observer for score circles
-            const scoreObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateScoreCircle(entry.target);
-                        scoreObserver.unobserve(entry.target);
+    // ============================================
+    // COMPARATIF — PRÉSENTATION SÉQUENTIELLE
+    // Navigation application par application
+    // ============================================
+
+    (function() {
+        'use strict';
+
+        // === DONNÉES DES 8 APPLICATIONS ===
+        const applications = [
+            {
+                id: 1,
+                nom: "Timly",
+                initiales: "Ti",
+                couleurLogo: "#8b5cf6",
+                description: "Solution complète de gestion d'actifs IT avec tracking en temps réel",
+                statut: "Recommandée",
+                score: 9.2,
+                siteWeb: "https://timly.com",
+                criteres: {
+                    appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "iOS & Android natif" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement EU, DPO dédié" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Historique complet des mouvements" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export multi-formats" },
+                    facilite: { valeur: 5, label: "Facilité", icone: "⚡", detail: "Interface intuitive, formation courte" },
+                    api: { valeur: true, label: "API REST", icone: "🔌", detail: "API complète documentée" },
+                    multiSites: { valeur: true, label: "Multi-sites", icone: "🏢", detail: "Gestion multi-entrepôts" },
+                    supportFr: { valeur: true, label: "Support FR", icone: "🇫🇷", detail: "Support et interface en français" }
+                }
+            },
+            {
+                id: 2,
+                nom: "Hector",
+                initiales: "He",
+                couleurLogo: "#3b82f6",
+                description: "Gestion d'inventaire et suivi des actifs IT",
+                statut: "Alternative",
+                score: 7.8,
+                siteWeb: "https://hectorassetmanager.com",
+                criteres: {
+                    appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Application mobile disponible" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Conforme RGPD" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Suivi des mouvements" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export CSV disponible" },
+                    facilite: { valeur: 3, label: "Facilité", icone: "⚡", detail: "Interface correcte, courbe d'apprentissage moyenne" },
+                    api: { valeur: true, label: "API", icone: "🔌", detail: "API disponible" },
+                    multiSites: { valeur: false, label: "Multi-sites", icone: "🏢", detail: "Mono-site uniquement" },
+                    supportFr: { valeur: true, label: "Support FR", icone: "🇫🇷", detail: "Support en français" }
+                }
+            },
+            {
+                id: 3,
+                nom: "GLPI",
+                initiales: "GL",
+                couleurLogo: "#10b981",
+                description: "Solution open-source de gestion de parc informatique",
+                statut: "Alternative",
+                score: 7.5,
+                siteWeb: "https://glpi-project.org",
+                criteres: {
+                    appMobile: { valeur: false, label: "App Mobile", icone: "📱", detail: "Pas d'application mobile native" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement on-premise possible" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Historique complet" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export multi-formats" },
+                    facilite: { valeur: 2, label: "Facilité", icone: "⚡", detail: "Interface complexe, formation nécessaire" },
+                    api: { valeur: true, label: "API REST", icone: "🔌", detail: "API REST complète" },
+                    multiSites: { valeur: true, label: "Multi-sites", icone: "🏢", detail: "Multi-entités natif" },
+                    supportFr: { valeur: true, label: "Support FR", icone: "🇫🇷", detail: "Communauté française active" }
+                }
+            },
+            {
+                id: 4,
+                nom: "Snipe-IT",
+                initiales: "Sn",
+                couleurLogo: "#f59e0b",
+                description: "Gestion d'actifs IT open-source",
+                statut: "Non retenue",
+                score: 7.0,
+                siteWeb: "https://snipeitapp.com",
+                criteres: {
+                    appMobile: { valeur: false, label: "App Mobile", icone: "📱", detail: "Interface web responsive uniquement" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Self-hosted, données maîtrisées" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Log d'activité complet" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export CSV natif" },
+                    facilite: { valeur: 3, label: "Facilité", icone: "⚡", detail: "Interface claire mais installation technique" },
+                    api: { valeur: true, label: "API REST", icone: "🔌", detail: "API REST v6" },
+                    multiSites: { valeur: true, label: "Multi-sites", icone: "🏢", detail: "Gestion par emplacements" },
+                    supportFr: { valeur: false, label: "Support FR", icone: "🇫🇷", detail: "Interface et support en anglais uniquement" }
+                }
+            },
+            {
+                id: 5,
+                nom: "Stock et Inventaire Simple",
+                initiales: "Si",
+                couleurLogo: "#22c55e",
+                description: "App mobile gratuite de gestion de stock — 1M+ téléchargements",
+                statut: "Alternative",
+                score: 6.8,
+                siteWeb: "#",
+                criteres: {
+                    appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Android natif, 1M+ downloads" },
+                    rgpd: { valeur: "partiel", label: "Conformité RGPD", icone: "🔒", detail: "Données locales mais cloud optionnel non certifié" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Historique basique des mouvements" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export CSV et Excel" },
+                    facilite: { valeur: 5, label: "Facilité", icone: "⚡", detail: "Très simple d'utilisation" },
+                    api: { valeur: false, label: "API", icone: "🔌", detail: "Pas d'API disponible" },
+                    multiSites: { valeur: false, label: "Multi-sites", icone: "🏢", detail: "Mono-entrepôt" },
+                    supportFr: { valeur: true, label: "Support FR", icone: "🇫🇷", detail: "Interface en français" }
+                }
+            },
+            {
+                id: 6,
+                nom: "Sortly",
+                initiales: "So",
+                couleurLogo: "#06b6d4",
+                description: "Gestion visuelle d'inventaire avec interface intuitive",
+                statut: "Non retenue",
+                score: 7.0,
+                siteWeb: "https://sortly.com",
+                criteres: {
+                    appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "iOS & Android" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Conforme" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Historique des mouvements" },
+                    exportCsv: { valeur: true, label: "Export CSV/Excel", icone: "📊", detail: "Export CSV" },
+                    facilite: { valeur: 5, label: "Facilité", icone: "⚡", detail: "Interface très intuitive" },
+                    api: { valeur: "partiel", label: "API", icone: "🔌", detail: "API limitée (plan Enterprise)" },
+                    multiSites: { valeur: true, label: "Multi-sites", icone: "🏢", detail: "Dossiers/emplacements multiples" },
+                    supportFr: { valeur: false, label: "Support FR", icone: "🇫🇷", detail: "Anglais uniquement" }
+                }
+            },
+            {
+                id: 7,
+                nom: "Mecalux Easy WMS",
+                initiales: "Mx",
+                couleurLogo: "#6366f1",
+                description: "Système de gestion d'entrepôt pour logistique industrielle",
+                statut: "Non retenue",
+                score: 5.5,
+                siteWeb: "https://mecalux.fr",
+                criteres: {
+                    appMobile: { valeur: "partiel", label: "App Mobile", icone: "📱", detail: "Terminal RF, pas de smartphone classique" },
+                    rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement EU" },
+                    historique: { valeur: true, label: "Historique", icone: "📋", detail: "Traçabilité complète" },
+                    exportCsv: { valeur: true, label: "Export CSV/PDF", icone: "📊", detail: "Export multi-formats" },
+                    facilite: { valeur: 2, label: "Facilité", icone: "⚡", detail: "Complexe, formation longue requise" },
+                    api: { valeur: true, label: "API/Connecteur", icone: "🔌", detail: "Connecteurs ERP" },
+                    multiSites: { valeur: true, label: "Multi-entrepôts", icone: "🏢", detail: "Multi-entrepôts natif" },
+                    supportFr: { valeur: true, label: "Support FR", icone: "🇫🇷", detail: "Support en français" }
+                }
+            },
+            {
+                id: 8,
+                nom: "Assets Management",
+                initiales: "AM",
+                couleurLogo: "#0ea5e9",
+                description: "Application mobile basique de suivi d'actifs",
+                statut: "Non retenue",
+                score: 4.0,
+                siteWeb: "#",
+                criteres: {
+                    appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Android uniquement" },
+                    rgpd: { valeur: false, label: "Conformité RGPD", icone: "🔒", detail: "Aucune garantie RGPD" },
+                    historique: { valeur: "partiel", label: "Historique", icone: "📋", detail: "Historique limité" },
+                    exportCsv: { valeur: "partiel", label: "Export CSV", icone: "📊", detail: "Export basique" },
+                    facilite: { valeur: 3, label: "Facilité", icone: "⚡", detail: "Simple mais fonctionnalités limitées" },
+                    api: { valeur: false, label: "API", icone: "🔌", detail: "Aucune API" },
+                    multiSites: { valeur: false, label: "Multi-sites", icone: "🏢", detail: "Mono-site" },
+                    supportFr: { valeur: false, label: "Support FR", icone: "🇫🇷", detail: "Anglais uniquement" }
+                }
+            }
+        ];
+
+        const total = applications.length;
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+        // === DOM REFS ===
+        const slideContainer = document.getElementById('slideContainer');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const progressDots = document.getElementById('progressDots');
+        const navDots = document.getElementById('navDots');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        // === SCORE GRADIENT COLORS ===
+        function getScoreGradient(score) {
+            if (score >= 8) return { start: '#10b981', end: '#8b5cf6' };
+            if (score >= 6) return { start: '#3b82f6', end: '#06b6d4' };
+            return { start: '#f97316', end: '#ef4444' };
+        }
+
+        // === GENERATE SVG SCORE ===
+        function buildScoreSVG(app, slideIndex) {
+            const circumference = 2 * Math.PI * 54; // r=54
+            const gradient = getScoreGradient(app.score);
+            const gradientId = `scoreGrad${slideIndex}`;
+
+            return `
+                <div class="score-wrap">
+                    <svg viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="${gradient.start}"/>
+                                <stop offset="100%" stop-color="${gradient.end}"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="score-bg" cx="60" cy="60" r="54"/>
+                        <circle class="score-arc" cx="60" cy="60" r="54"
+                                stroke="url(#${gradientId})"
+                                data-score="${app.score}"
+                                data-circumference="${circumference}"/>
+                    </svg>
+                    <div class="score-label">
+                        <span class="score-number-big">${app.score}</span>
+                        <span class="score-sub">/10</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // === GENERATE CRITERE VALEUR ===
+        function buildCritereValeur(crit) {
+            if (crit.label === "Facilité") {
+                const val = crit.valeur;
+                const lvClass = `lv-${val}`;
+                let dots = '';
+                for (let i = 1; i <= 5; i++) {
+                    dots += i <= val
+                        ? `<span class="facilite-dot filled ${lvClass}"></span>`
+                        : `<span class="facilite-dot"></span>`;
+                }
+                return `<div class="facilite-dots">${dots}</div>`;
+            }
+
+            if (crit.valeur === true) {
+                return `<div class="val-icon oui">✓</div>`;
+            }
+            if (crit.valeur === false) {
+                return `<div class="val-icon non">✗</div>`;
+            }
+            if (crit.valeur === "partiel") {
+                return `<div class="val-icon partiel">⚠</div>`;
+            }
+            // fallback numérique
+            return `<span style="color:#94a3b8;">${crit.valeur}</span>`;
+        }
+
+        // === STATUT BADGE CLASS ===
+        function getStatutClass(statut) {
+            if (statut === "Recommandée") return "recommandee";
+            if (statut === "Alternative") return "alternative";
+            return "non-retenue";
+        }
+
+        function getStatutIcon(statut) {
+            if (statut === "Recommandée") return "★";
+            if (statut === "Alternative") return "◆";
+            return "○";
+        }
+
+        // === BUILD A SINGLE SLIDE HTML ===
+        function buildSlide(app, index) {
+            const critereKeys = Object.keys(app.criteres);
+            const criteresHTML = critereKeys.map((key, ci) => {
+                const c = app.criteres[key];
+                return `
+                    <div class="critere-row" style="transition-delay: ${ci * 60}ms;">
+                        <div class="critere-left">
+                            <span class="critere-icone">${c.icone}</span>
+                            <div class="critere-info">
+                                <span class="critere-label-text">${c.label}</span>
+                                <span class="critere-detail">${c.detail}</span>
+                            </div>
+                        </div>
+                        <div class="critere-valeur">
+                            ${buildCritereValeur(c)}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const siteHTML = app.siteWeb !== '#'
+                ? `<a href="${app.siteWeb}" target="_blank" rel="noopener" class="app-site-link">Voir le site web <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H8M15 5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>`
+                : `<span style="font-size:0.82rem;color:#475569;">Site non disponible</span>`;
+
+            return `
+                <div class="app-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+                    <div class="app-fiche" data-statut="${app.statut}">
+                        <!-- COLONNE GAUCHE -->
+                        <div class="app-col-left">
+                            <div class="app-statut-badge ${getStatutClass(app.statut)}">
+                                ${getStatutIcon(app.statut)} ${app.statut}
+                            </div>
+
+                            <div class="app-logo-big" style="background: linear-gradient(135deg, ${app.couleurLogo}, ${app.couleurLogo}dd);">
+                                ${app.initiales}
+                            </div>
+
+                            <h2 class="app-nom">${app.nom}</h2>
+                            <p class="app-desc">${app.description}</p>
+
+                            ${buildScoreSVG(app, index)}
+
+                            ${siteHTML}
+                        </div>
+
+                        <!-- COLONNE DROITE -->
+                        <div class="app-col-right">
+                            <div class="criteria-header">
+                                <h3>Critères d'évaluation</h3>
+                                <p>Survolez un critère pour voir le détail</p>
+                            </div>
+                            ${criteresHTML}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // === INIT: Build all slides ===
+        function initSlides() {
+            let html = '';
+            applications.forEach((app, i) => {
+                html += buildSlide(app, i);
+            });
+            slideContainer.innerHTML = html;
+        }
+
+        // === INIT: Build dots ===
+        function initDots() {
+            // Progress dots (top)
+            let pDotsHTML = '';
+            for (let i = 0; i < total; i++) {
+                pDotsHTML += `<button class="progress-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Application ${i + 1}"></button>`;
+            }
+            progressDots.innerHTML = pDotsHTML;
+
+            // Nav dots (bottom)
+            let nDotsHTML = '';
+            for (let i = 0; i < total; i++) {
+                nDotsHTML += `<button class="nav-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Application ${i + 1}"></button>`;
+            }
+            navDots.innerHTML = nDotsHTML;
+        }
+
+        // === UPDATE UI ===
+        function updateUI() {
+            // Progress bar
+            const pct = ((currentIndex + 1) / total) * 100;
+            progressFill.style.width = pct + '%';
+            progressText.innerHTML = `Application <strong>${currentIndex + 1}</strong> / ${total}`;
+
+            // Buttons state
+            btnPrev.disabled = currentIndex === 0;
+            btnNext.disabled = currentIndex === total - 1;
+
+            // Progress dots
+            progressDots.querySelectorAll('.progress-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+                if (i < currentIndex) d.classList.add('visited');
+            });
+
+            // Nav dots
+            navDots.querySelectorAll('.nav-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        // === ANIMATE SCORE ARC ===
+        function animateScoreArc(slideEl) {
+            const arc = slideEl.querySelector('.score-arc');
+            if (!arc) return;
+
+            const score = parseFloat(arc.dataset.score);
+            const circumference = parseFloat(arc.dataset.circumference);
+            const offset = circumference - (score / 10) * circumference;
+
+            // Reset then animate
+            arc.style.transition = 'none';
+            arc.style.strokeDashoffset = circumference;
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    arc.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+                    arc.style.strokeDashoffset = offset;
+                });
+            });
+        }
+
+        // === ANIMATE CRITERIA STAGGER ===
+        function animateCriteria(slideEl) {
+            const rows = slideEl.querySelectorAll('.critere-row');
+            rows.forEach((row, i) => {
+                row.classList.remove('animate-in');
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(10px)';
+
+                setTimeout(() => {
+                    row.classList.add('animate-in');
+                }, 100 + i * 65);
+            });
+        }
+
+        // === NAVIGATE TO ===
+        function navigateTo(newIndex, direction) {
+            if (isTransitioning || newIndex === currentIndex || newIndex < 0 || newIndex >= total) return;
+            isTransitioning = true;
+
+            const slides = slideContainer.querySelectorAll('.app-slide');
+            const currentSlide = slides[currentIndex];
+            const nextSlide = slides[newIndex];
+
+            // Direction: 'next' or 'prev'
+            const dir = direction || (newIndex > currentIndex ? 'next' : 'prev');
+
+            // Exit current
+            currentSlide.classList.remove('active');
+            currentSlide.classList.add(dir === 'next' ? 'exit-left' : 'exit-right');
+
+            // Prepare next
+            nextSlide.classList.remove('exit-left', 'exit-right');
+            nextSlide.classList.add(dir === 'next' ? 'enter-right' : 'enter-left');
+
+            // Force reflow
+            void nextSlide.offsetWidth;
+
+            // Activate next
+            requestAnimationFrame(() => {
+                nextSlide.classList.remove('enter-right', 'enter-left');
+                nextSlide.classList.add('active');
+
+                currentIndex = newIndex;
+                updateUI();
+                animateScoreArc(nextSlide);
+                animateCriteria(nextSlide);
+
+                // Scroll to top of showcase
+                const showcase = document.querySelector('.app-showcase');
+                if (showcase) {
+                    const rect = showcase.getBoundingClientRect();
+                    if (rect.top < 0) {
+                        window.scrollTo({
+                            top: showcase.offsetTop - 130,
+                            behavior: 'smooth'
+                        });
                     }
-                });
-            }, { threshold: 0.5 });
-            
-            scoreCircles.forEach(circle => {
-                const progress = circle.querySelector('.score-circle-progress');
-                progress.style.strokeDasharray = circumference;
-                progress.style.strokeDashoffset = circumference;
-                scoreObserver.observe(circle);
+                }
             });
-            
-            // === FILTER FUNCTIONALITY ===
-            const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
-            const sortButtons = document.querySelectorAll('.filter-btn[data-sort]');
-            const appsGrid = document.getElementById('appsGrid');
-            const appCards = Array.from(document.querySelectorAll('.app-card'));
-            
-            // Filter
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Update active state
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const filter = btn.dataset.filter;
-                    
-                    appCards.forEach(card => {
-                        const status = card.dataset.status;
-                        
-                        if (filter === 'all' || status === filter) {
-                            card.style.display = '';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+
+            // Cleanup after transition
+            setTimeout(() => {
+                currentSlide.classList.remove('exit-left', 'exit-right');
+                isTransitioning = false;
+            }, 500);
+        }
+
+        // === EVENTS: Buttons ===
+        btnPrev.addEventListener('click', () => navigateTo(currentIndex - 1, 'prev'));
+        btnNext.addEventListener('click', () => navigateTo(currentIndex + 1, 'next'));
+
+        // === EVENTS: Dots ===
+        function initDotEvents() {
+            progressDots.querySelectorAll('.progress-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const idx = parseInt(dot.dataset.index);
+                    navigateTo(idx, idx > currentIndex ? 'next' : 'prev');
                 });
             });
-            
-            // Sort
-            sortButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    sortButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const sortType = btn.dataset.sort;
-                    const sortedCards = [...appCards];
-                    
-                    if (sortType === 'score') {
-                        sortedCards.sort((a, b) => parseFloat(b.dataset.score) - parseFloat(a.dataset.score));
-                    } else if (sortType === 'name') {
-                        sortedCards.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
-                    }
-                    
-                    // Animate and reorder
-                    sortedCards.forEach((card, index) => {
-                        card.style.order = index;
-                    });
+
+            navDots.querySelectorAll('.nav-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const idx = parseInt(dot.dataset.index);
+                    navigateTo(idx, idx > currentIndex ? 'next' : 'prev');
                 });
             });
-            
-            // === CARD STAGGER ANIMATION ===
-            appCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
+        }
+
+        // === EVENTS: Keyboard ===
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                navigateTo(currentIndex - 1, 'prev');
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                navigateTo(currentIndex + 1, 'next');
+            }
         });
+
+        // === EVENTS: Swipe mobile ===
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+
+            // Only trigger if horizontal swipe is dominant
+            if (Math.abs(diffX) > 60 && diffY < Math.abs(diffX) * 0.7) {
+                if (diffX > 0) {
+                    navigateTo(currentIndex + 1, 'next'); // Swipe left = next
+                } else {
+                    navigateTo(currentIndex - 1, 'prev'); // Swipe right = prev
+                }
+            }
+        }, { passive: true });
+
+        // === EVENTS: Touch on criteria (mobile detail reveal) ===
+        document.addEventListener('click', (e) => {
+            const row = e.target.closest('.critere-row');
+            if (row) {
+                // Toggle on mobile
+                document.querySelectorAll('.critere-row.touch-active').forEach(r => {
+                    if (r !== row) r.classList.remove('touch-active');
+                });
+                row.classList.toggle('touch-active');
+            }
+        });
+
+        // === INIT ===
+        initSlides();
+        initDots();
+        initDotEvents();
+        updateUI();
+
+        // Animate initial slide
+        const firstSlide = slideContainer.querySelector('.app-slide.active');
+        if (firstSlide) {
+            animateScoreArc(firstSlide);
+            // Small delay for criteria to appear after page load
+            setTimeout(() => animateCriteria(firstSlide), 300);
+        }
+
+    })();
     </script>
 </body>
 </html>
