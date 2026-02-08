@@ -19,6 +19,20 @@
         background: #0a0a1a;
     }
 
+    /* Override main.js IntersectionObserver qui cache les éléments avec opacity:0 inline */
+    .app-showcase .app-col-left,
+    .app-showcase .app-col-right,
+    .app-showcase .app-fiche,
+    .app-showcase .criteria-header,
+    .app-showcase .score-wrap,
+    .legend-box,
+    .progress-section,
+    .page-nav-section .page-nav,
+    .page-nav-section .page-nav-link {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
     /* === PROGRESS BAR (top) === */
     .progress-section {
         position: sticky;
@@ -373,12 +387,12 @@
         cursor: default;
         position: relative;
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
     }
 
     .critere-row.animate-in {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1 !important;
+        transform: translateY(0) !important;
         transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                     transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                     background 0.2s;
@@ -1173,7 +1187,7 @@
             const criteresHTML = critereKeys.map((key, ci) => {
                 const c = app.criteres[key];
                 return `
-                    <div class="critere-row" style="transition-delay: ${ci * 60}ms;">
+                    <div class="critere-row">
                         <div class="critere-left">
                             <span class="critere-icone">${c.icone}</span>
                             <div class="critere-info">
@@ -1300,13 +1314,17 @@
         function animateCriteria(slideEl) {
             const rows = slideEl.querySelectorAll('.critere-row');
             rows.forEach((row, i) => {
+                // Reset: remove animate-in and clear any inline styles
                 row.classList.remove('animate-in');
-                row.style.opacity = '0';
-                row.style.transform = 'translateY(10px)';
+                row.removeAttribute('style');
 
+                // Force reflow so browser registers the reset
+                void row.offsetWidth;
+
+                // Re-apply transition-delay then animate in
                 setTimeout(() => {
                     row.classList.add('animate-in');
-                }, 100 + i * 65);
+                }, 80 + i * 60);
             });
         }
 
@@ -1439,13 +1457,26 @@
         initDotEvents();
         updateUI();
 
-        // Animate initial slide
-        const firstSlide = slideContainer.querySelector('.app-slide.active');
-        if (firstSlide) {
-            animateScoreArc(firstSlide);
-            // Small delay for criteria to appear after page load
-            setTimeout(() => animateCriteria(firstSlide), 300);
+        // Animate initial slide with a delay to let main.js run first,
+        // then override any interference from its IntersectionObserver
+        function initFirstSlide() {
+            const firstSlide = slideContainer.querySelector('.app-slide.active');
+            if (firstSlide) {
+                // Clear any inline styles set by main.js on our elements
+                firstSlide.querySelectorAll('.app-col-left, .app-col-right, .criteria-header').forEach(el => {
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                });
+
+                animateScoreArc(firstSlide);
+                animateCriteria(firstSlide);
+            }
         }
+
+        // Run after a short delay to ensure main.js has run
+        setTimeout(initFirstSlide, 400);
+        // Also run on window load as safety net
+        window.addEventListener('load', () => setTimeout(initFirstSlide, 200));
 
     })();
     </script>
