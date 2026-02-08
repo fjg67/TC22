@@ -763,6 +763,90 @@
         }
     }
 
+    /* === RÉSUMÉ AVANTAGES / INCONVÉNIENTS === */
+    .app-resume {
+        margin-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .resume-section {
+        padding: 16px 28px 12px;
+    }
+
+    .resume-section:first-child {
+        padding-top: 20px;
+    }
+
+    .resume-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .resume-title.avantages {
+        color: #10b981;
+    }
+
+    .resume-title.inconvenients {
+        color: #f59e0b;
+    }
+
+    .resume-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .resume-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        color: #cbd5e1;
+    }
+
+    .resume-list li .r-icon {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: 700;
+        margin-top: 1px;
+    }
+
+    .resume-list li .r-icon.plus {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+
+    .resume-list li .r-icon.moins {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+    }
+
+    @media (max-width: 768px) {
+        .resume-section {
+            padding: 12px 18px 10px;
+        }
+
+        .resume-list li {
+            font-size: 0.78rem;
+        }
+    }
+
     /* === ANIMATION HELPERS === */
     @keyframes slideUpFade {
         from { opacity: 0; transform: translateY(16px); }
@@ -939,6 +1023,18 @@
                 statut: "Recommandée",
                 score: 9.2,
                 siteWeb: "https://timly.com",
+                avantages: [
+                    "Remplit 100% des critères du cahier des charges",
+                    "App mobile native iOS & Android avec scan QR/code-barres",
+                    "Hébergement EU (Allemagne) — RGPD certifié avec DPO dédié",
+                    "Interface très intuitive, déploiement rapide (2-4 semaines)",
+                    "API REST complète pour intégration SAP/Microsoft Dynamics"
+                ],
+                inconvenients: [
+                    "Solution payante (abonnement SaaS)",
+                    "Personnalisation limitée au paramétrage existant",
+                    "Dépendance à un éditeur tiers"
+                ],
                 criteres: {
                     appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "iOS & Android natif" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement EU, DPO dédié" },
@@ -959,6 +1055,17 @@
                 statut: "Alternative",
                 score: 7.8,
                 siteWeb: "https://hectorassetmanager.com",
+                avantages: [
+                    "App mobile iOS/Android/iPadOS avec scan codes-barres intégré",
+                    "Serveurs Canada + EU, conforme RGPD",
+                    "Gestion check-in/check-out des équipements",
+                    "Support et interface en français"
+                ],
+                inconvenients: [
+                    "Pas de gestion multi-sites native",
+                    "Courbe d'apprentissage moyenne",
+                    "Tarification par utilisateur qui peut augmenter rapidement"
+                ],
                 criteres: {
                     appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Application mobile disponible" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Conforme RGPD" },
@@ -979,6 +1086,18 @@
                 statut: "Alternative",
                 score: 7.5,
                 siteWeb: "https://glpi-project.org",
+                avantages: [
+                    "Open-source et gratuit, large communauté",
+                    "Hébergement on-premise possible — contrôle total des données",
+                    "API REST complète, multi-entités natif",
+                    "Communauté française très active"
+                ],
+                inconvenients: [
+                    "Pas d'application mobile native",
+                    "Interface complexe, formation nécessaire",
+                    "Nécessite hébergement et maintenance serveur",
+                    "Configuration initiale lourde"
+                ],
                 criteres: {
                     appMobile: { valeur: false, label: "App Mobile", icone: "📱", detail: "Pas d'application mobile native" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement on-premise possible" },
@@ -999,6 +1118,18 @@
                 statut: "Non retenue",
                 score: 7.0,
                 siteWeb: "https://snipeitapp.com",
+                avantages: [
+                    "Open-source, self-hosted — données maîtrisées",
+                    "API REST v6 complète et bien documentée",
+                    "Log d'activité et gestion par emplacements",
+                    "Interface relativement claire"
+                ],
+                inconvenients: [
+                    "Pas d'application mobile native (web responsive seulement)",
+                    "Interface et support en anglais uniquement",
+                    "Installation technique requise (serveur, Docker)",
+                    "Pas de support officiel en français"
+                ],
                 criteres: {
                     appMobile: { valeur: false, label: "App Mobile", icone: "📱", detail: "Interface web responsive uniquement" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Self-hosted, données maîtrisées" },
@@ -1019,6 +1150,18 @@
                 statut: "Alternative",
                 score: 6.8,
                 siteWeb: "#",
+                avantages: [
+                    "Application gratuite, 4.7★ avec 1M+ téléchargements",
+                    "Très simple d'utilisation, aucune formation nécessaire",
+                    "Export CSV/Excel intégré, scan codes-barres",
+                    "Stockage local ou Google Drive"
+                ],
+                inconvenients: [
+                    "Android uniquement — pas d'iOS",
+                    "Aucune API disponible pour intégrations",
+                    "Pas de gestion multi-sites",
+                    "RGPD partiel (cloud Google Drive non certifié)"
+                ],
                 criteres: {
                     appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Android natif, 1M+ downloads" },
                     rgpd: { valeur: "partiel", label: "Conformité RGPD", icone: "🔒", detail: "Données locales mais cloud optionnel non certifié" },
@@ -1039,6 +1182,18 @@
                 statut: "Non retenue",
                 score: 7.0,
                 siteWeb: "https://sortly.com",
+                avantages: [
+                    "Interface très intuitive et visuelle (photos des articles)",
+                    "App mobile iOS & Android avec scan",
+                    "Gestion par dossiers/emplacements multiples",
+                    "Export CSV disponible"
+                ],
+                inconvenients: [
+                    "API réservée au plan Enterprise (très coûteux)",
+                    "Support et interface en anglais uniquement",
+                    "Serveurs principaux aux USA",
+                    "Fonctionnalités avancées payantes"
+                ],
                 criteres: {
                     appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "iOS & Android" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Conforme" },
@@ -1059,6 +1214,18 @@
                 statut: "Non retenue",
                 score: 5.5,
                 siteWeb: "https://mecalux.fr",
+                avantages: [
+                    "Solution industrielle robuste, multi-entrepôts natif",
+                    "Traçabilité complète avec connecteurs ERP",
+                    "Hébergement EU, support en français",
+                    "Export multi-formats (CSV, PDF)"
+                ],
+                inconvenients: [
+                    "Solution surdimensionnée pour du stock IT",
+                    "Pas d'app mobile native (terminaux RF uniquement)",
+                    "Très complexe, formation longue requise",
+                    "Orientée grandes entreprises logistiques — coût élevé"
+                ],
                 criteres: {
                     appMobile: { valeur: "partiel", label: "App Mobile", icone: "📱", detail: "Terminal RF, pas de smartphone classique" },
                     rgpd: { valeur: true, label: "Conformité RGPD", icone: "🔒", detail: "Hébergement EU" },
@@ -1079,6 +1246,18 @@
                 statut: "Non retenue",
                 score: 4.0,
                 siteWeb: "#",
+                avantages: [
+                    "Application mobile disponible sur Android",
+                    "Interface simple et directe",
+                    "Gratuite"
+                ],
+                inconvenients: [
+                    "Aucune conformité RGPD vérifiable",
+                    "Pas d'API — aucune intégration possible",
+                    "Mono-site, pas de gestion multi-entrepôts",
+                    "Support en anglais uniquement",
+                    "Fonctionnalités très limitées (historique partiel, export basique)"
+                ],
                 criteres: {
                     appMobile: { valeur: true, label: "App Mobile", icone: "📱", detail: "Android uniquement" },
                     rgpd: { valeur: false, label: "Conformité RGPD", icone: "🔒", detail: "Aucune garantie RGPD" },
@@ -1234,6 +1413,22 @@
                                 <p>Survolez un critère pour voir le détail</p>
                             </div>
                             ${criteresHTML}
+
+                            <!-- Résumé avantages / inconvénients -->
+                            <div class="app-resume">
+                                <div class="resume-section">
+                                    <div class="resume-title avantages">✓ Points forts</div>
+                                    <ul class="resume-list">
+                                        ${app.avantages.map(a => `<li><span class="r-icon plus">+</span>${a}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="resume-section">
+                                    <div class="resume-title inconvenients">⚠ Limites</div>
+                                    <ul class="resume-list">
+                                        ${app.inconvenients.map(i => `<li><span class="r-icon moins">−</span>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
